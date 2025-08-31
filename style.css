@@ -1,0 +1,93 @@
+
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #222;
+}
+
+.navbar {
+  padding: 0.75rem 2rem;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #b98854;
+}
+
+.dropdown-menu {
+  min-width: 10rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #f8f1e7;
+  color: #b98854;
+}
+
+.logo-svg {
+  width: 48px;
+  height: 48px;
+  fill: #b98854;
+  cursor: pointer;
+}
+
+.icon-btn {
+  font-size: 1.5rem;
+  color: #555;
+  margin-right: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: #d9534f;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  font-weight: 700;
+  user-select: none;
+}
+
+
+footer {
+  background: #222;
+  color: #ccc;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 1rem;
+}
+
+footer div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+footer a {
+  color: #b98854;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}

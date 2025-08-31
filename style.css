@@ -251,3 +251,44 @@ a {
   color: var(--auth-muted);
   cursor: pointer;
 }
+
+/* alto del bloque y recorte de imagen */
+.category-panel {
+  position: relative;
+  height: 55vh;
+  overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+  .category-panel {
+    height: 40vh;
+  }
+}
+
+.category-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* oscurecer un poco para legibilidad del texto */
+.category-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .25));
+  pointer-events: none;
+}
+
+/* pequeño efecto hover */
+.category-panel img {
+  transition: transform .6s;
+}
+
+.category-panel:hover img {
+  transform: scale(1.04);
+}
+
+.display-4{
+  text-align: center;
+}

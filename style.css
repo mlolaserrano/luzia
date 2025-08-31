@@ -1,8 +1,22 @@
+:root {
+  --color-primario: #b98854;
+  --color-secundario: #cf904bb0;
+  --color-acento: #cf8f4b62;
+  --color-texto: #222;
+  --color-texto2: white;
+  --color-exito: #22c55e;
+  --color-error: #ef4444;
 
-    body {
+}
+
+
+
+
+
+body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff;
-  color: #222;
+  background-color: var(--color-texto2);
+  color: var(--color-texto);
 }
 
 .navbar {
@@ -10,7 +24,7 @@
 }
 
 .navbar-nav .nav-link {
-  color: #333;
+  color: var(--color-texto);
   font-weight: 600;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease;
@@ -18,7 +32,7 @@
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
-  color: #b98854;
+  color: var(--color-texto);
 }
 
 .dropdown-menu {
@@ -27,20 +41,20 @@
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  background-color: #f8f1e7;
-  color: #b98854;
+  background-color: var(--color-acento);
+  color: var(--color-texto);
 }
 
 .logo-svg {
   width: 48px;
   height: 48px;
-  fill: #b98854;
+  fill: var(--color-primario);
   cursor: pointer;
 }
 
 .icon-btn {
   font-size: 1.5rem;
-  color: #555;
+  color: var(--color-texto);
   margin-right: 1rem;
   cursor: pointer;
   position: relative;
@@ -50,8 +64,8 @@
   position: absolute;
   top: -6px;
   right: -10px;
-  background-color: #d9534f;
-  color: white;
+  background-color: var(--color-primario);
+  color: var(--color-texto2);
   border-radius: 50%;
   font-size: 0.75rem;
   width: 18px;
@@ -64,8 +78,8 @@
 
 
 footer {
-  background: #222;
-  color: #ccc;
+  background: var(--color-texto);
+  color: var(--color-texto2);
   padding: 2rem 1rem;
   text-align: center;
 }
@@ -82,12 +96,158 @@ footer div {
 }
 
 footer a {
-  color: #b98854;
+  color: var(--color-primario);
   text-decoration: none;
   font-weight: 600;
 }
 
 footer a:hover {
-  color: #fff;
+  color: var(--color-texto2);
   text-decoration: underline;
+}
+
+/* margen del carrusel */
+.carousel-caption .btn {
+  margin-bottom: 1rem;
+}
+
+/* botón ver todo carrusel */
+
+.btn.btn-outline-primary {
+  color: var(--color-texto2);
+  font-size: 17px;
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+  border-radius: 12px;
+}
+
+.btn.btn-outline-primary:hover {
+  background-color: var(--color-primario);
+  color: var(--color-texto2);
+
+}
+
+.btn-carrito {
+  background-color: var(--color-primario);
+  color: var(--color-texto2);
+  border: none;
+}
+
+.btn-carrito:hover {
+  background-color: var(--color-secundario);
+}
+
+
+
+.btn-carrito {
+  background-color: var(--color-primario);
+  color: var(--color-texto2);
+  border: none;
+}
+
+.btn-carrito:hover {
+  background-color: var(--color-secundario)
+}
+
+a {
+  color: var(--color-texto);
+}
+
+/* ===== Estilos solo para login ===== */
+.auth-page {
+  --auth-brand: #b98854;
+  --auth-ink: #111;
+  --auth-muted: #9aa3ad;
+  --auth-line: #dfe3e7;
+}
+
+.auth-page .auth-card {
+  max-width: 460px;
+  margin: 56px auto;
+  padding: 8px 24px 32px;
+}
+
+.auth-page .auth-tabs {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--auth-line);
+}
+
+.auth-page .auth-tab {
+  padding: 12px 0;
+  color: var(--auth-muted);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.auth-page .auth-tab.active {
+  color: var(--auth-ink);
+}
+
+.auth-page .auth-tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--auth-ink);
+}
+
+.auth-page .form-underline .form-control {
+  border: 0;
+  border-bottom: 1px solid var(--auth-line);
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.auth-page .form-underline .form-control:focus {
+  border-color: var(--auth-brand);
+  box-shadow: none;
+}
+
+.auth-page .link-muted {
+  color: var(--auth-muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-page .link-muted:hover {
+  color: var(--auth-ink);
+}
+
+.auth-page .captcha-box {
+  border: 1px solid var(--auth-line);
+  border-radius: .375rem;
+  padding: 12px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+}
+
+.auth-page .btn-block {
+  padding: .8rem 1rem;
+  font-weight: 700;
+}
+
+.auth-page .btn-disabled {
+  background: #bdbdbd;
+  color: #fff;
+  border: 0;
+}
+
+.auth-page .eye {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--auth-muted);
+  cursor: pointer;
 }

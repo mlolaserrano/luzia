@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luzia más que joyas</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+<header>
+  <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+      <!-- fila superior en móviles -->
+      <div class="d-flex w-100 align-items-center justify-content-between d-md-none">
+        <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="index.html" class="navbar-brand mx-auto order-2">
+          <svg class="logo-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" stroke="#b98854" stroke-width="4" fill="none"/>
+            <path d="M20 32 L32 44 L44 20" stroke="#b98854" stroke-width="4" fill="none" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="d-flex flex-column flex-md-row w-100 justify-content-md-between align-items-md-center">
+          <!-- Logo + categorías -->
+          <div class="d-flex flex-column flex-md-row align-items-md-center">
+            <a href="index.html" class="navbar-brand d-none d-md-block me-md-3">
+              <svg class="logo-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="32" cy="32" r="30" stroke="#b98854" stroke-width="4" fill="none"/>
+                <path d="M20 32 L32 44 L44 20" stroke="#b98854" stroke-width="4" fill="none" stroke-linejoin="round"/>
+              </svg>
+            </a>
+
+            <ul class="navbar-nav text-center text-md-start flex-column flex-md-row">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownAros" role="button" data-bs-toggle="dropdown" aria-expanded="false">Aros</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownAros">
+                  <li><a class="dropdown-item" href="#">Clásicos</a></li>
+                  <li><a class="dropdown-item" href="#">Modernos</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownAnillos" role="button" data-bs-toggle="dropdown" aria-expanded="false">Anillos</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownAnillos">
+                  <li><a class="dropdown-item" href="#">Simples</a></li>
+                  <li><a class="dropdown-item" href="#">Con piedras</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownBrazaletes" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brazaletes</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownBrazaletes">
+                  <li><a class="dropdown-item" href="#">Finos</a></li>
+                  <li><a class="dropdown-item" href="#">Anchos</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownCollares" role="button" data-bs-toggle="dropdown" aria-expanded="false">Collares</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownCollares">
+                  <li><a class="dropdown-item" href="#">Cortos</a></li>
+                  <li><a class="dropdown-item" href="#">Largos</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <!-- iconos -->
+          <div class="d-flex justify-content-center justify-content-md-end mt-3 mt-md-0">
+            <button class="btn icon-btn" aria-label="Usuario" type="button">
+              <a href="login.html"><i class="bi bi-person"></i></a>
+            </button>
+            <button class="btn icon-btn position-relative" aria-label="Carrito" type="button">
+              <i class="bi bi-cart"></i>
+              <span class="cart-counter">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="container-fluid px-0">
+    
+<div class="auth-page">
+  <div class="auth-card bg-white shadow-sm">
+    <!-- Tabs -->
+    <div class="auth-tabs">
+      <a href="#" class="auth-tab active">Iniciar sesión</a>
+      <a href="newuser.html" class="auth-tab">Crear cuenta</a>
+    </div>
+
+    <!-- Form -->
+    <form class="form-underline">
+      <div class="mb-4">
+        <label class="form-label small text-muted" required>E-mail *</label>
+        <input type="email" class="form-control" required>
+      </div>
+
+      <div class="mb-2 position-relative">
+        <label class="form-label small text-muted" required>Contraseña *</label>
+        <input type="password" class="form-control" required>
+        <i class="bi bi-eye eye"></i>
+      </div>
+
+      <div class="mb-4 text-end">
+        <a href="#" class="link-muted small">¿Olvidaste la contraseña?</a>
+      </div>
+
+      <!-- Captcha simulado -->
+      <div class="captcha-box mb-4">
+        <input class="form-check-input" type="checkbox" id="cap" style="width:20px;height:20px">
+        <label for="cap" class="ms-1">No soy un robot</label>
+        <span class="ms-auto small text-muted">reCAPTCHA</span>
+      </div>
+
+  <button type="submit" class="btn btn-carrito w-100 btn-block">Ingresar</button>
+
+      <div class="text-center mt-3 small">
+        ¿Todavía no tenés cuenta?
+        <a href="newuser.html" class="fw-bold text-decoration-none">Registrate</a>
+      </div>
+    </form>
+  </div>
+</div>
+  </section>
+
+  <article>
+    
+  </article>
+</main>
+
+<footer class="mt-5">
+  <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <a href="#">Política de privacidad</a>
+    <a href="#">Términos y condiciones</a>
+    <a href="#">Contacto</a>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

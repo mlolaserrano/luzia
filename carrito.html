@@ -106,22 +106,149 @@
 </header>
 
 
-<main>
-  <section>
-    <div class="container py-4">
+<main class="cart-page">
+  <section class="container-xxl py-4">
+    <h1 class="h4 text-center text-uppercase fw-bold mb-2">Carrito de compras</h1>
+    <p class="text-center text-muted small mb-4">1 producto en el carrito</p>
 
+    <!-- Banner envío -->
+    <div class="ship-banner rounded-1 p-3 mb-4">
+      <i class="bi bi-truck me-2"></i>
+      <span class="fw-semibold">Recibe envío gratis</span> por compras iguales o superiores a <strong>$30.000</strong>.
+    </div>
+
+    <div class="row g-4">
+      <!-- Izquierda: tabla -->
+      <div class="col-lg-8">
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead class="table-light">
+              <tr>
+                <th style="width:45%">Producto</th>
+                <th style="width:15%">Envío</th>
+                <th style="width:15%">Precio</th>
+                <th style="width:15%">Cantidad</th>
+                <th style="width:10%">Total</th>
+                <th class="text-center" style="width:0"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <img src="https://placehold.co/72x72" class="rounded" alt="prod">
+                    <div>
+                      <div class="small fw-bold">TIPO DE PRODUCTO</div>
+                      <div class="fw-semibold">NOMBRE DE PRODUCTO</div>
+                      <div class="text-muted small">Color: ???</div>
+                      <div class="text-muted small">Talla: X</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-muted">a calcular</td>
+                <td>$ 000.000</td>
+                <td>
+                  <div class="qty d-inline-flex align-items-center">
+                    <button class="btn btn-sm" type="button">−</button>
+                    <input type="number" min="1" value="1" class="form-control form-control-sm mx-1" style="width:68px">
+                    <button class="btn btn-sm" type="button">+</button>
+                  </div>
+                </td>
+                <td class="fw-semibold">$ 00.000</td>
+                <td class="text-center">
+                  <button class="btn btn-sm text-danger" aria-label="Eliminar"><i class="bi bi-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Recomendados -->
+        <hr class="my-4">
+        <h2 class="h5 text-center mb-3">Completa tu look:</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card rec-card h-100 text-center">
+              <img src="https://placehold.co/380x260?text=Producto+1" class="card-img-top" alt="">
+              <div class="card-body">
+                <div class="small">Nombre de Producto</div>
+                <div class="price mt-1">$ 00.000,00</div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <button class="btn btn-pink w-100">AGREGAR AL CARRITO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card rec-card h-100 text-center">
+              <img src="https://placehold.co/380x260?text=Producto+2" class="card-img-top" alt="">
+              <div class="card-body">
+                <div class="small">Nombre de producto</div>
+                <div class="price mt-1">$ 00.000,00</div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <button class="btn btn-pink w-100">AGREGAR AL CARRITO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card rec-card h-100 text-center">
+              <img src="https://placehold.co/380x260?text=Producto+3" class="card-img-top" alt="">
+              <div class="card-body">
+                <div class="small">Nombre de Producto</div>
+                <div class="price mt-1">$ 00.000,00</div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <button class="btn btn-pink w-100">AGREGAR AL CARRITO</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Derecha: resumen -->
+      <div class="col-lg-4">
+        <div class="card summary-card">
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Cupón de descuento</label>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Código">
+                <button class="btn btn-pink px-4">Añadir</button>
+              </div>
+            </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between">
+                <span class="text-muted">Subtotal</span><span>$ 00.000</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span class="text-muted">Gastos de envío</span><span class="text-muted">Por calcular</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span class="fw-bold">Total</span><span class="fw-bold">$ 00.000</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-accent w-100 mt-3 py-2">Continuar</button>
+            <div class="text-center mt-3">
+              <a href="#" class="small text-decoration-underline">Elegir más productos</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card summary-card mt-3">
+          <div class="card-body">
+            <h6 class="fw-bold mb-2">Entrega</h6>
+            <p class="small text-muted mb-3">Consulte las opciones de entrega de sus artículos, con todos los plazos y valores.</p>
+            <button class="btn btn-pink">Calcular</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
-
-  <article>
-    
-        
-  </article>
-
-
-
 </main>
+
 
 <footer class="mt-5">
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>

@@ -22,42 +22,56 @@
 
   <body>
 <header>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="index.html">LUZIA</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="productos_aros.html">Aros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="productos_anillos.html">Anillos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="producto_brazaletes.html" aria-disabled="true">Brazaletes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="productos_collares.html" aria-disabled="true">Collares</a>
-        </li>
-      </ul>
-      <li class="d-flex" >
-         <div class="d-flex justify-content-center justify-content-md-end mt-3 mt-md-0">
-            <button class="btn icon-btn" aria-label="Usuario" type="button">
-              <a href="login.html"><i class="bi bi-person"></i></a>
-            </button>
-            <button class="btn icon-btn position-relative" aria-label="Carrito" type="button">
-              <a href="carrito.html"> 
-              <i class="bi bi-cart"></i></a>
-              <span class="cart-counter">0</span>
-            </button>
+     <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid position-relative">
+          <!-- Brand fijo centrado -->
+          <a class="navbar-brand navbar-brand-top" href="index.html">LUZIA</a>
+
+          <!-- Toggler abre el panel derecho -->
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#menuRight"
+            aria-controls="menuRight"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Menú desktop normal -->
+          <div class="collapse navbar-collapse d-none d-lg-flex">
+            <ul class="navbar-nav mx-lg-3 me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="productos_aros.html">Aros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="productos_anillos.html">Anillos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="producto_brazaletes.html"
+                  >Brazaletes</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="productos_collares.html">Collares</a>
+              </li>
+            </ul>
+            <div class="d-flex ms-lg-auto">
+              <a class="btn icon-btn" href="login.html" aria-label="Usuario"
+                ><i class="bi bi-person"></i
+              ></a>
+              <a
+                class="btn icon-btn position-relative"
+                href="carrito.html"
+                aria-label="Carrito"
+              >
+                <i class="bi bi-cart"></i><span class="cart-counter">0</span>
+              </a>
+            </div>
           </div>
-      </li>
-    </div>
-  </div>
-</nav>
+        </div>
+      </nav>
 </header>
 
 <main>

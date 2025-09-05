@@ -30,68 +30,29 @@
 
   <body>
 <header>
-  <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
-    <div class="container-fluid">
-      <!-- fila superior en móviles -->
-      <div class="d-flex w-100 align-items-center justify-content-between d-md-none">
-        <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="logo-svg" class="navbar-brand mx-auto order-2">
-          <svg class="logo-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="32" cy="32" r="30" stroke="#b98854" stroke-width="4" fill="none"/>
-            <path d="M20 32 L32 44 L44 20" stroke="#b98854" stroke-width="4" fill="none" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <div class="d-flex flex-column flex-md-row w-100 justify-content-md-between align-items-md-center">
-          <!-- Logo + categorías -->
-          <div class="d-flex flex-column flex-md-row align-items-md-center">
-            <a class="logo-svg" class="navbar-brand d-none d-md-block me-md-3">
-              <svg class="logo-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <circle cx="32" cy="32" r="30" stroke="#b98854" stroke-width="4" fill="none"/>
-                <path d="M20 32 L32 44 L44 20" stroke="#b98854" stroke-width="4" fill="none" stroke-linejoin="round"/>
-              </svg>
-            </a>
-
-            <ul class="navbar-nav text-center text-md-start flex-column flex-md-row">
-              <li class="nav-item dropdown">
-                  <a href="productos-aros.html" class="nav-link dropdown-toggle" href="#" id="dropdownAros" role="button" data-bs-toggle="dropdown" aria-expanded="false">Aros</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownAros">
-                  <li><a class="dropdown-item" href="#">Clásicos</a></li>
-                  <li><a class="dropdown-item" href="#">Modernos</a></li>
-                                    <li><a href="productos-aros.html" class="dropdown-item" href="#">Ver todo</a></li>
-
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="productos-aros.html" class="nav-link dropdown-toggle" href="#" id="dropdownAnillos" role="button" data-bs-toggle="dropdown" aria-expanded="false">Anillos</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownAnillos">
-                  <li><a class="dropdown-item" href="#">Simples</a></li>
-                  <li><a class="dropdown-item" href="#">Con piedras</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="producto-brazaletes.html" class="nav-link dropdown-toggle" href="#" id="dropdownBrazaletes" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brazaletes</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownBrazaletes">
-                  <li><a class="dropdown-item" href="#">Finos</a></li>
-                  <li><a class="dropdown-item" href="#">Anchos</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="productos-collares.html" class="nav-link dropdown-toggle" href="#" id="dropdownCollares" role="button" data-bs-toggle="dropdown" aria-expanded="false">Collares</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownCollares">
-                  <li><a class="dropdown-item" href="#">Cortos</a></li>
-                  <li><a class="dropdown-item" href="#">Largos</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-
-          <!-- iconos -->
-          <div class="d-flex justify-content-center justify-content-md-end mt-3 mt-md-0">
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="index.html">LUZIA</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="productos_aros.html">Aros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="productos_anillos.html">Anillos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="producto_brazaletes.html" aria-disabled="true">Brazaletes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="productos_collares.html" aria-disabled="true">Collares</a>
+        </li>
+      </ul>
+      <li class="d-flex" >
+         <div class="d-flex justify-content-center justify-content-md-end mt-3 mt-md-0">
             <button class="btn icon-btn" aria-label="Usuario" type="button">
               <a href="login.html"><i class="bi bi-person"></i></a>
             </button>
@@ -101,10 +62,10 @@
               <span class="cart-counter">0</span>
             </button>
           </div>
-        </div>
-      </div>
+      </li>
     </div>
-  </nav>
+  </div>
+</nav>
 </header>
 
 

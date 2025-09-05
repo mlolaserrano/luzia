@@ -6,6 +6,9 @@
   --color-texto2: white;
   --color-exito: #22c55e;
   --color-error: #ef4444;
+  --line: #e5e7eb;
+  --accent: #ffeee2;
+  --accent-btn: var(--color-primario);
 
 }
 
@@ -286,6 +289,65 @@ a {
   transform: scale(1.04);
 }
 
-.display-4{
+.display-4 {
   text-align: center;
+}
+
+
+
+.cart-page .ship-banner {
+  background: var(--color-acento);
+  border: 1px solid var(--line);
+}
+
+.cart-page .table th {
+  font-size: .9rem;
+  color: var(--color-texto);
+  font-weight: 600;
+}
+
+.cart-page .table td,
+.cart-page .table th {
+  border-color: var(--line) !important;
+  vertical-align: middle;
+}
+
+.cart-page .qty .btn {
+  border-color: var(--line);
+}
+
+.cart-page .summary-card {
+  border: 1px solid var(--line);
+}
+
+.cart-page .summary-card .list-group-item {
+  border-color: var(--line);
+}
+
+.cart-page .btn-accent {
+  background: #222;
+  color: #fff;
+  border: 0;
+}
+
+.cart-page .btn-accent:hover {
+  background: #2f2f2f;
+}
+
+.cart-page .btn-pink {
+  background: var(--color-acento);
+  border: 0;
+  color: var(--color-texto);
+}
+
+.cart-page .btn-pink:hover {
+  filter: brightness(.95);
+}
+
+.cart-page .rec-card {
+  border: 1px solid var(--line);
+}
+
+.cart-page .price {
+  font-weight: 700;
 }

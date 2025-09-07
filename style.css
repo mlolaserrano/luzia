@@ -17,6 +17,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--color-texto2);
   color: var(--color-texto);
+
 }
 
 .navbar {
@@ -61,7 +62,6 @@ body {
   user-select: none;
 }
 
-/* Centrar brand en mobile y dejarlo normal en ≥lg */
 @media (max-width: 991.98px) {
   .navbar-brand-center {
     position: absolute;
@@ -70,11 +70,10 @@ body {
   }
 }
 
-/* Evitar que el brand se tape: dar espacio al toggler en mobile */
 .navbar-toggler {
   z-index: 3;
-    border: none;         
-  box-shadow: none; 
+  border: none;
+  box-shadow: none;
 }
 
 .navbar-toggler:focus {
@@ -82,25 +81,34 @@ body {
   outline: none;
 }
 
-/* Opcional: peso visual del brand */
 .navbar-brand {
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: .5px;
 }
 
 /* Brand centrado en mobile */
-.navbar-brand-top{
-  position:absolute; top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  font-weight:700;
-}
-@media (min-width:992px){
-  .navbar-brand-top{ position:static; transform:none; }
+.navbar-brand-top {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
 }
 
-/* Opcional: ancho del panel y separadores */
-.offcanvas{ width: 300px; }
-.offcanvas .nav-link{ font-weight:600; }
+@media (min-width:992px) {
+  .navbar-brand-top {
+    position: static;
+    transform: none;
+  }
+}
+
+.offcanvas {
+  width: 300px;
+}
+
+.offcanvas .nav-link {
+  font-weight: 600;
+}
 
 
 footer {
@@ -377,24 +385,25 @@ a {
 .cart-page .price {
   font-weight: 700;
 }
+
 .thumbnail-btn:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 
 /* Estilo para la miniatura activa */
 .thumbnail-btn.active {
-    opacity: 1;
+  opacity: 1;
 }
 
 
 .thumbnail-btn img {
-    border: 2px solid transparent;
+  border: 2px solid transparent;
 }
 
 
 .thumbnail-btn.active img {
-    border-color: var(--color-primario);
+  border-color: var(--color-primario);
 }
 
 
@@ -403,37 +412,61 @@ a {
 */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    filter: invert(1); 
+  filter: invert(1);
 }
 
 
-.carousel-control-prev, .carousel-control-next {
-    width: 5%; 
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
 }
 
 
 /* Ajuste de la card de producto */
 .product-card {
-    border: none;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: none;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 
 .product-card:hover {
-    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  /* Efecto de elevación al pasar el mouse */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 
 .product-card .btn-primary {
-    background-color: var(--color-primario);
-    color: var(--color-texto2);
-    border: none;
+  background-color: var(--color-primario);
+  color: var(--color-texto2);
+  border: none;
 }
 
 
 /* Estilo para el botón de 'Ver producto'*/
 .product-card .btn-primary:hover {
-    background-color: var(--color-primario);
-    color: var(--color-texto2);
+  background-color: var(--color-primario);
+  color: var(--color-texto2);
+
+}
+
+/* Footer siempre al fondo */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Empuja el footer hacia abajo aunque el contenido sea corto */
+footer {
+  margin-top: auto !important;
 }

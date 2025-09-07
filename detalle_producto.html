@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detalle del Producto - Luzia más que joyas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+<!-- NAVBAR  -->
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+            <div class="container-fluid">
+                <div class="d-flex w-100 align-items-center justify-content-between d-md-none">
+                    <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="logo-svg" class="navbar-brand mx-auto order-2">
+                        <svg class="logo-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="32" cy="32" r="30" stroke="#b98854" stroke-width="4" fill="none" />
+                            <path d="M20 32 L32 44 L44 20" stroke="#b98854" stroke-width="4" fill="none"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-md-between align-items-md-center">
+                        <div class="d-flex flex-column flex-md-row align-items-md-center">
+                            <a class="logo-svg" class="navbar-brand d-none d-md-block me-md-3">
+                                <svg class="logo-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
+                                    <circle cx="32" cy="32" r="30" stroke="#b98854" stroke-width="4" fill="none" />
+                                    <path d="M20 32 L32 44 L44 20" stroke="#b98854" stroke-width="4" fill="none"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                            <ul class="navbar-nav text-center text-md-start flex-column flex-md-row">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdownAros" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">Aros</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownAros">
+                                        <li><a class="dropdown-item" href="#">Clásicos</a></li>
+                                        <li><a class="dropdown-item" href="#">Modernos</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdownAnillos" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">Anillos</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownAnillos">
+                                        <li><a class="dropdown-item" href="#">Simples</a></li>
+                                        <li><a class="dropdown-item" href="#">Con piedras</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdownBrazaletes" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">Brazaletes</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownBrazaletes">
+                                        <li><a class="dropdown-item" href="#">Finos</a></li>
+                                        <li><a class="dropdown-item" href="#">Anchos</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdownCollares" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">Collares</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownCollares">
+                                        <li><a class="dropdown-item" href="#">Cortos</a></li>
+                                        <li><a class="dropdown-item" href="#">Largos</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="d-flex justify-content-center justify-content-md-end mt-3 mt-md-0">
+                            <button class="btn icon-btn" aria-label="Usuario" type="button">
+                                <a href="login.html"><i class="bi bi-person"></i></a>
+                            </button>
+                            <button class="btn icon-btn position-relative" aria-label="Carrito" type="button">
+                                <i class="bi bi-cart"></i>
+                                <span class="cart-counter">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<!-- CARRUSEL DE IMAGENES  -->
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+
+
+                    <div class="carousel-inner rounded shadow-sm">
+                        <div class="carousel-item active">
+                            <img src="https://placehold.co/600x600/f0f0f0/333?text=600x600" class="d-block w-100"
+                                alt="Imagen 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://placehold.co/600x600/f0f0f0/333?text=600x600" class="d-block w-100"
+                                alt="Imagen 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://placehold.co/600x600/f0f0f0/333?text=600x600" class="d-block w-100"
+                                alt="Imagen 3">
+                        </div>
+                    </div>
+
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+
+
+                <div class="d-flex justify-content-center mt-3 gap-2">
+                    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0"
+                        class="active thumbnail-btn" aria-current="true" aria-label="Slide 1">
+                        <img src="https://placehold.co/150x150/f0f0f0/333?text=150x150" class="img-fluid rounded border"
+                            alt="Miniatura 1">
+                    </button>
+                    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1" class="thumbnail-btn"
+                        aria-label="Slide 2">
+                        <img src="https://placehold.co/150x150/f0f0f0/333?text=150x150" class="img-fluid rounded border"
+                            alt="Miniatura 2">
+                    </button>
+                    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="2" class="thumbnail-btn"
+                        aria-label="Slide 3">
+                        <img src="https://placehold.co/150x150/f0f0f0/333?text=150x150" class="img-fluid rounded border"
+                            alt="Miniatura 3">
+                    </button>
+                </div>
+            </div>
+
+<!-- DETALLE Y DESCRIPCIÓN DEL PRODUCTO  -->
+
+            <div class="col-12 col-md-6 mt-4 mt-md-0">
+                <div class="product-info p-4 border rounded shadow-sm">
+                    <h1 class="display-5 fw-bold mb-2" style="color: var(--color-primario);">Anillo Aurora</h1>
+                    <p class="lead text-muted mb-3" style="color: var(--color-texto);">SKU: AN-PLA-001</p>
+
+
+                    <h2 class="fw-bold my-4" style="color: var(--color-primario);">$10</h2>
+
+
+                    <div class="mb-4">
+                        <p style="color: var(--color-texto);"><strong>Descripción:</strong></p>
+                        <p style="color: var(--color-texto);">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Id nulla quisquam delectus ducimus harum! Saepe perspiciatis deserunt, consectetur pariatur
+                            nesciunt magnam dolorum fugit ea dolores? Reiciendis omnis non ab dignissimos.</p>
+                        <ul style="color: var(--color-texto);">
+                            <li>Material: Plata 925</li>
+                            <li>Tallas disponibles: S, M, L, XL</li>
+                            <li>Peso: 5 gramos</li>
+                            <li>Hecho a mano</li>
+                        </ul>
+                    </div>
+
+<!-- SELECCIÓN DE TALEE -->
+                    <div class="mb-4">
+                        <label for="size-select" class="form-label" style="color: var(--color-texto);">Selecciona el
+                            talle:</label>
+                        <select class="form-select" id="size-select" style="border-color: var(--color-acento);">
+                            <option selected>Elegí un talle</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="L">XL</option>
+                        </select>
+                    </div>
+<!-- BOTÓN AÑADIR AL CARRITO  -->
+
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-lg btn-carrito" type="button">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- PRODUCTOS RECOMENDADOS  -->
+
+        <section class="container my-5">
+            <h2 class="text-center mt-5 mb-4 display-6 fw-bold">Productos Recomendados</h2>
+
+
+            <div id="relatedProductsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+                            <div class="col">
+                                <div class="card h-100 product-card shadow-sm">
+                                    <img src="https://placehold.co/300x300/f0f0f0/333?text=300x300" class="card-img-top"
+                                        alt="Anillo de Oro">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title fw-bold">Anillo de Oro</h5>
+                                        <p class="card-text text-muted">$0</p>
+                                        <a href="#" class="btn btn-primary">Ver Producto</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 product-card shadow-sm">
+                                    <img src="https://placehold.co/300x300/f0f0f0/333?text=300x300" class="card-img-top"
+                                        alt="Aretes de Perlas">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title fw-bold">Aro de Perlas</h5>
+                                        <p class="card-text text-muted">$0</p>
+                                        <a href="#" class="btn btn-primary">Ver Producto</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 product-card shadow-sm">
+                                    <img src="https://placehold.co/300x300/f0f0f0/333?text=300x300" class="card-img-top"
+                                        alt="Collar con Dije">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title fw-bold">Collar con Dije</h5>
+                                        <p class="card-text text-muted">$0</p>
+                                        <a href="#" class="btn btn-primary">Ver Producto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+ <!-- PRODUCTOS RECOMENDADOS CARRUSEL -->
+                    <div class="carousel-item">
+                        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+                            <div class="col">
+                                <div class="card h-100 product-card shadow-sm">
+                                    <img src="https://placehold.co/300x300/f0f0f0/333?text=300x300" class="card-img-top"
+                                        alt="Brazalete de Plata">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title fw-bold">Brazalete de Plata</h5>
+                                        <p class="card-text text-muted">$0</p>
+                                        <a href="#" class="btn btn-primary">Ver Producto</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 product-card shadow-sm">
+                                    <img src="https://placehold.co/300x300/f0f0f0/333?text=300x300" class="card-img-top"
+                                        alt="Anillo con Zafiro">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title fw-bold">Anillo con Zafiro</h5>
+                                        <p class="card-text text-muted">$0</p>
+                                        <a href="#" class="btn btn-primary">Ver Producto</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 product-card shadow-sm">
+                                    <img src="https://placehold.co/300x300/f0f0f0/333?text=300x300" class="card-img-top"
+                                        alt="Aretes de Oro Rosa">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title fw-bold">Aros de Oro </h5>
+                                        <p class="card-text text-muted">$0</p>
+                                        <a href="#" class="btn btn-primary">Ver Producto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#relatedProductsCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#relatedProductsCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER  -->
+
+    <footer class="mt-5">
+        <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Contacto</a>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

@@ -21,81 +21,107 @@
   </head>
 
   <body>
-<header>
-  <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
-    <div class="container-fluid">
-      <!-- fila superior en móviles -->
-      <div class="d-flex w-100 align-items-center justify-content-between d-md-none">
-        <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="logo-svg" class="navbar-brand mx-auto order-2">
-          <svg class="logo-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="32" cy="32" r="30" stroke="#b98854" stroke-width="4" fill="none"/>
-            <path d="M20 32 L32 44 L44 20" stroke="#b98854" stroke-width="4" fill="none" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
+   <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid position-relative">
+          <!-- Brand fijo centrado -->
+          <a class="navbar-brand navbar-brand-top" href="index.html">LUZIA</a>
 
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <div class="d-flex flex-column flex-md-row w-100 justify-content-md-between align-items-md-center">
-          <!-- Logo + categorías -->
-          <div class="d-flex flex-column flex-md-row align-items-md-center">
-            <a class="logo-svg" class="navbar-brand d-none d-md-block me-md-3">
-              <svg class="logo-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <circle cx="32" cy="32" r="30" stroke="#b98854" stroke-width="4" fill="none"/>
-                <path d="M20 32 L32 44 L44 20" stroke="#b98854" stroke-width="4" fill="none" stroke-linejoin="round"/>
-              </svg>
-            </a>
+          <!-- Toggler abre el panel derecho -->
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#menuRight"
+            aria-controls="menuRight"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <ul class="navbar-nav text-center text-md-start flex-column flex-md-row">
-              <li class="nav-item dropdown">
-                  <a href="productos-aros.html" class="nav-link dropdown-toggle" href="#" id="dropdownAros" role="button" data-bs-toggle="dropdown" aria-expanded="false">Aros</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownAros">
-                  <li><a class="dropdown-item" href="#">Clásicos</a></li>
-                  <li><a class="dropdown-item" href="#">Modernos</a></li>
-                </ul>
+          <!-- Menú desktop normal -->
+          <div class="collapse navbar-collapse d-none d-lg-flex">
+            <ul class="navbar-nav mx-lg-3 me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="productos_aros.html">Aros</a>
               </li>
-              <li class="nav-item dropdown">
-                <a href="productos-aros.html" class="nav-link dropdown-toggle" href="#" id="dropdownAnillos" role="button" data-bs-toggle="dropdown" aria-expanded="false">Anillos</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownAnillos">
-                  <li><a class="dropdown-item" href="#">Simples</a></li>
-                  <li><a class="dropdown-item" href="#">Con piedras</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="productos_anillos.html">Anillos</a>
               </li>
-              <li class="nav-item dropdown">
-                <a href="producto-brazaletes.html" class="nav-link dropdown-toggle" href="#" id="dropdownBrazaletes" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brazaletes</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownBrazaletes">
-                  <li><a class="dropdown-item" href="#">Finos</a></li>
-                  <li><a class="dropdown-item" href="#">Anchos</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="producto_brazaletes.html"
+                  >Brazaletes</a
+                >
               </li>
-              <li class="nav-item dropdown">
-                <a href="productos-collares.html" class="nav-link dropdown-toggle" href="#" id="dropdownCollares" role="button" data-bs-toggle="dropdown" aria-expanded="false">Collares</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownCollares">
-                  <li><a class="dropdown-item" href="#">Cortos</a></li>
-                  <li><a class="dropdown-item" href="#">Largos</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="productos_collares.html">Collares</a>
               </li>
             </ul>
+            <div class="d-flex ms-lg-auto">
+              <a class="btn icon-btn" href="login.html" aria-label="Usuario"
+                ><i class="bi bi-person"></i
+              ></a>
+              <a
+                class="btn icon-btn position-relative"
+                href="carrito.html"
+                aria-label="Carrito"
+              >
+                <i class="bi bi-cart"></i><span class="cart-counter">0</span>
+              </a>
+            </div>
           </div>
+        </div>
+      </nav>
 
-          <!-- iconos -->
-          <div class="d-flex justify-content-center justify-content-md-end mt-3 mt-md-0">
-            <button class="btn icon-btn" aria-label="Usuario" type="button">
-              <a href="login.html"><i class="bi bi-person"></i></a>
-            </button>
-            <button class="btn icon-btn position-relative" aria-label="Carrito" type="button">
-              <a href="carrito.html"> 
-              <i class="bi bi-cart"></i></a>
+      <!-- Offcanvas móvil a la derecha -->
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="menuRight"
+        aria-labelledby="menuRightLabel"
+      >
+        <div class="offcanvas-header justify-content-center">
+          <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
+          <button
+            type="button"
+            class="btn-close position-absolute end-0 me-3"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="offcanvas-body">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link py-2" href="productos_aros.html">Aros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2" href="productos_anillos.html">Anillos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2" href="producto_brazaletes.html"
+                >Brazaletes</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2" href="productos_collares.html"
+                >Collares</a
+              >
+            </li>
+          </ul>
+
+          <hr class="my-3" />
+
+          <div class="d-flex justify-content-center gap-3">
+            <a href="login.html"><i class="bi bi-person fs-5"></i></a>
+            <a href="carrito.html" class="position-relative">
+              <i class="bi bi-cart fs-5"></i>
               <span class="cart-counter">0</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </header>
 
 <main>
   <section class="container-fluid px-0">

@@ -1,124 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Luzia más que joyas - Todos</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <!-- Tipografía -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luzia más que joyas - Todos</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid position-relative">
+          <!-- Brand fijo centrado -->
+          <a class="navbar-brand navbar-brand-top" href="index.html">LUZIA</a>
 
-<!-- NAV -->
-<header>
-  <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
-    <div class="container-fluid">
-      <a class="navbar-brand fs-4" href="index.html">Joyería</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item"><a class="nav-link" href="productos.html">Todos</a></li>
-          <li class="nav-item"><a class="nav-link" href="productos-anillos.html">Anillos</a></li>
-          <li class="nav-item"><a class="nav-link" href="productos-aros.html">Aros</a></li>
-          <li class="nav-item"><a class="nav-link" href="productos-brazaletes.html">Brazaletes</a></li>
-          <li class="nav-item"><a class="nav-link" href="productos-collares.html">Collares</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
+          <!-- Toggler abre el panel derecho -->
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#menuRight"
+            aria-controls="menuRight"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
+          <!-- Menú desktop normal -->
+          <div class="collapse navbar-collapse d-none d-lg-flex">
+            <ul class="navbar-nav mx-lg-3 me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="productos_aros.html">Aros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="productos_anillos.html">Anillos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="producto_brazaletes.html"
+                  >Brazaletes</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="productos_collares.html">Collares</a>
+              </li>
+            </ul>
+            <div class="d-flex ms-lg-auto">
+              <a class="btn icon-btn" href="login.html" aria-label="Usuario"
+                ><i class="bi bi-person"></i
+              ></a>
+              <a
+                class="btn icon-btn position-relative"
+                href="carrito.html"
+                aria-label="Carrito"
+              >
+                <i class="bi bi-cart"></i><span class="cart-counter">0</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
 
+      <!-- Offcanvas móvil a la derecha -->
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="menuRight"
+        aria-labelledby="menuRightLabel"
+      >
+        <div class="offcanvas-header justify-content-center">
+          <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
+          <button
+            type="button"
+            class="btn-close position-absolute end-0 me-3"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
 
-<main class="container my-5">
-  <h1 class="text-center mb-4">Todos los Productos</h1>
-  <div class="row g-4">
-   <!-- Menú de categorías -->
-<div class="d-flex justify-content-center mb-4">
-  <div class="btn-group" role="group">
-    <a href="productos.html" class="btn btn-outline-dark">Todos</a>
-    <a href="productos-anillos.html" class="btn btn-outline-dark">Anillos</a>
-    <a href="productos-aros.html" class="btn btn-outline-dark">Aros</a>
-    <a href="productos-brazaletes.html" class="btn btn-outline-dark">Brazaletes</a>
-    <a href="productos-collares.html" class="btn btn-outline-dark active">Collares</a>
-  </div>
-</div>
-    <!-- Anillos -->
-    <div class="col-md-3">
-      <div class="card h-100">
-        <img src="https://via.placeholder.com/300x200?text=Anillo+de+Plata" class="card-img-top" alt="Anillo de Plata">
-        <div class="card-body text-center">
-          <h5 class="card-title">Anillo de Plata</h5>
-          <p class="card-text">$120</p>
-          <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link py-2" href="productos_aros.html">Aros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2" href="productos_anillos.html">Anillos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2" href="producto_brazaletes.html"
+                >Brazaletes</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2" href="productos_collares.html"
+                >Collares</a
+              >
+            </li>
+          </ul>
+
+          <hr class="my-3" />
+
+          <div class="d-flex justify-content-center gap-3">
+            <a href="login.html"><i class="bi bi-person fs-5"></i></a>
+            <a href="carrito.html" class="position-relative">
+              <i class="bi bi-cart fs-5"></i>
+              <span class="cart-counter">0</span>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Aros -->
-    <div class="col-md-3">
-      <div class="card h-100">
-        <img src="https://via.placeholder.com/300x200?text=Aros+de+Plata" class="card-img-top" alt="Aros de Plata">
-        <div class="card-body text-center">
-          <h5 class="card-title">Aros de Plata</h5>
-          <p class="card-text">$80</p>
-          <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
-        </div>
-      </div>
-    </div>
-    <!-- Brazaletes -->
-    <div class="col-md-3">
-      <div class="card h-100">
-        <img src="https://via.placeholder.com/300x200?text=Brazalete+Fino" class="card-img-top" alt="Brazalete Fino">
-        <div class="card-body text-center">
-          <h5 class="card-title">Brazalete Fino</h5>
-          <p class="card-text">$120</p>
-          <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
-        </div>
-      </div>
-    </div>
-    <!-- Collares -->
-    <div class="col-md-3">
-      <div class="card h-100">
-        <img src="https://via.placeholder.com/300x200?text=Collar+de+Oro" class="card-img-top" alt="Collar de Oro">
-        <div class="card-body text-center">
-          <h5 class="card-title">Collar de Oro</h5>
-          <p class="card-text">$350</p>
-          <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
-        </div>
-      </div>
-    </div>
-    <!-- Relojes -->
-    <div class="col-md-3">
-      <div class="card h-100">
-        <img src="https://via.placeholder.com/300x200?text=Reloj+de+Acero" class="card-img-top" alt="Reloj de Acero">
-        <div class="card-body text-center">
-          <h5 class="card-title">Reloj de Acero</h5>
-          <p class="card-text">$200</p>
-          <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
+    </header>
 
-<footer class="mt-5 bg-light text-center py-3">
-  <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
-  <div class="d-flex flex-wrap justify-content-center gap-3">
-    <a href="#">Política de privacidad</a>
-    <a href="#">Términos y condiciones</a>
-    <a href="#">Contacto</a>
-  </div>
-</footer>
+    <main class="container my-5">
+      <h1 class="text-center mb-4">Todos los Productos</h1>
+      <div class="row g-4">
+        <!-- Menú de categorías -->
+        <div class="d-flex justify-content-center mb-4">
+          <div class="btn-group" role="group">
+            <a href="productos.html" class="btn btn-outline-dark">Todos</a>
+            <a href="productos-anillos.html" class="btn btn-outline-dark"
+              >Anillos</a
+            >
+            <a href="productos-aros.html" class="btn btn-outline-dark">Aros</a>
+            <a href="productos-brazaletes.html" class="btn btn-outline-dark"
+              >Brazaletes</a
+            >
+            <a
+              href="productos-collares.html"
+              class="btn btn-outline-dark active"
+              >Collares</a
+            >
+          </div>
+        </div>
+        <!-- Anillos -->
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img
+              src="https://via.placeholder.com/300x200?text=Anillo+de+Plata"
+              class="card-img-top"
+              alt="Anillo de Plata"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">Anillo de Plata</h5>
+              <p class="card-text">$120</p>
+              <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
+            </div>
+          </div>
+        </div>
+        <!-- Aros -->
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img
+              src="https://via.placeholder.com/300x200?text=Aros+de+Plata"
+              class="card-img-top"
+              alt="Aros de Plata"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">Aros de Plata</h5>
+              <p class="card-text">$80</p>
+              <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
+            </div>
+          </div>
+        </div>
+        <!-- Brazaletes -->
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img
+              src="https://via.placeholder.com/300x200?text=Brazalete+Fino"
+              class="card-img-top"
+              alt="Brazalete Fino"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">Brazalete Fino</h5>
+              <p class="card-text">$120</p>
+              <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
+            </div>
+          </div>
+        </div>
+        <!-- Collares -->
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img
+              src="https://via.placeholder.com/300x200?text=Collar+de+Oro"
+              class="card-img-top"
+              alt="Collar de Oro"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">Collar de Oro</h5>
+              <p class="card-text">$350</p>
+              <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
+            </div>
+          </div>
+        </div>
+        <!-- Relojes -->
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img
+              src="https://via.placeholder.com/300x200?text=Reloj+de+Acero"
+              class="card-img-top"
+              alt="Reloj de Acero"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">Reloj de Acero</h5>
+              <p class="card-text">$200</p>
+              <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
+    <footer class="mt-5 bg-light text-center py-3">
+      <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Contacto</a>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

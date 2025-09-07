@@ -30,27 +30,12 @@ body {
   transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  color: var(--color-texto);
+.nav-link:hover {
+  color: var(--color-primario);
 }
 
-.dropdown-menu {
-  min-width: 10rem;
-}
 
-.dropdown-item:hover,
-.dropdown-item:focus {
-  background-color: var(--color-acento);
-  color: var(--color-texto);
-}
 
-.logo-svg {
-  width: 48px;
-  height: 48px;
-  fill: var(--color-primario);
-  cursor: pointer;
-}
 
 .icon-btn {
   font-size: 1.5rem;
@@ -75,6 +60,47 @@ body {
   font-weight: 700;
   user-select: none;
 }
+
+/* Centrar brand en mobile y dejarlo normal en ≥lg */
+@media (max-width: 991.98px) {
+  .navbar-brand-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Evitar que el brand se tape: dar espacio al toggler en mobile */
+.navbar-toggler {
+  z-index: 3;
+    border: none;         
+  box-shadow: none; 
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* Opcional: peso visual del brand */
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+/* Brand centrado en mobile */
+.navbar-brand-top{
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  font-weight:700;
+}
+@media (min-width:992px){
+  .navbar-brand-top{ position:static; transform:none; }
+}
+
+/* Opcional: ancho del panel y separadores */
+.offcanvas{ width: 300px; }
+.offcanvas .nav-link{ font-weight:600; }
 
 
 footer {
@@ -351,32 +377,6 @@ a {
 .cart-page .price {
   font-weight: 700;
 }
-
-
-/* DETALLE DE PRODUCTO */
-/* Estilos para el carrusel de producto*/
-#productCarousel {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: invert(1); 
-}
-
-
-
-.thumbnail-btn {
-    border: none;
-    background: none;
-    padding: 0;
-    opacity: 0.7;
-    transition: opacity 0.3s ease, border 0.3s ease;
-}
-
-
 .thumbnail-btn:hover {
     opacity: 1;
 }

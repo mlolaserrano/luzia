@@ -514,3 +514,53 @@ main {
 footer {
   margin-top: auto !important;
 }
+
+/* Estilos del inventario*/
+/* color frase "inventario de productos"*/ 
+
+.lead {
+color: var(--color-texto);
+}
+
+
+.table-img {
+width: 60px;
+height: 60px;
+object-fit: cover;
+border-radius: 4px;
+}
+
+.action-buttons {
+white-space: nowrap;
+}
+
+.featured-cell {
+text-align: center;
+}
+
+.table thead th {
+background-color: #FFF;
+position: sticky;
+top: 0;
+z-index: 10;
+}
+
+.table-container {
+max-height: 600px;
+overflow-y: auto;
+}
+
+.btn-action {
+width: 36px;
+height: 36px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0;
+}
+
+/* Lista de productos*/
+.card-header {
+background: linear-gradient(var(--color-texto));
+}
+

@@ -466,6 +466,50 @@ main {
   flex: 1;
 }
 
+.negrita {
+    font-family: minigap;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bolder;
+    font-variant: normal;
+	text-align: justify;
+}
+.titulo {
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    color: var(--color-primario);
+	text-align: center;
+}
+.subtitulo {
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: medium;
+    font-variant: normal;
+    color: var(--color-primario);
+	text-align: center;
+}
+#cuerpo {
+	border-width: 0px;
+	border-style: none;
+	margin-left: auto;
+	margin-right: auto;
+  color: var(--color-texto);
+	height: 600px;
+	width: 1100px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+#principal3 {
+	background-color: #FFF;
+	border-width: 0px;
+	border-style: none;
+	margin-left: auto;
+	margin-right: auto;
+}
 /* Empuja el footer hacia abajo aunque el contenido sea corto */
 footer {
   margin-top: auto !important;

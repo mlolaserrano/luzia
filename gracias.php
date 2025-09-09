@@ -1,10 +1,48 @@
+<?php
+//variables principales 
+
+$nombre=$_REQUEST[nombre]; //esto responde a lo que se lleno 
+
+$email=$_REQUEST[email]; 
+
+$telefono=$_REQUEST[tel]; 
+
+$consulta=$_REQUEST[consulta]; 
+
+$pais=$_REQUEST[pais]; 
+
+$micorreo=$_REQUEST[mimail]; //es el campo oculto esto es importante!! 
+
+  
+
+//variables internas 
+
+$encabezado= 'From: noreplay@fulano.com.ar'; //casilla no existente; el from va tal cual en comillas simples 
+
+$asunto = "Formulario de Contacto"; 
+
+$cuerpo = "Nombre y Apellido: $nombre\n E-mail: $email\n Teléfono: $telefono\n Consulta: $consulta\n País: $pais"; //como recibiremos los datos del formulario 
+
+$cuerpousu = "¡Hola, $nombre!\n Gracias por completar nuestro formulario. A continuación se copian los datos que enviastre:\n\n $cuerpo\n\n ¡¡Muchas Gracias!!"; //como se le muestra al usuario 
+
+  
+
+//e-mail 
+
+mail($micorreo,$asunto,$cuerpo,$encabezado); //receptor 
+
+mail($correo,$asunto,$cuerpousu,$encabezado); //usuario 
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luzia | Anillos</title>
-<!--hola-->
+    <title>Luzia más que joyas</title>
+
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -132,35 +170,91 @@
     </header>
 
 
+<main>
+  	<div id="principal3">
+	<div id="cuerpo">
+	  <div class="titulo" id="titulo">Contacto</div>
+		<p class="subtitulo"><span data-contrast="none" xml:lang="ES-ES" lang="ES-ES">¡Muchas Gracias! por enviar el formularo, responderemos en brevedad.</span></p>
+		 <div id="formulario">
+		
+		 <p class="subtitulo"><span data-contrast="none" xml:lang="ES-ES" lang="ES-ES">A continuación de copiaran los siguentes datos:</span> <span data-contrast="auto" xml:lang="ES-ES" lang="ES-ES"><br>
+		   </p> 
 
-<main class="container my-5">
-   <div class="text-center mb-5">
-    <h1 class="fw-bold">Anillos</h1>
-    <p class="lead">Explora nuestra colección de anillos exclusivos</p>
-  </div>
-  <div class="row g-4">
-    <div class="col-md-3">
-      <div class="card h-100">
-        <img src="https://via.placeholder.com/300x200?text=Anillo+de+Plata" class="card-img-top" alt="Anillo de Plata">
-        <div class="card-body text-center">
-          <h5 class="card-title">Anillo de Plata</h5>
-          <p class="card-text">$120</p>
-          <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card h-100">
-        <img src="https://via.placeholder.com/300x200?text=Anillo+Con+Piedras" class="card-img-top" alt="Anillo Con Piedras">
-        <div class="card-body text-center">
-          <h5 class="card-title">Anillo Con Piedras</h5>
-          <p class="card-text">$180</p>
-          <a href="#" class="btn btn-dark btn-sm">Ver detalle</a>
-        </div>
-      </div>
-    </div>
-  </div>
+             <form action="gracias.php" method="post" name="form1" id="form1"> 
+
+             <table width="100%" border="0" cellpadding="7" cellspacing="7"> 
+
+                 <tbody> 
+
+                  <tr> 
+
+      <td align="left" valign="top" style="text-align: left"><table width="100%" border="0" cellpadding="7" cellspacing="7"> 
+
+        <tbody> 
+
+          <tr> 
+
+            <td width="47%" class="negrita" style="text-align: left">Nombre y Apellido</td> 
+
+            <td width="53%" style="text-align: left"><?php echo $nombre;?></td> 
+
+              </tr> 
+
+          <tr> 
+			  <td class="negrita" style="text-align: left">E-mail 
+
+              <input name="hiddenField" type="hidden" id="hiddenField" value="contacto@kelloggs.com">
+              <input name="mimail" type="hidden" id="mimail" value="info@fulano.com.ar"></td> 
+
+            <td style="text-align: left"><?php echo $email;?></td> 
+
+           
+              </tr> 
+
+          <tr> 
+             <td class="negrita" style="text-align: left">Teléfono</td> 
+
+            <td style="text-align: left"><?php echo $telefono;?></td> 
+
+            
+
+              </tr> 
+
+          <tr align="left" valign="top"> 
+
+            <td height="114" class="negrita" style="text-align: left">Consulta</td> 
+
+            <td style="text-align: left"><?php echo $consulta;?></td> 
+
+              </tr> 
+
+          <tr> 
+
+            <td height="32" class="negrita" style="text-align: left">País</td> 
+
+            <td style="text-align: left"><?php echo $pais;?></td> 
+
+              </tr> 
+
+            </tbody> 
+
+          </table></td> 
+
+        </tr> 
+
+  </tbody> 
+
+  </table> 
+
+  </form> 
+
+
+</div> 
+
+   </div> 
+		</div>
 </main>
+
 <footer class="mt-5">
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
   <div class="d-flex flex-wrap justify-content-center gap-3">
@@ -174,3 +268,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
+

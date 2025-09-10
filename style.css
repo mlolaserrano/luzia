@@ -574,22 +574,6 @@ position: relative;
 overflow: hidden;
 }
 
-.category-panel {
-position: relative;
-overflow: hidden;
-}
-
-.category-panel img {
-width: 100%;
-height: 300px;
-object-fit: cover;
-transition: transform 0.3s ease;
-}
-
-.category-panel:hover img {
-transform: scale(1.05);
-}
-
  /* Estilos para los botones de gestión */
 
 .management-buttons {

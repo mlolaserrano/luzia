@@ -97,46 +97,49 @@
 
         <!-- Tarjeta de acciones principales -->
 <main>
-    <div class = "d-flex flex-wrap justify-content-center gap-3">
-        <div class="row mb-4">
+  <div class="container py-3">
+    <div class="row g-3">
 
-            <div class="col-md-4 mb-2">
-                <div class="card text-center h-100 shadow-sm">
-                 <button class="btn" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                    <div class="card-body">
-                        <i class="bi bi-plus-circle display-4"></i>
-                        <h5 class="card-title">Agregar Producto</h5>
-                        <div class="color-agg"> 
-                    </div>   
-                    </div>               
-                </button>
-                </div>
+      <div class="col-md-4">
+        <div class="card text-center h-100 shadow-sm">
+          <button class="btn btn-card w-100 h-100 p-0 text-reset"
+                  data-bs-toggle="modal" data-bs-target="#addProductModal">
+            <div class="card-body">
+              <i class="bi bi-plus-circle display-4"></i>
+              <h5 class="card-title mb-0">Agregar Producto</h5>
             </div>
-
-            <div class="col-md-4 mb-2">
-                <div class="card text-center h-100 shadow-sm">
-                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editModal">
-                    <div class="card-body">
-                        <i class="bi bi-pencil display-4"></i>
-                        <h5 class="card-title">Modificar Producto</h5>
-                    </div>
-                    </button>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-2">
-                <div class="card text-center h-100 shadow-sm">
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                    <div class="card-body">
-                        <i class="bi bi-trash display-4"></i>
-                        <h5 class="card-title">Eliminar Producto</h5>                   
-                    </button>
-                    </div>
-                </div>
-            </div>
+          </button>
         </div>
+      </div>
 
- 
+      <div class="col-md-4">
+        <div class="card text-center h-100 shadow-sm">
+          <button class="btn btn-card w-100 h-100 p-0 text-reset"
+                  data-bs-toggle="modal" data-bs-target="#editModal">
+            <div class="card-body">
+              <i class="bi bi-pencil display-4"></i>
+              <h5 class="card-title mb-0">Modificar Producto</h5>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card text-center h-100 shadow-sm">
+          <button class="btn btn-card w-100 h-100 p-0 text-reset"
+                  data-bs-toggle="modal" data-bs-target="#deleteModal">
+            <div class="card-body">
+              <i class="bi bi-trash display-4"></i>
+              <h5 class="card-title mb-0">Eliminar Producto</h5>
+            </div>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
 
         <!-- Tabla de productos -->
 

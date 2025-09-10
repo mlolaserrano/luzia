@@ -691,3 +691,24 @@ color:var(--color-primario);
   color: #fff;
   box-shadow: 0 0 0 .2rem rgba(185,136,84,.25);
 }
+
+.btn-card {
+  background: transparent;   /* todo el card clickable, sin background extra */
+  border: 0;
+  color: var(--color-texto); /* color base normal */
+}
+.btn-card:focus { box-shadow: none; }
+
+.card .card-body {
+  padding: 2rem;  /* igualar interior */
+}
+
+.btn-card:hover {
+  background-color: var(--color-primario);
+  color: var(--color-texto2);  /* texto + iconos a blanco */
+}
+
+.btn-card:hover i,
+.btn-card:hover h5 {
+  color: var(--color-texto2);  /* asegura icono y título en blanco */
+}

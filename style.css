@@ -650,12 +650,12 @@ margin-bottom: 1rem;
 }
 
 .modal-form label {
-font-weight: 500;
-margin-bottom: 0.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .mi-color-agregar{
-color:var(--color-primario);
+  color:var(--color-primario);
 }
 
 /* Botón pill estilo "Ver todo" */
@@ -701,3 +701,64 @@ a{
   list-style: none;
   text-decoration: none;
 }
+
+
+/*Login administrador*/ 
+.mi-body{
+  background: var(--color-texto2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.auth-container {
+            background: var(--color-texto2);
+            border-radius: 15px;
+            box-shadow: var(--color-texto2);
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+        }
+.auth-header {
+  background: var(--color-primario);
+  color: var(--color-texto2);
+  padding: 20px;
+  text-align: center;
+}
+.auth-form {
+  padding: 25px;
+}
+
+.color-ingresar{
+  color: var(--color-texto2);
+}
+
+
+.form-control:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 0.25rem rgba(255, 51, 61, 0.25);
+}
+        .btn-admin {
+            background: var(--color-primario);
+            border: none;
+            padding: 10px;
+        }
+        .btn-admin:hover {
+            background-color: var(--color-secundario);
+            color:var(--color-texto2);
+        }
+
+        .tab-content {
+            padding: 0;
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            border-radius: 0;
+            padding: 15px;
+            font-weight: 500;
+        }
+        .nav-tabs .nav-link.active {
+            background: #f8f9fa;
+            border-bottom: 3px solid var(--color-texto);
+        }

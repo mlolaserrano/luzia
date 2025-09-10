@@ -45,19 +45,18 @@
             class="navbar-toggler ms-auto"
             type="button"
             data-bs-toggle="offcanvas"
-            data-bs-target="#menuRight"
-            aria-controls="menuRight"
-            aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
           </button>
 
           <!-- Menú desktop normal -->
           <div class="collapse navbar-collapse d-none d-lg-flex">
             
             <div class="d-flex ms-lg-auto">
-              <a class="btn icon-btn btn-danger" href="admi_home.html" aria-label="Usuario">
-                <i class="bi bi-gear"></i>
+              <a class="btn icon-btn" href="admi_logout.html" aria-label="Usuario">
+                <i class="bi bi-door-open"></i>
+              </a>
+                <a class="btn icon-btn" href="admi_home.html" aria-label="Usuario">
+                <i class="bi bi-eye"></i>
               </a>
             
             </div>
@@ -185,17 +184,17 @@
 
                                 <td>
 
-                                    <img src="https://placehold.co/60x60/007bff/white?text=A" class="table-img" alt="Anillo de plata">
+                                    <img src="img/anillo_piedra_3.png" class="table-img" alt="Anillo de plata">
 
                                 </td>
 
-                                <td>Anillo de Plata</td>
+                                <td>Anillo Con Piedras</td>
 
                                 <td>ANI-ZAF-001</td>
 
-                                <td>Hermoso anillo de plata 925</td>
+                                <td>Hermoso anillo de oro</td>
 
-                                <td>$120</td>
+                                <td>$12.000</td>
 
                                 <td>Anillos</td>
 
@@ -207,61 +206,17 @@
 
                                 <td>
 
-                                    <img src="https://placehold.co/60x60/ffc107/black?text=C" class="table-img" alt="Collar de oro">
+                                    <img src="img/aroscolga.png" class="table-img" alt="Aros modernos">
 
                                 </td>
 
-                                <td>Collar de Oro con Diamante</td>
+                                <td>Aros Modernos</td>
 
                                 <td>COL-ORO-002</td>
 
-                                <td>Elegante collar de oro de 18k con diamante central</td>
+                                <td>Aros largos elegantes de oro</td>
 
-                                <td>$459.99</td>
-
-                                <td>Collares</td>
-
-                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>
-
-                                    <img src="https://placehold.co/60x60/6f42c1/white?text=P" class="table-img" alt="Pulsera de plata">
-
-                                </td>
-
-                                <td>Brazalete de Plata con Dijes</td>
-
-                                <td>PUL-DIJ-003</td>
-
-                                <td>Brazalete ajustable de plata con dijes personalizables</td>
-
-                                <td>$89.99</td>
-
-                                <td>Brazaletes</td>
-
-                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>
-
-                                    <img src="https://placehold.co/60x60/20c997/white?text=A" class="table-img" alt="Aros de oro">
-
-                                </td>
-
-                                <td>Aros de Oro Laminado</td>
-
-                                <td>ARO-ORO-004</td>
-
-                                <td>Aros clásicos de oro laminado, hipoalergénicos</td>
-
-                                <td>$45.50</td>
+                                <td>$15.900</td>
 
                                 <td>Aros</td>
 
@@ -273,17 +228,61 @@
 
                                 <td>
 
-                                    <img src="https://placehold.co/60x60/fd7e14/white?text=D" class="table-img" alt="Dije de plata">
+                                    <img src="img/bracelet_fino_2.jpg" class="table-img" alt="Brazalete fino">
 
                                 </td>
 
-                                <td>Anillo de Plata Corazón</td>
+                                <td>Brazalete Fino</td>
 
-                                <td>AIJ-COR-005</td>
+                                <td>PUL-DIJ-003</td>
 
-                                <td>Anillo en forma de corazón de plata 925</td>
+                                <td>Brazalete ajustable de oro</td>
 
-                                <td>$35.75</td>
+                                <td>$120</td>
+
+                                <td>Brazaletes</td>
+
+                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    <img src="img/aroscolga2.png" class="table-img" alt="Aros clásicos">
+
+                                </td>
+
+                                <td>Aros Clásicos</td>
+
+                                <td>ARO-ORO-004</td>
+
+                                <td>Aros clásicos de oro laminado, hipoalergénicos</td>
+
+                                <td>$90</td>
+
+                                <td>Aros</td>
+
+                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+
+                                    <img src="img/anillo_piedra_1.png" class="table-img" alt="Anillo con priedra">
+
+                                </td>
+
+                                <td>Anillo de Plata</td>
+
+                                <td>AN-PLA-001</td>
+
+                                <td>Anillo con piedra rubí de plata 925</td>
+
+                                <td>$35.075</td>
 
                                 <td>Anillos</td>
 
@@ -305,7 +304,7 @@
 
  
 
-    <!-- Modal para agregar producto -->
+    <!-- Ventana emergente para agregar producto -->
 
     <div class="modal fade" id="addProductModal" tabindex="-1" aria-hidden="true">
 
@@ -324,34 +323,20 @@
                 <div class="modal-body">
 
                     <form>
-
                         <div class="row">
-
                             <div class="col-md-6">
-
                                 <div class="mb-3">
-
                                     <label for="productImage" class="form-label">Imagen del Producto</label>
-
                                     <input class="form-control" type="file" id="productImage" accept="image/*">
-
                                     <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
-
                                 </div>
-
                             </div>
-
                             <div class="col-md-6">
-
                                 <div class="mb-3">
-
                                     <label for="productName" class="form-label">Nombre del Producto</label>
-
                                     <input type="text" class="form-control" id="productName" placeholder="Ej: Anillo de Plata con Zafiro" required>
-
                                 </div>
-
-                               
+                              
 
                                 <div class="mb-3">
 
@@ -453,7 +438,7 @@
 
  
 
-    <!-- Modal para modificar producto -->
+    <!-- Ventana emergente para modificar producto -->
 
     <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
 

@@ -564,3 +564,21 @@ padding: 0;
 background: linear-gradient(var(--color-texto));
 }
 
+
+/* Botón pill estilo "Ver todo" */
+.btn-luzia{
+  background: var(--color-primario);
+  color: var(--color-texto2);
+  border: 0;
+  border-radius: 16px;          /* pill */
+  padding: .5rem 1rem;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+.btn-luzia:hover,
+.btn-luzia:focus{
+  background: #a87640;          /* un tono más oscuro */
+  color: #fff;
+  box-shadow: 0 0 0 .2rem rgba(185,136,84,.25);
+}

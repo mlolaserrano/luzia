@@ -123,40 +123,25 @@
 
       <div class="carousel-inner">
 
-        <!-- Slide 1 -->
+        <!-- Slide 1, como en el home del cliente-->
 
         <div class="carousel-item active">
 
-          <img src="https://placehold.co/1200x400" class="d-block w-100" alt="Banner 1" />
+          <img src="img/banner1.jpg" class="d-block w-100" alt="Banner 1" />
 
           <div class="carousel-buttons">
-          
             <button class="btn btn-add btn-management" data-bs-toggle="modal" data-bs-target="#modalAgregar" title="Agregar">
-
               <i class="bi bi-plus-lg"></i>
-
             </button>
-          
+
             <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-
               <i class="bi bi-pencil"></i>
-
             </button>
 
             <button class="btn btn-delete btn-management" data-bs-toggle="modal" data-bs-target="#modalEliminar" title="Eliminar">
-
               <i class="bi bi-trash"></i>
-
             </button>
-
           </div>
-
-          <div class="carousel-caption d-none d-md-block">
-
-            <a href="listadoproductos.html" class="btn btn-outline-primary">Ver todo</a>
-
-          </div>
-
         </div>
 
        
@@ -164,104 +149,58 @@
         <!-- Slide 2 -->
 
         <div class="carousel-item">
-
-          <img src="https://placehold.co/1200x400" class="d-block w-100" alt="Banner 2" />
+          <img src="img/banner2.jpg" class="d-block w-100" alt="Banner 2" />
 
           <div class="carousel-buttons">
-
             <button class="btn btn-add btn-management" data-bs-toggle="modal" data-bs-target="#modalAgregar" title="Agregar">
-
               <i class="bi bi-plus-lg"></i>
-
             </button>
 
             <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-
               <i class="bi bi-pencil"></i>
-
             </button>
 
             <button class="btn btn-delete btn-management" data-bs-toggle="modal" data-bs-target="#modalEliminar" title="Eliminar">
-
               <i class="bi bi-trash"></i>
-
             </button>
 
           </div>
-
-          <div class="carousel-caption d-none d-md-block">
-
-            <button type="button" class="btn btn-outline-primary">Ver todo</button>
-
-          </div>
-
         </div>
-
-       
-
         <!-- Slide 3 -->
 
         <div class="carousel-item">
-
-          <img src="https://placehold.co/1200x400" class="d-block w-100" alt="Banner 3" />
-
+          <img src="img/banner_3.jpg" class="d-block w-100" alt="Banner 3" />
           <div class="carousel-buttons">
-
             <button class="btn btn-add btn-management" data-bs-toggle="modal" data-bs-target="#modalAgregar" title="Agregar">
-
               <i class="bi bi-plus-lg"></i>
-
             </button>
-
             <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-
               <i class="bi bi-pencil"></i>
-
             </button>
-
             <button class="btn btn-delete btn-management" data-bs-toggle="modal" data-bs-target="#modalEliminar" title="Eliminar">
-
               <i class="bi bi-trash"></i>
-
             </button>
-
           </div>
-
-          <div class="carousel-caption d-none d-md-block">
-
-            <button type="button" class="btn btn-outline-primary">Ver todo</button>
-
-          </div>
-
         </div>
 
       </div>
 
- 
-
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
         <span class="visually-hidden">Anterior</span>
-
       </button>
 
       <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-
         <span class="visually-hidden">Siguiente</span>
-
       </button>
-
     </div>
 
   </section>
 
  
 
-  <br>
+ 
 
  
 
@@ -278,7 +217,7 @@
         <div class="col">
           <div class="card h-100">
             <div class="product-img-wrap ratio-1x1">
-              <img src="https://placehold.co/600x600" class="card-img-top" alt="Producto 1">
+              <img src="img/bracelet_fino_2.jpg" class="card-img-top" alt="Producto 1">
 
               <!-- Botones de gestión -->
 
@@ -306,7 +245,7 @@
         <div class="col">
           <div class="card h-100">
             <div class="product-img-wrap ratio-1x1">
-              <img src="https://placehold.co/600x600" class="card-img-top" alt="Producto 2">
+              <img src="img/bracelet_fino_1.jpg" class="card-img-top" alt="Producto 2">
 
               <!-- Botones de gestión -->
 
@@ -340,7 +279,7 @@
         <div class="col">
           <div class="card h-100">
             <div class="product-img-wrap ratio-1x1">
-              <img src="https://placehold.co/600x600" class="card-img-top" alt="Producto 3">
+              <img src="img/bracelet_fino_5.jpg" class="card-img-top" alt="Producto 3">
 
               <!-- Botones de gestión -->
 
@@ -523,7 +462,7 @@
 
  
 
-<!-- Modal para Agregar -->
+<!-- Ventana para Agregar -->
 
 <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
 
@@ -543,48 +482,12 @@
 
         <form>
 
-          <div class="mb-3">
-
-            <label for="imagenUrl" class="form-label">URL de la Imagen</label>
-
-            <input type="url" class="form-control" id="imagenUrl" placeholder="https://ejemplo.com/imagen.jpg">
-
-          </div>
-
-          <div class="mb-3">
-
-            <label for="tituloImagen" class="form-label">Título</label>
-
-            <input type="text" class="form-control" id="tituloImagen" placeholder="Nombre del producto">
-
-          </div>
-
-          <div class="mb-3">
-
-            <label for="precioImagen" class="form-label">Precio</label>
-
-            <input type="number" class="form-control" id="precioImagen" placeholder="000.000">
-
-          </div>
-
-          <div class="mb-3">
-
-            <label for="categoriaImagen" class="form-label">Categoría</label>
-
-            <select class="form-select" id="categoriaImagen">
-
-              <option selected>Seleccione una categoría</option>
-
-              <option value="aros">Aros</option>
-
-              <option value="anillos">Anillos</option>
-
-              <option value="brazaletes">Brazaletes</option>
-
-              <option value="collares">Collares</option>
-
-            </select>
-
+         <div class="col-md-6">
+              <div class="mb-3">
+                  <label for="productImage" class="form-label">Imagen del Producto</label>
+                  <input class="form-control" type="file" id="productImage" accept="image/*">
+                  <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
+                </div>
           </div>
 
         </form>
@@ -607,89 +510,40 @@
 
  
 
-<!-- Modal para Modificar -->
+<!-- Ventana para Modificar -->
 
 <div class="modal fade" id="modalModificar" tabindex="-1" aria-labelledby="modalModificarLabel" aria-hidden="true">
-
   <div class="modal-dialog">
-
     <div class="modal-content">
-
       <div class="modal-header">
-
         <h5 class="modal-title" id="modalModificarLabel">Modificar Imagen</h5>
-
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
       </div>
-
       <div class="modal-body modal-form">
-
         <form>
 
-          <div class="mb-3">
-
-            <label for="modificarUrl" class="form-label">URL de la Imagen</label>
-
-            <input type="url" class="form-control" id="modificarUrl" value="https://placehold.co/600x600">
-
-          </div>
-
-          <div class="mb-3">
-
-            <label for="modificarTitulo" class="form-label">Título</label>
-
-            <input type="text" class="form-control" id="modificarTitulo" value="Nombre de producto">
-
-          </div>
-
-          <div class="mb-3">
-
-            <label for="modificarPrecio" class="form-label">Precio</label>
-
-            <input type="number" class="form-control" id="modificarPrecio" value="000.000">
-
-          </div>
-
-          <div class="mb-3">
-
-            <label for="modificarCategoria" class="form-label">Categoría</label>
-
-            <select class="form-select" id="modificarCategoria">
-
-              <option value="aros">Aros</option>
-
-              <option value="anillos" selected>Anillos</option>
-
-              <option value="brazaletes">Brazaletes</option>
-
-              <option value="collares">Collares</option>
-
-            </select>
-
+         <div class="col-md-6">
+              <div class="mb-3">
+                  <label for="productImage" class="form-label">Imagen del Producto</label>
+                  <input class="form-control" type="file" id="productImage" accept="image/*">
+                  <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
+                </div>
           </div>
 
         </form>
-
       </div>
 
       <div class="modal-footer">
-
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
         <button type="button" class="btn btn-dark">Guardar Cambios</button>
-
       </div>
-
     </div>
-
   </div>
-
 </div>
 
  
 
-<!-- Modal para Eliminar -->
+<!-- Ventana para Eliminar -->
 
 <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
 

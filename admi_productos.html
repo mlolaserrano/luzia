@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Productos </title>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luzia | Productos</title>
+    <title>Gestión de Productos</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -52,13 +44,15 @@
           <div class="collapse navbar-collapse d-none d-lg-flex">
             
             <div class="d-flex ms-lg-auto">
-              <a class="btn icon-btn" href="admi_logout.html" aria-label="Usuario">
-                <i class="bi bi-door-open"></i>
-              </a>
+                <a class="btn icon-btn" href="admi_inventario.html" aria-label="Usuario">
+                    <i class="bi bi-cart"></i>
+                </a> 
                 <a class="btn icon-btn" href="admi_home.html" aria-label="Usuario">
                 <i class="bi bi-eye"></i>
               </a>
-            
+            <a class="btn icon-btn" href="admi_logout.html" aria-label="Usuario">
+                <i class="bi bi-door-open"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -156,6 +150,7 @@
                                 <th scope="col">Precio</th>
                                 <th scope="col">Categoría</th>
                                 <th scope="col" class="featured-cell">Destacado</th>
+                                <th scope="col" class="text-center">Recomendado</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -165,55 +160,60 @@
                                     <img src="img/anillo_piedra_3.png" class="table-img" alt="Anillo de plata">
                                 </td>
                                 <td>Anillo Con Piedras</td>
-                                <td>ANI-ZAF-001</td>
+                                <td>ANI003</td>
                                 <td>Hermoso anillo de oro</td>
                                 <td>$12.000</td>
                                 <td>Anillos</td>
                                 <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
+                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
                             </tr>
                             <tr>
                                 <td>
                                     <img src="img/aroscolga.png" class="table-img" alt="Aros modernos">
                                 </td>
                                 <td>Aros Modernos</td>
-                                <td>COL-ORO-002</td>
+                                <td>ARO003</td>
                                 <td>Aros largos elegantes de oro</td>
                                 <td>$15.900</td>
                                 <td>Aros</td>
                                 <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
+                                <th class="text-center"><i class="bi bi-dash-circle text-muted"></i></th>
                             </tr>
                             <tr>
                                 <td>
                                     <img src="img/bracelet_fino_2.jpg" class="table-img" alt="Brazalete fino">
                                 </td>
                                 <td>Brazalete Fino</td>
-                                <td>PUL-DIJ-003</td>
+                                <td>BRA003</td>
                                 <td>Brazalete ajustable de oro</td>
                                 <td>$120</td>
                                 <td>Brazaletes</td>
                                 <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
+                                <th class="text-center"><i class="bi bi-dash-circle text-muted"></i></th>
                             </tr>
                             <tr>
                                 <td>
                                     <img src="img/aroscolga2.png" class="table-img" alt="Aros clásicos">
                                 </td>
                                 <td>Aros Clásicos</td>
-                                <td>ARO-ORO-004</td>
+                                <td>ARO004</td>
                                 <td>Aros clásicos de oro laminado, hipoalergénicos</td>
                                 <td>$90</td>
                                 <td>Aros</td>
                                 <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
+                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
                             </tr>
                             <tr>
                                 <td>
                                     <img src="img/anillo_piedra_1.png" class="table-img" alt="Anillo con priedra">
                                 </td>
                                 <td>Anillo de Plata</td>
-                                <td>AN-PLA-001</td>
+                                <td>ANI001</td>
                                 <td>Anillo con piedra rubí de plata 925</td>
                                 <td>$35.075</td>
                                 <td>Anillos</td>
                                 <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
+                                <th class="text-center"><i class="bi bi-dash-circle text-muted"></i></th>
                             </tr>
                         </tbody>
                     </table>
@@ -285,6 +285,7 @@
                         <div class="mb-3 form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="productFeatured">
                             <label class="form-check-label" for="productFeatured">Producto Destacado</label>
+                            <label class="form-check-label" for="productFeatured">Producto Rec</label>
                         </div>
                     </form>
                 </div>
@@ -370,7 +371,4 @@
       crossorigin="anonymous"
     ></script>
   </body>
-</html>
-  
-</body>
 </html>

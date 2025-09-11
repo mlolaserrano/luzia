@@ -502,6 +502,9 @@ footer {
 color: var(--color-texto);
 }
 
+.color-agg1{
+color: var(--color-primario);
+}
 .color-agg{
 color: var(--color-secundario);
 }

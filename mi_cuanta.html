@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luzia más que joyas</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style.css" />
+
+        <!-- Tipografia -->
+        <!-- Asimovian -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+   <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid position-relative">
+          <!-- Brand fijo centrado -->
+          <a class="navbar-brand navbar-brand-top" href="index.html">LUZIA</a>
+
+          <!-- Toggler abre el panel derecho -->
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#menuRight"
+            aria-controls="menuRight"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Menú desktop normal -->
+          <div class="collapse navbar-collapse d-none d-lg-flex">
+            <ul class="navbar-nav mx-lg-3 me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="productos_aros.html">Aros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="productos_anillos.html">Anillos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="producto_brazaletes.html"
+                  >Brazaletes</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="productos_collares.html">Collares</a>
+              </li>
+            </ul>
+            <div class="d-flex ms-lg-auto">
+              <a class="btn icon-btn" href="login.html" aria-label="Usuario"
+                ><i class="bi bi-person"></i
+              ></a>
+              <a
+                class="btn icon-btn position-relative"
+                href="carrito.html"
+                aria-label="Carrito"
+              >
+                <i class="bi bi-cart"></i><span class="cart-counter">0</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Offcanvas móvil a la derecha -->
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="menuRight"
+        aria-labelledby="menuRightLabel"
+      >
+        <div class="offcanvas-header justify-content-center">
+          <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
+          <button
+            type="button"
+            class="btn-close position-absolute end-0 me-3"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="offcanvas-body">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link py-2" href="productos_aros.html">Aros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2" href="productos_anillos.html">Anillos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2" href="producto_brazaletes.html"
+                >Brazaletes</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link py-2" href="productos_collares.html"
+                >Collares</a
+              >
+            </li>
+          </ul>
+
+          <hr class="my-3" />
+
+          <div class="d-flex justify-content-center gap-3">
+            <a href="login.html"><i class="bi bi-person fs-5"></i></a>
+            <a href="carrito.html" class="position-relative">
+              <i class="bi bi-cart fs-5"></i>
+              <span class="cart-counter">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="container py-5">
+  <h2 class="mb-4 text-center titulo">Mi cuenta</h2>
+
+  <div class="row g-4">
+
+    <!--  MIS DATOS -->
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Mis datos</h5>
+          <hr>
+          <p><strong>Nombre:</strong> Pepa Mariquiita</p>
+          <p><strong>Email:</strong> marqui44402@outlook.com</p>
+          <p><strong>DNI:</strong> 39421345</p>
+          <p><strong>Teléfono:</strong> +54 11 6858 0000</p>
+          <button class="btn btn-luzia" data-bs-toggle="modal" data-bs-target="#modalEditarDatos">
+            <i class="bi bi-pencil-square"></i> Editar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!--  MIS COMPRAS -->
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Mis compras</h5>
+          <hr>
+          <p>
+            <button class="btn btn-outline-dark p-2 text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalOrden3999">
+                <strong>Orden #3999</strong>
+            </button> — 01/08/2025
+        </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MIS DIRECCIONES -->
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-body">
+            <hr>
+          <h5 class="card-title">Mis direcciones</h5>
+          <p>Coso 4085 11-A<br>Nuñez, Capital Federal, 1428<br>Argentina</p>
+          <button class="btn btn-luzia" data-bs-toggle="modal" data-bs-target="#modalEditarDireccion">
+            <i class="bi bi-pencil-square"></i> Editar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCIONES DE CUENTA -->
+    <div class="col-12 text-center pt-4">
+      <button class="btn btn-outline-dark me-2" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion">
+        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+      </button>
+      <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalCerrarCuenta">
+        <i class="bi bi-person-x"></i> Eliminar cuenta
+      </button>
+    </div>
+
+  </div>
+</section>
+<!--mod de editar info personal-->
+<div class="modal fade" id="modalEditarDatos" tabindex="-1" aria-labelledby="modalEditarDatosLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEditarDatosLabel">Editar mis datos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Nombre completo</label>
+            <input type="text" class="form-control" value="Mariana Gonzalez">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" value="mariana.gonzalez02@outlook.com">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">DNI</label>
+            <input type="text" class="form-control" value="39421345">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" value="+54 11 6858 3913">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-dark">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--mod de orden-->
+<div class="modal fade" id="modalOrden3999" tabindex="-1" aria-labelledby="modalOrden3999Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalOrden3999Label">Detalle de la Orden #3999</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <p><strong>Fecha:</strong> 01/08/2025</p>
+        <p><strong>Estado:</strong> Entregado</p>
+        <hr>
+        <h6>Productos:</h6>
+<ul class="list-unstyled">
+  <li class="d-flex align-items-center mb-3">
+    <img src="img/anillo_piedra_1.png" alt="Anillo de plata" class="me-3 rounded" style="width: 60px; height: auto;">
+    <div>
+      <p class="mb-0"><strong>Anillo de plata con piedra roja</strong></p>
+      <small>$15.200</small>
+    </div>
+  </li>
+  <li class="d-flex align-items-center mb-3">
+    <img src="img/gargantilla.png" alt="Cadena dorada" class="me-3 rounded" style="width: 60px; height: auto;">
+    <div>
+      <p class="mb-0"><strong>Cadena dorada 30cm</strong></p>
+      <small>$10.800</small>
+    </div>
+  </li>
+</ul>
+        <hr>
+        <p><strong>Total:</strong> $26.000</p>
+        <p><strong>Envío a:</strong> Coso 4085 11-A, Nuñez, Capital Federal</p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--mod de editar dirección-->
+<div class="modal fade" id="modalEditarDireccion" tabindex="-1" aria-labelledby="modalEditarDireccionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEditarDireccionLabel">Editar dirección</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Calle y número</label>
+            <input type="text" class="form-control" value="Del Signo 4085 7A">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Barrio</label>
+            <input type="text" class="form-control" value="Palermo">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Ciudad</label>
+            <input type="text" class="form-control" value="Capital Federal">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Código postal</label>
+            <input type="text" class="form-control" value="1425">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">País</label>
+            <input type="text" class="form-control" value="Argentina">
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-dark">Guardar dirección</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--mod de cerrar sesión-->
+<div class="modal fade" id="modalCerrarSesion" tabindex="-1" aria-labelledby="modalCerrarSesionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCerrarSesionLabel">¿Cerrar sesión?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás segura de que querés cerrar sesión?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <a href="logout.html" class="btn btn-dark">Cerrar sesión</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalCerrarCuenta" tabindex="-1" aria-labelledby="modalCerrarCuentaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCerrarCuentaLabel">¿Cerrar cuenta?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <i class="bi bi-exclamation-triangle text-danger" style="font-size: 2rem;"></i>
+        <p class="mt-3">Esta acción eliminará tu cuenta de forma permanente.</p>
+        <div class="alert alert-warning">No podrás recuperar tus datos ni tus compras.</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <a href="delete_account.html" class="btn btn-danger">Eliminar cuenta</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer class="mt-5">
+  <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <a href="politicas.html">Política de privacidad</a>
+    <a href="terminos.html">Términos y condiciones</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

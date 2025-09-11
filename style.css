@@ -391,32 +391,6 @@ a {
 }
 
 
-/* Esto es para no tener el borde negro en detalle de produ */ 
-.thumbnail-btn {
-  border: none;
-  background: none;
-  padding: 0;
-  opacity: 0.7;
-  transition: opacity 0.3s ease, border 0.3s ease;
-}
-
-
-/* Estilo para la miniatura activa */
-.thumbnail-btn.active {
-  opacity: 1;
-}
-
-
-.thumbnail-btn img {
-  border: 2px solid transparent;
-}
-
-
-.thumbnail-btn.active img {
-  border-color: var(--color-primario);
-}
-
-
 /*
     Productos recomendados
 */

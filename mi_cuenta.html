@@ -130,28 +130,50 @@
         </div>
       </div>
     </header>
-
+<!--  MIS PERFIL -->
     <section class="container py-5">
   <h2 class="mb-4 text-center titulo">Mi cuenta</h2>
 
   <div class="row g-4">
 
-    <!--  MIS DATOS -->
-    <div class="col-12">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">Mis datos</h5>
-          <hr>
-          <p><strong>Nombre:</strong> Pepa Mariquiita</p>
-          <p><strong>Email:</strong> marqui44402@outlook.com</p>
-          <p><strong>DNI:</strong> 39421345</p>
-          <p><strong>Teléfono:</strong> +54 11 6858 0000</p>
-          <button class="btn btn-luzia" data-bs-toggle="modal" data-bs-target="#modalEditarDatos">
-            <i class="bi bi-pencil-square"></i> Editar
-          </button>
-        </div>
+    <!-- MIS DATOS CON FOTO Y ESTILO -->
+<div class="col-12">
+  <div class="card shadow-sm">
+    <div class="card-body d-flex flex-column flex-md-row align-items-center gap-4">
+
+      <!-- Imagen de perfil -->
+      <div class="text-center">
+        <img src="img/pepa.jpeg" alt="Foto de perfil" class="rounded-circle border" style="width: 120px; height: 120px; object-fit: cover;">
+        <label class="form-text mt-2 text-muted">Cambiar foto</label>
       </div>
+
+      <!-- Datos del usuario -->
+      <div class="flex-grow-1">
+        <h5 class="card-title mb-3">Mis datos</h5>
+        <div class="mb-2">
+          <i class="bi bi-person-fill me-2 text-secondary"></i>
+          <strong>Nombre:</strong> Pepa Mariquiita
+        </div>
+        <div class="mb-2">
+          <i class="bi bi-envelope-fill me-2 text-secondary"></i>
+          <strong>Email:</strong> marqui44402@outlook.com
+        </div>
+        <div class="mb-2">
+          <i class="bi bi-credit-card-2-front-fill me-2 text-secondary"></i>
+          <strong>DNI:</strong> 39421345
+        </div>
+        <div class="mb-2">
+          <i class="bi bi-telephone-fill me-2 text-secondary"></i>
+          <strong>Teléfono:</strong> +54 11 6858 0000
+        </div>
+        <button class="btn btn-luzia mt-3" data-bs-toggle="modal" data-bs-target="#modalEditarDatos">
+          <i class="bi bi-pencil-square"></i> Editar
+        </button>
+      </div>
+
     </div>
+  </div>
+</div>
 
     <!--  MIS COMPRAS -->
     <div class="col-12">
@@ -206,11 +228,11 @@
         <form>
           <div class="mb-3">
             <label class="form-label">Nombre completo</label>
-            <input type="text" class="form-control" value="Mariana Gonzalez">
+            <input type="text" class="form-control" value="Pepa Mariquiita">
           </div>
           <div class="mb-3">
             <label class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" value="mariana.gonzalez02@outlook.com">
+            <input type="email" class="form-control" value="marqui44402@outlook.com">
           </div>
           <div class="mb-3">
             <label class="form-label">DNI</label>
@@ -218,13 +240,13 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Teléfono</label>
-            <input type="tel" class="form-control" value="+54 11 6858 3913">
+            <input type="tel" class="form-control" value="+54 11 6858 0000">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-dark">Guardar cambios</button>
+        <button type="button" class="btn btn-luzia" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-luzia">Guardar cambios</button>
       </div>
     </div>
   </div>
@@ -266,7 +288,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-luzia" data-bs-dismiss="modal">Cerrar</button>
       </div>
 
     </div>
@@ -308,8 +330,8 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-dark">Guardar dirección</button>
+        <button type="button" class="btn btn-luzia" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-luzia">Guardar dirección</button>
       </div>
 
     </div>
@@ -337,7 +359,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalCerrarCuentaLabel">¿Cerrar cuenta?</h5>
+        <h5 class="modal-title" id="modalCerrarCuentaLabel">¿Eliminar cuenta?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body text-center">
@@ -346,8 +368,8 @@
         <div class="alert alert-warning">No podrás recuperar tus datos ni tus compras.</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <a href="delete_account.html" class="btn btn-danger">Eliminar cuenta</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, cancelar</button>
+        <a href="delete_account.html" class="btn btn-danger">Sí, eliminar</a>
       </div>
     </div>
   </div>

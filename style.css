@@ -761,6 +761,11 @@ a{
 .tab-content {
   padding: 0;
 }
+
+/*para editar el color de Registrar administrador e Iniciar Sesión*/
+.nav-link{
+  color:var(--color-primario);
+}
 .nav-tabs .nav-link {
   border: none;
   border-radius: 0;

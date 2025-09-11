@@ -1,91 +1,148 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
   <head>
+
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Administrador</title>
 
+ 
+
     <!-- Bootstrap CSS -->
+
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+
+      href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
+
       rel="stylesheet"
+
       crossorigin="anonymous"
+
     />
+
     <!-- Bootstrap Icons -->
+
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+
+      href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css
+
       rel="stylesheet"
+
     />
+
     <!-- Estilos personalizados -->
+
     <link rel="stylesheet" href="style.css" />
 
-        <!-- Tipografia -->
-        <!-- Asimovian -->
+ 
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap" rel="stylesheet">
+    <!-- Tipografia -->
+
+    <!-- Asimovian -->
+
+    <link rel="preconnect" href=https://fonts.googleapis.com>
+
+    <link rel="preconnect" href=https://fonts.gstatic.com crossorigin>
+
+    <link href=https://fonts.googleapis.com/css2?family=Asimovian&display=swap rel="stylesheet">
+
 
   </head>
 
   <body>
-
    <header>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid position-relative">
           <!-- Brand fijo centrado -->
           <a class="navbar-brand navbar-brand-top" href="admi_home.html">LUZIA</a>
-
           <!-- Toggler abre el panel derecho -->
           <button
             class="navbar-toggler ms-auto"
             type="button"
             data-bs-toggle="offcanvas"
-            data-bs-target="#menuRight"
-            aria-controls="menuRight"
-            aria-label="Toggle navigation"
+ 
           >
-            <span class="navbar-toggler-icon"></span>
+
           </button>
 
+ 
+
           <!-- Menú desktop normal -->
+
           <div class="collapse navbar-collapse d-none d-lg-flex">
-            
+
+           
+
             <div class="d-flex ms-lg-auto">
+
               <a class="btn icon-btn" href="admi_productos.html" aria-label="Usuario">
+
                 <i class="bi bi-gear"></i>
+
               </a>
-            
+
+           
+
             </div>
+
           </div>
+
         </div>
+
       </nav>
+
+
  
 
       <!-- Offcanvas móvil a la derecha -->
 
       <div
+
         class="offcanvas offcanvas-end"
+
         tabindex="-1"
+
         id="menuRight"
+
         aria-labelledby="menuRightLabel"
+
       >
+
         <div class="offcanvas-header justify-content-center">
+
           <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
+
           <button
+
             type="button"
+
             class="btn-close position-absolute end-0 me-3"
+
             data-bs-dismiss="offcanvas"
+
             aria-label="Close"
+
           ></button>
+
         </div>
+
       </div>
+
     </header>
 
  
 
+
+ 
+
 <main>
+
+ 
 
   <!-- Carrusel -->
 
@@ -114,133 +171,290 @@
           <img src="img/banner1.jpg" class="d-block w-100" alt="Banner 1" />
 
           <div class="carousel-buttons">
+
             <button class="btn btn-add btn-management" data-bs-toggle="modal" data-bs-target="#modalAgregar" title="Agregar">
+
               <i class="bi bi-plus-lg"></i>
+
             </button>
+
+ 
 
             <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
+
               <i class="bi bi-pencil"></i>
+
             </button>
+
+ 
 
             <button class="btn btn-delete btn-management" data-bs-toggle="modal" data-bs-target="#modalEliminar" title="Eliminar">
+
               <i class="bi bi-trash"></i>
+
             </button>
+
           </div>
+
         </div>
 
-       
+      
 
         <!-- Slide 2 -->
 
         <div class="carousel-item">
+
           <img src="img/banner2.jpg" class="d-block w-100" alt="Banner 2" />
 
           <div class="carousel-buttons">
+
             <button class="btn btn-add btn-management" data-bs-toggle="modal" data-bs-target="#modalAgregar" title="Agregar">
+
               <i class="bi bi-plus-lg"></i>
+
             </button>
+
+ 
 
             <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
+
               <i class="bi bi-pencil"></i>
+
             </button>
 
+ 
+
             <button class="btn btn-delete btn-management" data-bs-toggle="modal" data-bs-target="#modalEliminar" title="Eliminar">
+
               <i class="bi bi-trash"></i>
+
             </button>
 
           </div>
+
         </div>
+
+       
+
         <!-- Slide 3 -->
 
         <div class="carousel-item">
+
           <img src="img/banner_3.jpg" class="d-block w-100" alt="Banner 3" />
+
           <div class="carousel-buttons">
+
             <button class="btn btn-add btn-management" data-bs-toggle="modal" data-bs-target="#modalAgregar" title="Agregar">
+
               <i class="bi bi-plus-lg"></i>
+
             </button>
+
             <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
+
               <i class="bi bi-pencil"></i>
+
             </button>
+
             <button class="btn btn-delete btn-management" data-bs-toggle="modal" data-bs-target="#modalEliminar" title="Eliminar">
+
               <i class="bi bi-trash"></i>
+
             </button>
+
           </div>
+
         </div>
 
       </div>
 
+ 
+
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
         <span class="visually-hidden">Anterior</span>
+
       </button>
 
+ 
+
       <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
         <span class="visually-hidden">Siguiente</span>
+
       </button>
+
     </div>
 
   </section>
-<br> <!--Para darle espacio entre bloque y bloque-->
+
+ 
+
+  <br> <!--Para darle espacio entre bloque y bloque-->
+
+ 
+
   <!-- Productos -->
 
   <article>
 
     <h1 class="display-4">Productos Destacados</h1>
+
      <div class="container py-4">
+
       <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+
+ 
 
         <!-- Producto 1 -->
 
         <div class="col">
+
           <div class="card h-100">
+
             <div class="product-img-wrap ratio-1x1">
+
               <img src="img/bracelet_fino_2.jpg" class="card-img-top" alt="Producto 1">
+
+ 
 
               <!-- Botones de gestión -->
 
               <div class="management-buttons">
+
                 <button class="btn btn-add btn-management" data-bs-toggle="modal" data-bs-target="#modalAgregar" title="Agregar">
+
                   <i class="bi bi-plus-lg"></i>
+
                 </button>
+
                 <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
+
                   <i class="bi bi-pencil"></i>
+
                 </button>
+
                 <button class="btn btn-delete btn-management" data-bs-toggle="modal" data-bs-target="#modalEliminar" title="Eliminar">
+
                   <i class="bi bi-trash"></i>
+
                 </button>
-              </div>            
+
+              </div>           
+
             </div>
-            <div class="card-body">
+
+            <div class="card-body position-relative">
+
+              <!-- Botones para gestionar el texto (nuevos) -->
+
+              <div class="text-management-buttons">
+
+                <button class="btn btn-add btn-text-management" data-bs-toggle="modal" data-bs-target="#modalAgregarTexto" title="Agregar texto">
+
+                  <i class="bi bi-plus-lg"></i>
+
+                </button>
+
+                <button class="btn btn-modify btn-text-management" data-bs-toggle="modal" data-bs-target="#modalModificarTexto" title="Modificar texto">
+
+                  <i class="bi bi-pencil"></i>
+
+                </button>
+
+                <button class="btn btn-delete btn-text-management" data-bs-toggle="modal" data-bs-target="#modalEliminarTexto" title="Eliminar texto">
+
+                  <i class="bi bi-trash"></i>
+
+                </button>
+
+              </div>
+
+             
+
               <h6 class="card-title text-uppercase fw-bold mb-1">Nombre de producto</h6>
+
               <p class="mb-0">$00.000</p>
+
             </div>
+
           </div>
+
         </div>
+
+ 
 
          <!-- Producto 2 -->
 
         <div class="col">
+
           <div class="card h-100">
+
             <div class="product-img-wrap ratio-1x1">
+
               <img src="img/bracelet_fino_1.jpg" class="card-img-top" alt="Producto 2">
+
+ 
 
               <!-- Botones de gestión -->
 
               <div class="management-buttons">
+
                 <button class="btn btn-add btn-management" data-bs-toggle="modal" data-bs-target="#modalAgregar" title="Agregar">
+
                   <i class="bi bi-plus-lg"></i>
+
                 </button>
+
                 <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
+
                   <i class="bi bi-pencil"></i>
+
                 </button>
+
                 <button class="btn btn-delete btn-management" data-bs-toggle="modal" data-bs-target="#modalEliminar" title="Eliminar">
+
                   <i class="bi bi-trash"></i>
+
                 </button>
+
               </div>
+
             </div>
 
-            <div class="card-body">
+ 
+
+            <div class="card-body position-relative">
+
+              <!-- Botones para gestionar el texto (nuevos) -->
+
+              <div class="text-management-buttons">
+
+                <button class="btn btn-add btn-text-management" data-bs-toggle="modal" data-bs-target="#modalAgregarTexto" title="Agregar texto">
+
+                  <i class="bi bi-plus-lg"></i>
+
+                </button>
+
+                <button class="btn btn-modify btn-text-management" data-bs-toggle="modal" data-bs-target="#modalModificarTexto" title="Modificar texto">
+
+                  <i class="bi bi-pencil"></i>
+
+                </button>
+
+                <button class="btn btn-delete btn-text-management" data-bs-toggle="modal" data-bs-target="#modalEliminarTexto" title="Eliminar texto">
+
+                  <i class="bi bi-trash"></i>
+
+                </button>
+
+              </div>
+
+ 
 
               <h6 class="card-title text-uppercase fw-bold mb-1">Nombre de producto</h6>
 
@@ -252,32 +466,82 @@
 
         </div>
 
+ 
+
         <!-- Producto 3 -->
 
         <div class="col">
+
           <div class="card h-100">
+
             <div class="product-img-wrap ratio-1x1">
+
               <img src="img/bracelet_fino_5.jpg" class="card-img-top" alt="Producto 3">
+
+ 
 
               <!-- Botones de gestión -->
 
               <div class="management-buttons">
+
                 <button class="btn btn-add btn-management" data-bs-toggle="modal" data-bs-target="#modalAgregar" title="Agregar">
+
                   <i class="bi bi-plus-lg"></i>
+
                 </button>
+
                 <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
+
                   <i class="bi bi-pencil"></i>
+
                 </button>
+
                 <button class="btn btn-delete btn-management" data-bs-toggle="modal" data-bs-target="#modalEliminar" title="Eliminar">
+
                   <i class="bi bi-trash"></i>
+
                 </button>
+
               </div>
+
             </div>
-            <div class="card-body">
+
+            <div class="card-body position-relative">
+
+              <!-- Botones para gestionar el texto (nuevos) -->
+
+              <div class="text-management-buttons">
+
+                <button class="btn btn-add btn-text-management" data-bs-toggle="modal" data-bs-target="#modalAgregarTexto" title="Agregar texto">
+
+                  <i class="bi bi-plus-lg"></i>
+
+                </button>
+
+                <button class="btn btn-modify btn-text-management" data-bs-toggle="modal" data-bs-target="#modalModificarTexto" title="Modificar texto">
+
+                  <i class="bi bi-pencil"></i>
+
+                </button>
+
+                <button class="btn btn-delete btn-text-management" data-bs-toggle="modal" data-bs-target="#modalEliminarTexto" title="Eliminar texto">
+
+                  <i class="bi bi-trash"></i>
+
+                </button>
+
+              </div>
+
+             
+
               <h6 class="card-title text-uppercase fw-bold mb-1">Nombre de producto</h6>
+
               <p class="mb-0">$00.000</p>
+
             </div>
+
           </div>
+
         </div>
 
  
@@ -292,6 +556,8 @@
 
               <img src="img/bracelet_7.png" class="card-img-top" alt="Producto 4">
 
+ 
+
               <!-- Botones de gestión -->
 
               <div class="management-buttons">
@@ -318,7 +584,35 @@
 
             </div>
 
-            <div class="card-body">
+ 
+
+            <div class="card-body position-relative">
+
+              <!-- Botones para gestionar el texto (nuevos) -->
+
+              <div class="text-management-buttons">
+
+                <button class="btn btn-add btn-text-management" data-bs-toggle="modal" data-bs-target="#modalAgregarTexto" title="Agregar texto">
+
+                  <i class="bi bi-plus-lg"></i>
+
+                </button>
+
+                <button class="btn btn-modify btn-text-management" data-bs-toggle="modal" data-bs-target="#modalModificarTexto" title="Modificar texto">
+
+                  <i class="bi bi-pencil"></i>
+
+                </button>
+
+                <button class="btn btn-delete btn-text-management" data-bs-toggle="modal" data-bs-target="#modalEliminarTexto" title="Eliminar texto">
+
+                  <i class="bi bi-trash"></i>
+
+                </button>
+
+              </div>
+
+ 
 
               <h6 class="card-title text-uppercase fw-bold mb-1">Nombre de producto</h6>
 
@@ -336,6 +630,8 @@
 
   </article>
 
+ 
+
 <!-- Contenedores de promos -->
 
   <article>
@@ -343,6 +639,8 @@
     <div class="container-fluid px-0">
 
       <div class="row g-0">
+
+ 
 
         <!-- Panel izquierdo -->
 
@@ -386,7 +684,6 @@
 
         </div>
 
- 
 
         <!-- Panel derecho -->
 
@@ -436,9 +733,12 @@
 
   </article>
 
+ 
+
 </main>
 
  
+
 
 <!-- Ventana para Agregar -->
 
@@ -461,11 +761,17 @@
         <form>
 
          <div class="col-md-6">
+
               <div class="mb-3">
+
                   <label for="productImage" class="form-label">Imagen del Producto</label>
+
                   <input class="form-control" type="file" id="productImage" accept="image/*">
+
                   <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
+
               </div>
+
           </div>
 
         </form>
@@ -488,38 +794,63 @@
 
  
 
+
 <!-- Ventana para Modificar -->
 
 <div class="modal fade" id="modalModificar" tabindex="-1" aria-labelledby="modalModificarLabel" aria-hidden="true">
+
   <div class="modal-dialog">
+
     <div class="modal-content">
+
       <div class="modal-header">
+
         <h5 class="modal-title" id="modalModificarLabel">Modificar Imagen</h5>
+
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
       </div>
+
       <div class="modal-body modal-form">
+
         <form>
 
          <div class="col-md-6">
+
               <div class="mb-3">
+
                   <label for="productImage" class="form-label">Imagen del Producto</label>
+
                   <input class="form-control" type="file" id="productImage" accept="image/*">
+
                   <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
+
                 </div>
+
           </div>
 
         </form>
+
       </div>
 
+ 
+
       <div class="modal-footer">
+
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
         <button type="button" class="btn btn-dark">Guardar Cambios</button>
+
       </div>
+
     </div>
+
   </div>
+
 </div>
 
  
+
 
 <!-- Ventana para Eliminar -->
 
@@ -571,22 +902,195 @@
 
  
 
+<!-- Nuevos modales para gestión de texto (Agregar, Modificar, Eliminar) -->
+
+<!-- Modal para Agregar Texto -->
+
+<div class="modal fade" id="modalAgregarTexto" tabindex="-1" aria-labelledby="modalAgregarTextoLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h5 class="modal-title" id="modalAgregarTextoLabel">Agregar Texto del Producto</h5>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <form>
+
+          <div class="mb-3">
+
+            <label for="productName" class="form-label">Nombre del Producto</label>
+
+            <input type="text" class="form-control" id="productName">
+
+          </div>
+
+          <div class="mb-3">
+
+            <label for="productPrice" class="form-label">Precio</label>
+
+            <input type="text" class="form-control" id="productPrice">
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+        <button type="button" class="btn btn-dark">Agregar Texto</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+ 
+
+<!-- Modal para Modificar Texto -->
+
+<div class="modal fade" id="modalModificarTexto" tabindex="-1" aria-labelledby="modalModificarTextoLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h5 class="modal-title" id="modalModificarTextoLabel">Modificar Texto del Producto</h5>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <form>
+
+          <div class="mb-3">
+
+            <label for="editProductName" class="form-label">Nombre del Producto</label>
+
+            <input type="text" class="form-control" id="editProductName" value="Nombre de producto">
+
+          </div>
+
+          <div class="mb-3">
+
+            <label for="editProductPrice" class="form-label">Precio</label>
+
+            <input type="text" class="form-control" id="editProductPrice" value="$00.000">
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+        <button type="button" class="btn btn-dark">Guardar Cambios</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+ 
+
+<!-- Modal para Eliminar Texto -->
+
+<div class="modal fade" id="modalEliminarTexto" tabindex="-1" aria-labelledby="modalEliminarTextoLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h5 class="modal-title" id="modalEliminarTextoLabel">Eliminar Texto del Producto</h5>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="text-center mb-4">
+
+          <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
+
+        </div>
+
+        <p class="text-center">¿Está seguro que desea eliminar el texto de este producto?</p>
+
+        <div class="alert alert-warning" role="alert">
+
+          <i class="bi bi-info-circle"></i> Esta acción no se puede deshacer.
+
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+        <button type="button" class="btn btn-dark">Eliminar Texto</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+ 
+
 <footer class="mt-5">
 
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
+
   <div class="d-flex flex-wrap justify-content-center gap-3">
+
     <a href="#">Política de privacidad</a>
+
     <a href="#">Términos y condiciones</a>
+
     <a href="#">Contacto</a>
+
   </div>
 
 </footer>
 
  
 
+
 <!-- Bootstrap JS -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js crossorigin="anonymous"></script>
+
+ 
 
 </body>
+
 </html>

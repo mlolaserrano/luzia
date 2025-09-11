@@ -555,7 +555,7 @@ overflow: hidden;
 }
 
  /* Estilos para los botones de gestión */
-
+/*IMAGENES*/
 .management-buttons {
 position: absolute;
 top: 10px;
@@ -580,12 +580,57 @@ transition: all 0.2s ease;
 font-size: 0.9rem;
 }
 
-     
-
 .btn-management:hover {
 transform: scale(1.15);
 background-color: var(--color-secundario);
 }
+
+/*TEXTOS*/
+/* Estilos para los nuevos botones de gestión de texto */
+
+      .text-management-buttons {
+
+        position: absolute;
+
+        top: 5px;
+
+        right: 5px;
+
+        display: none;
+
+        z-index: 10;
+
+      }
+
+     
+
+      .card-body:hover .text-management-buttons {
+
+        display: flex;
+
+      }
+
+     
+
+      .btn-text-management {
+
+        width: 28px;
+
+        height: 28px;
+
+        padding: 0;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 50%;
+
+        margin-left: 3px;
+
+      }
 
 .btn-add { /* bot+on para agregar */
 color: var(--color-texto2); /*color del ícono solo*/ 

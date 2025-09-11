@@ -723,13 +723,13 @@ a{
   padding: 20px;
 }
 .auth-container {
-            background: var(--color-texto2);
-            border-radius: 15px;
-            box-shadow: var(--color-texto2);
-            overflow: hidden;
-            width: 100%;
-            max-width: 400px;
-        }
+  background: var(--color-texto2);
+  border-radius: 15px;
+  box-shadow: var(--color-texto2);
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+}
 .auth-header {
   background: var(--color-primario);
   color: var(--color-texto2);
@@ -749,26 +749,25 @@ a{
   border-color: var(--color-primario);
   box-shadow: 0 0 0 0.25rem rgba(255, 51, 61, 0.25);
 }
-        .btn-admin {
-            background: var(--color-primario);
-            border: none;
-            padding: 10px;
+.btn-admin {
+  background: var(--color-primario);
+  border: none;
+  padding: 10px;
+}
+.btn-admin:hover {
+  background-color: var(--color-secundario);
+  color:var(--color-texto2);
+}
+.tab-content {
+  padding: 0;
+}
+.nav-tabs .nav-link {
+  border: none;
+  border-radius: 0;
+  padding: 15px;
+  font-weight: 500;
         }
-        .btn-admin:hover {
-            background-color: var(--color-secundario);
-            color:var(--color-texto2);
-        }
-
-        .tab-content {
-            padding: 0;
-        }
-        .nav-tabs .nav-link {
-            border: none;
-            border-radius: 0;
-            padding: 15px;
-            font-weight: 500;
-        }
-        .nav-tabs .nav-link.active {
-            background: #f8f9fa;
-            border-bottom: 3px solid var(--color-texto);
-        }
+.nav-tabs .nav-link.active {
+  background:var(--color-texto2);
+  border-bottom: 3px solid var(--color-texto);
+}

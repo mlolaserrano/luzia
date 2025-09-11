@@ -521,7 +521,7 @@ padding: 0;
 
 /* Lista de productos*/
 .card-header {
-background: linear-gradient(var(--color-texto));
+background: var(--color-primario);
 }
 
 /* Estilos del admin_promos*/
@@ -768,3 +768,14 @@ a{
   background:var(--color-texto2);
   border-bottom: 3px solid var(--color-texto);
 }
+
+/*Estilos Pantalla de Gestión de Inventario*/
+.stock-bajo {
+  background-color: var(--color-texto2);
+}
+.stock-medio {
+  background-color: var(--color-texto2);
+}
+.stock-alto {
+            background-color: var(--color-texto2);
+        } 

@@ -450,49 +450,19 @@ main {
   flex: 1;
 }
 
-.negrita {
-    font-family: minigap;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: bolder;
-    font-variant: normal;
-	text-align: justify;
-}
 .titulo {
-    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
     font-size: 32px;
     font-style: normal;
     font-weight: bold;
     font-variant: normal;
     color: var(--color-primario);
-	text-align: center;
 }
 .subtitulo {
-    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
     font-size: 25px;
     font-style: normal;
     font-weight: medium;
     font-variant: normal;
     color: var(--color-primario);
-	text-align: center;
-}
-#cuerpo {
-	border-width: 0px;
-	border-style: none;
-	margin-left: auto;
-	margin-right: auto;
-  color: var(--color-texto);
-	height: 600px;
-	width: 1100px;
-  margin-top: 15px;
-  margin-bottom: 5px;
-}
-#principal3 {
-	background-color: #FFF;
-	border-width: 0px;
-	border-style: none;
-	margin-left: auto;
-	margin-right: auto;
 }
 /* Empuja el footer hacia abajo aunque el contenido sea corto */
 footer {
@@ -506,6 +476,9 @@ footer {
 color: var(--color-texto);
 }
 
+.color-agg1{
+color: var(--color-primario);
+}
 .color-agg{
 color: var(--color-secundario);
 }
@@ -558,24 +531,8 @@ position: relative;
 overflow: hidden;
 }
 
-.category-panel {
-position: relative;
-overflow: hidden;
-}
-
-.category-panel img {
-width: 100%;
-height: 300px;
-object-fit: cover;
-transition: transform 0.3s ease;
-}
-
-.category-panel:hover img {
-transform: scale(1.05);
-}
-
  /* Estilos para los botones de gestión */
-
+/*IMAGENES*/
 .management-buttons {
 position: absolute;
 top: 10px;
@@ -600,12 +557,57 @@ transition: all 0.2s ease;
 font-size: 0.9rem;
 }
 
-     
-
 .btn-management:hover {
 transform: scale(1.15);
 background-color: var(--color-secundario);
 }
+
+/*TEXTOS*/
+/* Estilos para los nuevos botones de gestión de texto */
+
+      .text-management-buttons {
+
+        position: absolute;
+
+        top: 5px;
+
+        right: 5px;
+
+        display: none;
+
+        z-index: 10;
+
+      }
+
+     
+
+      .card-body:hover .text-management-buttons {
+
+        display: flex;
+
+      }
+
+     
+
+      .btn-text-management {
+
+        width: 28px;
+
+        height: 28px;
+
+        padding: 0;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 50%;
+
+        margin-left: 3px;
+
+      }
 
 .btn-add { /* bot+on para agregar */
 color: var(--color-texto2); /*color del ícono solo*/ 
@@ -650,12 +652,12 @@ margin-bottom: 1rem;
 }
 
 .modal-form label {
-font-weight: 500;
-margin-bottom: 0.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .mi-color-agregar{
-color:var(--color-primario);
+  color:var(--color-primario);
 }
 
 /* Botón pill estilo "Ver todo" */
@@ -700,4 +702,69 @@ color:var(--color-primario);
 a{
   list-style: none;
   text-decoration: none;
+}
+
+
+/*Login administrador*/ 
+.mi-body{
+  background: var(--color-texto2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.auth-container {
+  background: var(--color-texto2);
+  border-radius: 15px;
+  box-shadow: var(--color-texto2);
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+}
+.auth-header {
+  background: var(--color-primario);
+  color: var(--color-texto2);
+  padding: 20px;
+  text-align: center;
+}
+.auth-form {
+  padding: 25px;
+}
+
+.color-ingresar{
+  color: var(--color-texto2);
+}
+
+
+.form-control:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 0.25rem rgba(255, 51, 61, 0.25);
+}
+.btn-admin {
+  background: var(--color-primario);
+  border: none;
+  padding: 10px;
+}
+.btn-admin:hover {
+  background-color: var(--color-secundario);
+  color:var(--color-texto2);
+}
+.tab-content {
+  padding: 0;
+}
+
+/*para editar el color de Registrar administrador e Iniciar Sesión*/
+.nav-link{
+  color:var(--color-primario);
+}
+.nav-tabs .nav-link {
+  border: none;
+  border-radius: 0;
+  padding: 15px;
+  font-weight: 500;
+        }
+.nav-tabs .nav-link.active {
+  background:var(--color-texto2);
+  border-bottom: 3px solid var(--color-texto);
 }

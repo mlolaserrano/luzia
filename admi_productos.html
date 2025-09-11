@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario | Productos </title>
+    <title>Gestión de Productos </title>
 </head>
 <body>
 <!DOCTYPE html>
@@ -45,19 +45,18 @@
             class="navbar-toggler ms-auto"
             type="button"
             data-bs-toggle="offcanvas"
-            data-bs-target="#menuRight"
-            aria-controls="menuRight"
-            aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
           </button>
 
           <!-- Menú desktop normal -->
           <div class="collapse navbar-collapse d-none d-lg-flex">
             
             <div class="d-flex ms-lg-auto">
-              <a class="btn icon-btn btn-danger" href="admi_home.html" aria-label="Usuario">
-                <i class="bi bi-gear"></i>
+              <a class="btn icon-btn" href="admi_logout.html" aria-label="Usuario">
+                <i class="bi bi-door-open"></i>
+              </a>
+                <a class="btn icon-btn" href="admi_home.html" aria-label="Usuario">
+                <i class="bi bi-eye"></i>
               </a>
             
             </div>
@@ -88,12 +87,10 @@
     <div class="container py-4">
         <div class="row mb-4">
             <div class="col-12 text-center">
-                <h1 class="display-5 fw-bold">Productos de la tienda</h1>
-                <p class="lead">Inventario de productos</p>
+                <h1 class="display-5 fw-bold">Gestión de productos</h1>
+                <p class="lead">Productos de la tienda</p>
             </div>
         </div>
-
- 
 
         <!-- Tarjeta de acciones principales -->
 <main>
@@ -138,433 +135,226 @@
 
     </div>
   </div>
-</main>
-
 
         <!-- Tabla de productos -->
 
         <div class="card shadow">
-
             <div class="card-header text-white d-flex justify-content-between align-items-center">
-
                 <h5 class="card-title mb-0"><i class="bi bi-table"></i> Lista de Productos</h5>
-
                 <span class="badge bg-light text-dark">5 productos</span>
-
             </div>
 
-            <div class="card-body p-0">
-
+           <div class="card-body p-0">
                 <div class="table-container">
-
                     <table class="table table-hover table-striped mb-0">
-
                         <thead>
-
                             <tr>
-
                                 <th scope="col">Imagen</th>
-
                                 <th scope="col">Nombre</th>
-
                                 <th scope="col">SKU</th>
-
                                 <th scope="col">Descripción</th>
-
                                 <th scope="col">Precio</th>
-
                                 <th scope="col">Categoría</th>
-
                                 <th scope="col" class="featured-cell">Destacado</th>
-
                             </tr>
-
                         </thead>
-
                         <tbody>
 
                             <tr>
-
                                 <td>
-
-                                    <img src="https://placehold.co/60x60/007bff/white?text=A" class="table-img" alt="Anillo de plata">
-
+                                    <img src="img/anillo_piedra_3.png" class="table-img" alt="Anillo de plata">
                                 </td>
-
-                                <td>Anillo de Plata</td>
-
+                                <td>Anillo Con Piedras</td>
                                 <td>ANI-ZAF-001</td>
-
-                                <td>Hermoso anillo de plata 925</td>
-
-                                <td>$120</td>
-
+                                <td>Hermoso anillo de oro</td>
+                                <td>$12.000</td>
                                 <td>Anillos</td>
-
                                 <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
-
                             </tr>
-
                             <tr>
-
                                 <td>
-
-                                    <img src="https://placehold.co/60x60/ffc107/black?text=C" class="table-img" alt="Collar de oro">
-
+                                    <img src="img/aroscolga.png" class="table-img" alt="Aros modernos">
                                 </td>
-
-                                <td>Collar de Oro con Diamante</td>
-
+                                <td>Aros Modernos</td>
                                 <td>COL-ORO-002</td>
-
-                                <td>Elegante collar de oro de 18k con diamante central</td>
-
-                                <td>$459.99</td>
-
-                                <td>Collares</td>
-
-                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>
-
-                                    <img src="https://placehold.co/60x60/6f42c1/white?text=P" class="table-img" alt="Pulsera de plata">
-
-                                </td>
-
-                                <td>Brazalete de Plata con Dijes</td>
-
-                                <td>PUL-DIJ-003</td>
-
-                                <td>Brazalete ajustable de plata con dijes personalizables</td>
-
-                                <td>$89.99</td>
-
-                                <td>Brazaletes</td>
-
-                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>
-
-                                    <img src="https://placehold.co/60x60/20c997/white?text=A" class="table-img" alt="Aros de oro">
-
-                                </td>
-
-                                <td>Aros de Oro Laminado</td>
-
-                                <td>ARO-ORO-004</td>
-
-                                <td>Aros clásicos de oro laminado, hipoalergénicos</td>
-
-                                <td>$45.50</td>
-
+                                <td>Aros largos elegantes de oro</td>
+                                <td>$15.900</td>
                                 <td>Aros</td>
-
                                 <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
-
                             </tr>
-
                             <tr>
-
                                 <td>
-
-                                    <img src="https://placehold.co/60x60/fd7e14/white?text=D" class="table-img" alt="Dije de plata">
-
+                                    <img src="img/bracelet_fino_2.jpg" class="table-img" alt="Brazalete fino">
                                 </td>
-
-                                <td>Anillo de Plata Corazón</td>
-
-                                <td>AIJ-COR-005</td>
-
-                                <td>Anillo en forma de corazón de plata 925</td>
-
-                                <td>$35.75</td>
-
-                                <td>Anillos</td>
-
+                                <td>Brazalete Fino</td>
+                                <td>PUL-DIJ-003</td>
+                                <td>Brazalete ajustable de oro</td>
+                                <td>$120</td>
+                                <td>Brazaletes</td>
                                 <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
-
                             </tr>
-
+                            <tr>
+                                <td>
+                                    <img src="img/aroscolga2.png" class="table-img" alt="Aros clásicos">
+                                </td>
+                                <td>Aros Clásicos</td>
+                                <td>ARO-ORO-004</td>
+                                <td>Aros clásicos de oro laminado, hipoalergénicos</td>
+                                <td>$90</td>
+                                <td>Aros</td>
+                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/anillo_piedra_1.png" class="table-img" alt="Anillo con priedra">
+                                </td>
+                                <td>Anillo de Plata</td>
+                                <td>AN-PLA-001</td>
+                                <td>Anillo con piedra rubí de plata 925</td>
+                                <td>$35.075</td>
+                                <td>Anillos</td>
+                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
+                            </tr>
                         </tbody>
-
                     </table>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
- 
-
-    <!-- Modal para agregar producto -->
-
+    <!-- Ventana emergente para agregar producto -->
     <div class="modal fade" id="addProductModal" tabindex="-1" aria-hidden="true">
-
         <div class="modal-dialog modal-lg">
-
             <div class="modal-content">
-
                 <div class="modal-header bg-dark text-white">
-
                     <h5 class="modal-title"><i class="bi bi-plus-circle"></i> Agregar Nuevo Producto</h5>
-
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-
                 </div>
-
                 <div class="modal-body">
-
                     <form>
-
-                        <div class="row">
-
+                       <div class="row">
                             <div class="col-md-6">
-
                                 <div class="mb-3">
-
                                     <label for="productImage" class="form-label">Imagen del Producto</label>
-
                                     <input class="form-control" type="file" id="productImage" accept="image/*">
-
                                     <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
-
                                 </div>
-
                             </div>
-
                             <div class="col-md-6">
-
                                 <div class="mb-3">
-
                                     <label for="productName" class="form-label">Nombre del Producto</label>
-
                                     <input type="text" class="form-control" id="productName" placeholder="Ej: Anillo de Plata con Zafiro" required>
-
                                 </div>
-
-                               
-
+                              
                                 <div class="mb-3">
-
                                     <label for="productSKU" class="form-label">SKU (Código de Producto)</label>
-
                                     <input type="text" class="form-control" id="productSKU" placeholder="Ej: ANI-ZAF-001" required>
-
                                 </div>
-
                             </div>
-
-                        </div>
-
-                       
+                        </div>                      
 
                         <div class="mb-3">
-
                             <label for="productDescription" class="form-label">Descripción</label>
-
                             <textarea class="form-control" id="productDescription" rows="3" placeholder="Describe las características del producto..." required></textarea>
-
-                        </div>
-
-                       
+                        </div>                     
 
                         <div class="row">
-
                             <div class="col-md-6">
-
                                 <div class="mb-3">
-
                                     <label for="productPrice" class="form-label">Precio ($)</label>
-
                                     <div class="input-group">
-
                                         <span class="input-group-text">$</span>
-
                                         <input type="number" class="form-control" id="productPrice" min="0" step="0.01" placeholder="0.00" required>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                             <div class="col-md-6">
-
                                 <div class="mb-3">
-
                                     <label for="productCategory" class="form-label">Categoría</label>
-
                                     <select class="form-select" id="productCategory" required>
-
                                         <option value="" selected disabled>Selecciona una categoría</option>
-
                                         <option value="anillos">Anillos</option>
-
                                         <option value="collares">Collares</option>
-
                                         <option value="aros">Aros</option>
-
-                                        <option value="pulseras">Brazaletes</option>
-                                        
+                                        <option value="pulseras">Brazaletes</option>                                     
                                     </select>
-
                                 </div>
-
                             </div>
-
-                        </div>
-
-                       
+                        </div>                       
 
                         <div class="mb-3 form-check form-switch">
-
                             <input class="form-check-input" type="checkbox" id="productFeatured">
-
                             <label class="form-check-label" for="productFeatured">Producto Destacado</label>
-
                         </div>
-
                     </form>
-
                 </div>
-
                 <div class="modal-footer">
-
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
                     <button type="button" class="btn btn-dark">Guardar Producto</button>
-
                 </div>
-
             </div>
-
         </div>
+    </div> 
 
-    </div>
-
- 
-
-    <!-- Modal para modificar producto -->
-
+    <!-- Ventana emergente para modificar producto -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
-
         <div class="modal-dialog">
-
             <div class="modal-content">
-
                 <div class="modal-header bg-dark text-white">
-
                     <h5 class="modal-title"><i class="bi bi-pencil"></i> Modificar Producto</h5>
-
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-
                 </div>
-
                 <div class="modal-body">
-
                     <div class="alert alert-info">
-
                         <i class="bi bi-info-circle"></i> En un sistema real, aquí aparecería un formulario para seleccionar y editar el producto.
-
                     </div>
-
                     <p>Funcionalidades que incluiría:</p>
-
                     <ul>
-
                         <li>Selector de producto a modificar</li>
-
                         <li>Formulario con datos actuales del producto</li>
-
                         <li>Posibilidad de cambiar imagen, nombre, SKU, etc.</li>
-
                         <li>Guardar cambios</li>
-
                     </ul>
-
                 </div>
-
                 <div class="modal-footer">
-
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-
                     <button type="button" class="btn btn-dark">Aplicar Cambios</button>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
  
 
-    <!-- Modal para eliminar producto -->
+    <!-- Ventana emergente para eliminar producto -->
 
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-
         <div class="modal-dialog">
-
             <div class="modal-content">
-
                 <div class="modal-header text-white">
-
                     <h5 class="modal-title"><i class="bi bi-trash"></i> Eliminar Producto</h5>
-
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-
                 </div>
-
                 <div class="modal-body">
-
                     <div class="alert alert-warning">
-
                         <i class="bi bi-exclamation-triangle"></i> Esta acción eliminará permanentemente el producto seleccionado.
-
                     </div>
-
                     <p>Funcionalidades que incluiría:</p>
-
                     <ul>
-
                         <li>Selector de producto a eliminar</li>
-
                         <li>Confirmación de eliminación</li>
-
                         <li>Información del producto a eliminar</li>
-
                         <li>Posibilidad de cancelar la operación</li>
-
                     </ul>
-
                 </div>
-
                 <div class="modal-footer">
-
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
                     <button type="button" class="btn btn-danger">Eliminar Producto</button>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-</div>
+    </div>
 </main>
   <footer class="mt-5">
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>

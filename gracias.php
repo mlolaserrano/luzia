@@ -1,42 +1,29 @@
 <?php
-//variables principales 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-$nombre=$_REQUEST[nombre]; //esto responde a lo que se lleno 
+// 1. Recoger y sanear datos
+$nombre   = htmlspecialchars($_POST['nombre']   ?? '', ENT_QUOTES, 'UTF-8');
+$email    = htmlspecialchars($_POST['email']    ?? '', ENT_QUOTES, 'UTF-8');
+$consulta = htmlspecialchars($_POST['consulta'] ?? '', ENT_QUOTES, 'UTF-8');
 
-$email=$_REQUEST[email]; 
+// 2. Preparar email
+$to      = 'mariana.lizza30@gmail.com';
+$subject = "Nueva consulta desde Luzia: $nombre";
+$message = 
+  "Has recibido una nueva consulta desde tu web Luzia:\n\n" .
+  "Nombre: $nombre\n" .
+  "Email: $email\n\n" .
+  "Consulta:\n$consulta\n";
+$headers  = "From: noreply@tuluzia.com\r\n";
+$headers .= "Reply-To: $email\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-$telefono=$_REQUEST[tel]; 
-
-$consulta=$_REQUEST[consulta]; 
-
-$pais=$_REQUEST[pais]; 
-
-$micorreo=$_REQUEST[mimail]; //es el campo oculto esto es importante!! 
-
-  
-
-//variables internas 
-
-$encabezado= 'From: noreplay@fulano.com.ar'; //casilla no existente; el from va tal cual en comillas simples 
-
-$asunto = "Formulario de Contacto"; 
-
-$cuerpo = "Nombre y Apellido: $nombre\n E-mail: $email\n Teléfono: $telefono\n Consulta: $consulta\n País: $pais"; //como recibiremos los datos del formulario 
-
-$cuerpousu = "¡Hola, $nombre!\n Gracias por completar nuestro formulario. A continuación se copian los datos que enviastre:\n\n $cuerpo\n\n ¡¡Muchas Gracias!!"; //como se le muestra al usuario 
-
-  
-
-//e-mail 
-
-mail($micorreo,$asunto,$cuerpo,$encabezado); //receptor 
-
-mail($correo,$asunto,$cuerpousu,$encabezado); //usuario 
-
-
+// 3. Enviar correo
+/*mail($to, $subject, $message, $headers);*/
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -65,9 +52,9 @@ mail($correo,$asunto,$cuerpousu,$encabezado); //usuario
 <link href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap" rel="stylesheet">
 
   </head>
+<body class="bg-light d-flex flex-column min-vh-100">
 
-  <body>
-   <header>
+ <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid position-relative">
           <!-- Brand fijo centrado -->
@@ -169,93 +156,24 @@ mail($correo,$asunto,$cuerpousu,$encabezado); //usuario
       </div>
     </header>
 
+  <main class="flex-fill d-flex align-items-center justify-content-center">
+    <div class="card shadow-sm w-100 mw-600 px-3 py-5">
+      <div class="card-body text-center">
+        <h1 class="card-title mb-4">¡Gracias, <?php echo $nombre; ?>!</h1>
+        <p class="mb-3">Hemos recibido tu consulta:</p>
+        <blockquote class="blockquote mb-4 text-start">
+          <?php echo nl2br($consulta); ?>
+        </blockquote>
+        <p class="mb-4">
+          Te responderemos en breve al correo
+          <strong><?php echo $email; ?></strong>.
+        </p>
+        <a href="index.html" class="btn btn-luzia">Volver al inicio</a>
+      </div>
+    </div>
+  </main>
 
-<main>
-  	<div id="principal3">
-	<div id="cuerpo">
-	  <div class="titulo" id="titulo">Contacto</div>
-		<p class="subtitulo"><span data-contrast="none" xml:lang="ES-ES" lang="ES-ES">¡Muchas Gracias! por enviar el formularo, responderemos en brevedad.</span></p>
-		 <div id="formulario">
-		
-		 <p class="subtitulo"><span data-contrast="none" xml:lang="ES-ES" lang="ES-ES">A continuación de copiaran los siguentes datos:</span> <span data-contrast="auto" xml:lang="ES-ES" lang="ES-ES"><br>
-		   </p> 
-
-             <form action="gracias.php" method="post" name="form1" id="form1"> 
-
-             <table width="100%" border="0" cellpadding="7" cellspacing="7"> 
-
-                 <tbody> 
-
-                  <tr> 
-
-      <td align="left" valign="top" style="text-align: left"><table width="100%" border="0" cellpadding="7" cellspacing="7"> 
-
-        <tbody> 
-
-          <tr> 
-
-            <td width="47%" class="negrita" style="text-align: left">Nombre y Apellido</td> 
-
-            <td width="53%" style="text-align: left"><?php echo $nombre;?></td> 
-
-              </tr> 
-
-          <tr> 
-			  <td class="negrita" style="text-align: left">E-mail 
-
-              <input name="hiddenField" type="hidden" id="hiddenField" value="contacto@kelloggs.com">
-              <input name="mimail" type="hidden" id="mimail" value="info@fulano.com.ar"></td> 
-
-            <td style="text-align: left"><?php echo $email;?></td> 
-
-           
-              </tr> 
-
-          <tr> 
-             <td class="negrita" style="text-align: left">Teléfono</td> 
-
-            <td style="text-align: left"><?php echo $telefono;?></td> 
-
-            
-
-              </tr> 
-
-          <tr align="left" valign="top"> 
-
-            <td height="114" class="negrita" style="text-align: left">Consulta</td> 
-
-            <td style="text-align: left"><?php echo $consulta;?></td> 
-
-              </tr> 
-
-          <tr> 
-
-            <td height="32" class="negrita" style="text-align: left">País</td> 
-
-            <td style="text-align: left"><?php echo $pais;?></td> 
-
-              </tr> 
-
-            </tbody> 
-
-          </table></td> 
-
-        </tr> 
-
-  </tbody> 
-
-  </table> 
-
-  </form> 
-
-
-</div> 
-
-   </div> 
-		</div>
-</main>
-
-<footer class="mt-5">
+ <footer class="mt-5">
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
   <div class="d-flex flex-wrap justify-content-center gap-3">
     <a href="politicas.html">Política de privacidad</a>
@@ -264,8 +182,10 @@ mail($correo,$asunto,$cuerpousu,$encabezado); //usuario
   </div>
 </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous">
+  </script>
 </body>
 </html>
-

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style.css" />
+
+        <!-- Tipografia -->
+        <!-- Asimovian -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+    <div class="mi-body">
+    <!-- Contenedor de autenticación -->
+    <div class="auth-container">
+        <div class="auth-header">
+            <h2>Acceso Administrativo</h2>
+        </div>
+ 
+        <!-- Pestañas para Login y Registro -->
+        <ul class="nav nav-tabs nav-justified" id="authTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Iniciar Sesión</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">Registrar Admin</button>
+            </li>
+        </ul>
+ 
+        <!-- Contenido de las pestañas -->
+        <div class="tab-content" id="authTabsContent">
+            <!-- Formulario de inicio de sesión -->
+            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                <div class="auth-form">
+                    <h3 class="text-center mb-4">Iniciar Sesión</h3>
+                   
+                    <form method="POST" action="#">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Correo electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" id="loginEmail" name="email" placeholder="admin@ejemplo.com" required>
+                            </div>
+                        </div>
+                       
+                        <div class="mb-4">
+                            <label for="loginPassword" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Ingresa tu contraseña" required>
+                            </div>
+                        </div>
+                       
+                       
+                        <button type="submit" class="btn btn-admin w-100 py-2 mb-3">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                            <a class="color-ingresar" href="admi_productos.html">Ingresar</a> 
+                            
+                        </button>
+                       
+                        <div class="text-center">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#passwordModal">¿Olvidaste tu contraseña?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+ 
+            <!-- Formulario de registro -->
+            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                <div class="auth-form">
+                    <h3 class="text-center mb-4">Registrar Administrador</h3>
+                   
+                    <form method="POST" action="#">
+                       
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">Correo electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" id="regEmail" name="email" placeholder="admin@ejemplo.com" required>
+                            </div>
+                        </div>
+                       
+                        <div class="mb-3">
+                            <label for="regPassword" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                <input type="password" class="form-control" id="regPassword" name="password" placeholder="Crea una contraseña segura" required>
+                            </div>
+                            <div class="form-text">Mínimo 8 caracteres, con mayúsculas, minúsculas y números</div>
+                        </div>
+                       
+                        <div class="mb-4">
+                            <label for="regConfirmPassword" class="form-label">Confirmar contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                                <input type="password" class="form-control" id="regConfirmPassword" name="confirm_password" placeholder="Repite tu contraseña" required>
+                            </div>
+                        </div>
+                        <!--En caso de ser necesario agg btn-dark acá-->
+                        <button type="submit" class="btn btn-admin w-100 py-2 mb-3">
+                            <i class="bi bi-person-plus"></i> Registrar Administrador
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Modal para recuperación de contraseña -->
+    <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="passwordModalLabel">Recuperar Contraseña</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Por favor, contacta al superadministrador del sistema para restablecer tu contraseña.</p>
+                    <div class="mb-3">
+                        <label for="adminEmail" class="form-label">Correo de superadministrador</label>
+                        <input type="email" class="form-control" id="adminEmail" value="superadmin@sistema.com" readonly>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+</main>
+ 
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/[email protected]/font/bootstrap-icons.css">
+</body>
+
+
+</html>

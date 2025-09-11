@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cerrar Sesión</title>
+	<!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style.css" />
+
+        <!-- Tipografia -->
+        <!-- Asimovian -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light">
+	
+<header>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid position-relative">
+          <!-- Brand fijo centrado -->
+          <a class="navbar-brand navbar-brand-top" href="admi_home.html">LUZIA</a>
+
+          <!-- Toggler abre el panel derecho -->
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="offcanvas"
+          >
+            <span class="navbar-toggler"></span>
+          </button>
+
+          <!-- Menú desktop normal -->
+          <div class="collapse navbar-collapse d-none d-lg-flex">
+            
+            <div class="d-flex ms-lg-auto">
+              <a class="btn icon-btn" href="admi_productos.html" aria-label="Usuario">
+              </a>          
+            </div>
+          </div>
+        </div>
+      </nav>
+ 
+
+      <!-- Offcanvas móvil a la derecha -->
+
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="menuRight"
+        aria-labelledby="menuRightLabel"
+      >
+        <div class="offcanvas-header justify-content-center">
+          <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
+          <button
+            type="button"
+            class="btn-close position-absolute end-0 me-3"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </header>
+<main>
+    <div class="container py-5">
+    	<div class="row justify-content-center">
+        	<div class="col-md-6 text-center">
+            	<div class="card shadow">
+                	<div class="card-body p-5">
+                    	<h3 class="card-title mb-4">¿Estás seguro que quieres salir?</h3>
+                    	<p class="card-text">Presioná "Cerrar Sesión" si así lo deseas.</p>
+                       
+                        <!-- Botón para abrir el modal de cerrar sesión -->
+                         
+                    	<button type="button" class="btn btn-dark mt-3 " data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        	<a class="modal-title" href="admi_login.html">Cerrar Sesión</a>
+                    	</button>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
+	</div>
+ 
+	<!-- Modal de confirmación para cerrar sesión -->
+	<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    	<div class="modal-dialog">
+        	<div class="modal-content">
+            	<div class="modal-header">
+                	<h5 class="modal-title" id="logoutModalLabel">Confirmar Cierre de Sesión</h5>
+                	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            	</div>
+            	<div class="modal-body">
+                	¿Está seguro de que desea salir del sistema?
+            	</div>
+            	<div class="modal-footer">
+                	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                	<!-- En un sistema real, este botón redirigiría al logout -->
+                	<button type="button" class="btn btn-danger" onclick="logout()">Sí, Salir</button>
+            	</div>
+        	</div>
+    	</div>
+	</div>
+</main>
+<footer class="mt-5">
+
+  <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <a href="#">Política de privacidad</a>
+    <a href="#">Términos y condiciones</a>
+    <a href="#">Contacto</a>
+  </div>
+
+</footer>
+
+
+	<!-- Bootstrap JS -->
+	<script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js></script>
+	<script>
+    	function logout() {
+        	// Aquí iría la lógica para cerrar sesión
+        	// Normalmente redirigiría a una página de logout o limpiaría la sesión
+        	alert("Sesión cerrada. Redirigiendo...");
+        	// window.location.href = "logout.php"; // Ejemplo de redirección
+    	}
+	</script>
+</body>
+</html>

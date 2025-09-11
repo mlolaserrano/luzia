@@ -158,13 +158,37 @@
         <span class="ms-auto small text-muted">reCAPTCHA</span>
       </div>
 
-  <button type="submit" class="btn btn-carrito w-100 btn-block">Ingresar</button>
+      <form action="mi_cuenta.html" method="POST">
+  <!-- campos del formulario -->
+  <button type="submit" class="btn btn-carrito w-100 btn-block" data-bs-toggle="modal" data-bs-target="#modalCuentaCreada">Crear Cuenta</button>
 
-      <div class="text-center mt-3 small">
-        ¿Todavía no tenés cuenta?
-        <a href="newuser.html" class="fw-bold text-decoration-none">Registrate</a>
-      </div>
+</form>
+
     </form>
+    <div class="modal fade" id="modalCuentaCreada" tabindex="-1" aria-labelledby="modalCuentaCreadaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+
+      <div class="modal-header">
+        <h5 class="modal-title w-100" id="modalCuentaCreadaLabel">🎉 ¡Cuenta creada exitosamente!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <p class="mb-4">Gracias por registrarte. Ya podés comenzar a explorar Luzia.</p>
+        <div class="d-flex flex-column gap-2">
+          <a href="index.html" class="btn btn-luzia w-100">
+            <i class="bi bi-house-door-fill me-2"></i> Ir al inicio
+          </a>
+          <a href="mi_cuenta.html" class="btn btn-luzia w-100">
+            <i class="bi bi-person-circle me-2"></i> Ir a mi cuenta
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
   </div>
 </div>
   </section>

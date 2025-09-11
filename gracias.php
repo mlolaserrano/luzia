@@ -184,8 +184,7 @@ $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 
   <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    crossorigin="anonymous">
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous">
   </script>
 </body>
 </html>

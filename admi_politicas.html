@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Administrador | contacto</title>
+  <title>Administrador | Terminos & condiciones </title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
@@ -50,7 +50,7 @@
       <!-- Columna de Imagen + Panel de Administración -->
       <div class="col-md-6 mb-4 mb-md-0">
   <div class="position-relative">
-    <img src="img/contacto_banner.jpg" alt="Joyas Luzia banner de contacto" class="img-fluid rounded">
+    <img src="img/construccion.gif" alt="osito en proceso" class="img-fluid rounded">
 
     <!-- Botones sobre la imagen -->
     <div class="position-absolute top-0 start-0 w-100 px-3 py-3 d-flex justify-content-start mx-2 gap-2">
@@ -134,32 +134,28 @@
       </div>
 
       <!--  Columna de Texto y Botones de contacto -->
-<div class="col-md-6">
-  <h2 class="mb-3 titulo">¡Contáctanos!</h2>
-  <p class="mb-4">
-    No hay pregunta demasiado pequeña ni solicitud demasiado grande para nuestros asesores Luzia.
-    Desde elegir un anillo de compromiso o regalo, estamos siempre a tu servicio.
-  </p>
-
-  <div class="d-flex flex-wrap gap-2 mb-3">
-    <a href="tel:+5491122233344" class="btn btn-luzia">LLÁMANOS</a>
-    <button type="button" class="btn btn-luzia" data-bs-toggle="modal" data-bs-target="#formModal">CONSULTANOS</button>
-  </div>
-  <br>
-
-  <!--Panel de administración -->
-  <div class="d-flex flex-wrap gap-2">
+  <div class="col-md-6 text-center">
+            <h1 class="mb-3 color-agg1">¡Estamos en construcción!</h1>
+            <hr>
+            <p class=" texto lead mb-4">
+              Lamentamos los inconvenientes.  Nuestros politicas de privacidad estan siendo actualizadas.
+            </p>
+            <a href="index.html" class="btn btn-luzia">
+              Volver al inicio
+            </a>
+            <br>
+             <!--Panel de administración -->
+  <div class="d-flex flex-wrap gap-2 justify-content-center py-3">
     <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalTexto" title="Modificar texto">
       <i class="bi bi-pencil-square"></i>
     </button>
     <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalTelefono" title="Modificar teléfono">
-      <i class="bi bi-telephone"></i>
+      <i class="bi bi-menu-button-fill"></i>
     </button>
-    <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#formModalAdmin" title="Modificar formulario">
-      <i class="bi bi-ui-checks"></i>
+
     </button>
   </div>
-</div>
+          </div>
 <!--mod de texto-->
     <div class="modal fade" id="modalTexto" tabindex="-1" aria-labelledby="modalTextoLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -172,7 +168,7 @@
         <label class="form-label">Título</label>
         <input type="text" class="form-control mb-3" value="¡Contáctanos!">
         <label class="form-label">Descripción</label>
-        <textarea class="form-control" rows="4">No hay pregunta demasiado pequeña...</textarea>
+        <textarea class="form-control" rows="4">Lamentamos los inconvenientes...</textarea>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-luzia" data-bs-dismiss="modal">Guardar</button>
@@ -180,40 +176,18 @@
     </div>
   </div>
 </div>
-<!--mod de tel-->
+<!--mod de boton de llevar a inicio-->
       <div class="modal fade" id="modalTelefono" tabindex="-1" aria-labelledby="modalTelefonoLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalTelefonoLabel">Modificar Teléfono</h5>
+        <h5 class="modal-title" id="modalTelefonoLabel">Modificar botón</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        <label class="form-label">Número de contacto</label>
-        <input type="tel" class="form-control" value="+5491122233344">
-        <small class="form-text">Formato internacional recomendado</small>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-luzia" data-bs-dismiss="modal">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--mod de form-->
-    <div class="modal fade" id="formModalAdmin" tabindex="-1" aria-labelledby="formModalAdminLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="formModalAdminLabel">Modificar Formulario</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <label class="form-label">Etiqueta Nombre</label>
-        <input type="text" class="form-control mb-3" value="Nombre completo*">
-        <label class="form-label">Etiqueta Email</label>
-        <input type="text" class="form-control mb-3" value="Correo electrónico*">
-        <label class="form-label">Etiqueta Consulta</label>
-        <input type="text" class="form-control mb-3" value="Consulta*">
+        <label class="form-label">Botón</label>
+        <input type="tel" class="form-control" value="index.html">
+        <small class="form-text">Directorio al cual quieres cambiarlo</small>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-luzia" data-bs-dismiss="modal">Guardar</button>

@@ -216,46 +216,55 @@
 
 
             <!-- < md: TARJETA -->
-            <div class="d-md-none">
-              <div class="card border-0 border-bottom mb-3">
-                <div class="card-body pb-3">
-                  <div class="d-flex">
-                    <img
-                      src="img/anillo_piedra_3.png"
-                      class="rounded me-3"
-                      alt=""
-                      style="width: 72px; height: 72px; object-fit: cover"
-                    />
-                    <div class="flex-grow-1">
-                      <div class="fw-semibold">Anillo Aurora</div>
-                      <div class="small text-muted">Talla: XS</div>
-                    </div>
-                    <button
-                      class="btn btn-sm text-danger align-self-start ms-2"
-                      aria-label="Eliminar"
-                    >
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </div>
-                  <div
-                    class="d-flex align-items-center justify-content-between mt-3"
-                  >
-                    <div class="d-inline-flex align-items-center">
-                      <button class="btn btn-sm" type="button">−</button>
-                      <input
-                        type="number"
-                        min="1"
-                        value="1"
-                        class="form-control form-control-sm mx-1"
-                        style="width: 68px; text-align: center"
-                      />
-                      <button class="btn btn-sm" type="button">+</button>
-                    </div>
-                    <div class="fw-semibold">$ 53.000</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+       <!-- Card carrito: versión mobile -->
+<div class="d-md-none">
+  <div class="card border-0 border-bottom mb-3">
+    <div class="card-body pb-3">
+      <!-- Producto + eliminar -->
+      <div class="d-flex align-items-start">
+        <img src="img/anillo_piedra_3.png"
+             class="rounded me-3"
+             alt="Anillo Aurora"
+             style="width:72px;height:72px;object-fit:cover;">
+        <div class="flex-grow-1">
+          <div class="fw-semibold">Anillo Aurora</div>
+          <div class="small text-muted">Talla: 6</div>
+        </div>
+        <button class="btn btn-sm text-danger ms-2" aria-label="Eliminar">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+
+      <!-- Cantidad / Precio / Total -->
+      <div class="d-flex justify-content-around align-items-center text-center mt-3">
+        <!-- Cantidad -->
+        <div>
+          <div class="small text-muted mb-1">Cantidad</div>
+          <div class="d-inline-flex align-items-center justify-content-center qty">
+            <button class="btn btn-sm px-2 py-1" type="button">−</button>
+            <input type="number" min="1" value="1"
+                   class="form-control form-control-sm mx-1 text-center"
+                   style="width:60px;">
+            <button class="btn btn-sm px-2 py-1" type="button">+</button>
+          </div>
+        </div>
+
+        <!-- Precio -->
+        <div>
+          <div class="small text-muted mb-1">Precio</div>
+          <div class="text-nowrap">$ 53.000</div>
+        </div>
+
+        <!-- Total -->
+        <div>
+          <div class="small text-muted mb-1">Total</div>
+          <div class="fw-semibold text-nowrap">$ 53.000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
             <!-- Recomendados -->
             <hr class="my-4" />

@@ -1,37 +1,19 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
   <head>
-
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Administrador</title>
-
- 
-
     <!-- Bootstrap CSS -->
-
     <link
-
       href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
-
       rel="stylesheet"
-
       crossorigin="anonymous"
-
     />
-
     <!-- Bootstrap Icons -->
-
     <link
-
       href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css
-
       rel="stylesheet"
-
     />
 
     <!-- Estilos personalizados -->
@@ -55,58 +37,68 @@
 
   <body>
    <header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid position-relative">
+      <!-- Brand fijo centrado -->
+      <a class="navbar-brand navbar-brand-top" href="admi_home.html">LUZIA</a>
 
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid position-relative">
-          <!-- Brand fijo centrado -->
-          <a class="navbar-brand navbar-brand-top" href="admi_home.html">LUZIA</a>
-          <!-- Toggler abre el panel derecho -->
-          <button
-            class="navbar-toggler ms-auto"
-            type="button"
-            data-bs-toggle="offcanvas"
-          >
-          </button>
+      <!-- Toggler abre el panel derecho -->
+      <button class="navbar-toggler ms-auto" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#menuRight"
+              aria-controls="menuRight" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-          <!-- Menú desktop normal -->
-          <div class="collapse navbar-collapse d-none d-lg-flex">       
-
-            <div class="d-flex ms-lg-auto">
-              <a class="btn icon-btn" href="admi_inventario.html" aria-label="Usuario">
-                    <i class="bi bi-cart"></i>
-                </a> 
-
-              <a class="btn icon-btn" href="admi_productos.html" aria-label="Usuario">
-                <i class="bi bi-gear"></i>
-              </a>        
-            </div>
-          </div>
-        </div>
-      </nav>
-
-
- 
-
-      <!-- Offcanvas móvil a la derecha -->
-
-      <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="menuRight"
-        aria-labelledby="menuRightLabel"
-      >
-
-        <div class="offcanvas-header justify-content-center">
-          <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
-          <button
-            type="button"
-            class="btn-close position-absolute end-0 me-3"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+      <!-- Menú desktop -->
+      <div class="collapse navbar-collapse d-none d-lg-flex">
+        <div class="d-flex ms-lg-auto">
+          <a class="btn icon-btn" href="admi_inventario.html" aria-label="Inventario">
+            <i class="bi bi-boxes"></i>
+          </a>
+          <a class="btn icon-btn" href="admi_productos.html" aria-label="Vista">
+            <i class="bi bi-gear"></i>
+          </a>
+          <a class="btn icon-btn" href="admi_logout.html" aria-label="Salir">
+            <i class="bi bi-door-open"></i>
+          </a>
         </div>
       </div>
-    </header>
+    </div>
+  </nav>
+
+  <!-- Offcanvas móvil a la derecha -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="menuRight" aria-labelledby="menuRightLabel">
+    <div class="offcanvas-header justify-content-center">
+      <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
+      <button type="button" class="btn-close position-absolute end-0 me-3"
+              data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <!-- Mismos iconos, en columna con texto -->
+      <ul class="list-unstyled text-center w-100">
+        <li class="mb-3">
+          <a href="admi_inventario.html" class="d-flex flex-column align-items-center text-decoration-none">
+            <i class="bi bi-boxes fs-3"></i>
+            <span class="small mt-1">Inventario</span>
+          </a>
+        </li>
+        <li class="mb-3">
+          <a href="admi_productos.html" class="d-flex flex-column align-items-center text-decoration-none">
+            <i class="bi bi-gear"></i>
+            <span class="small mt-1">Productos</span>
+          </a>
+        </li>
+        <li>
+          <a href="admi_logout.html" class="d-flex flex-column align-items-center text-decoration-none">
+            <i class="bi bi-door-open fs-3"></i>
+            <span class="small mt-1">Salir</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
 <main>
 
  
@@ -222,29 +214,7 @@
 
               <!-- Botones para gestionar el texto (nuevos) -->
 
-              <div class="text-management-buttons">
 
-                <button class="btn btn-add btn-text-management" data-bs-toggle="modal" data-bs-target="#modalAgregarTexto" title="Agregar texto">
-
-                  <i class="bi bi-plus-lg"></i>
-
-                </button>
-
-                <button class="btn btn-modify btn-text-management" data-bs-toggle="modal" data-bs-target="#modalModificarTexto" title="Modificar texto">
-
-                  <i class="bi bi-pencil"></i>
-
-                </button>
-
-                <button class="btn btn-delete btn-text-management" data-bs-toggle="modal" data-bs-target="#modalEliminarTexto" title="Eliminar texto">
-
-                  <i class="bi bi-trash"></i>
-
-                </button>
-
-              </div>
-
-             
 
               <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Iris</h6>
 
@@ -300,29 +270,6 @@
 
             <div class="card-body position-relative">
 
-              <!-- Botones para gestionar el texto (nuevos) -->
-
-              <div class="text-management-buttons">
-
-                <button class="btn btn-add btn-text-management" data-bs-toggle="modal" data-bs-target="#modalAgregarTexto" title="Agregar texto">
-
-                  <i class="bi bi-plus-lg"></i>
-
-                </button>
-
-                <button class="btn btn-modify btn-text-management" data-bs-toggle="modal" data-bs-target="#modalModificarTexto" title="Modificar texto">
-
-                  <i class="bi bi-pencil"></i>
-
-                </button>
-
-                <button class="btn btn-delete btn-text-management" data-bs-toggle="modal" data-bs-target="#modalEliminarTexto" title="Eliminar texto">
-
-                  <i class="bi bi-trash"></i>
-
-                </button>
-
-              </div>
               <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Amelia</h6>
               <p class="mb-0">$37.000</p>
             </div>
@@ -359,19 +306,7 @@
               </div>
             </div>
 
-            <div class="card-body position-relative">
-              <!-- Botones para gestionar el texto-->
-              <div class="text-management-buttons">
-                <button class="btn btn-add btn-text-management" data-bs-toggle="modal" data-bs-target="#modalAgregarTexto" title="Agregar texto">
-                  <i class="bi bi-plus-lg"></i>
-                </button>
-                <button class="btn btn-modify btn-text-management" data-bs-toggle="modal" data-bs-target="#modalModificarTexto" title="Modificar texto">
-                  <i class="bi bi-pencil"></i>
-                </button>
-                <button class="btn btn-delete btn-text-management" data-bs-toggle="modal" data-bs-target="#modalEliminarTexto" title="Eliminar texto">
-                  <i class="bi bi-trash"></i>
-                </button>
-              </div>           
+            <div class="card-body position-relative">      
               <h6 class="card-title text-uppercase fw-bold mb-1">Aros Amare</h6>
               <p class="mb-0">$39.000</p>
             </div>
@@ -414,32 +349,6 @@
  
 
             <div class="card-body position-relative">
-
-              <!-- Botones para gestionar el texto (nuevos) -->
-
-              <div class="text-management-buttons">
-
-                <button class="btn btn-add btn-text-management" data-bs-toggle="modal" data-bs-target="#modalAgregarTexto" title="Agregar texto">
-
-                  <i class="bi bi-plus-lg"></i>
-
-                </button>
-
-                <button class="btn btn-modify btn-text-management" data-bs-toggle="modal" data-bs-target="#modalModificarTexto" title="Modificar texto">
-
-                  <i class="bi bi-pencil"></i>
-
-                </button>
-
-                <button class="btn btn-delete btn-text-management" data-bs-toggle="modal" data-bs-target="#modalEliminarTexto" title="Eliminar texto">
-
-                  <i class="bi bi-trash"></i>
-
-                </button>
-
-              </div>
-
- 
 
               <h6 class="card-title text-uppercase fw-bold mb-1">Aros Aura</h6>
 

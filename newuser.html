@@ -125,79 +125,110 @@
 
 <main>
   <section class="container-fluid px-0">
-    
-<div class="auth-page">
-  <div class="auth-card bg-white shadow-sm">
-    <!-- Tabs -->
-    <div class="auth-tabs">
-      <a href="login.html" class="auth-tab ">Iniciar sesión</a>
-      <a href="newuser.html" class="auth-tab active">Crear cuenta</a>
-    </div>
-
-    <!-- Form -->
-    <form class="form-underline">
-      <div class="mb-4">
-        <label class="form-label small text-muted" required>E-mail *</label>
-        <input type="email" class="form-control" required>
-      </div>
-
-      <div class="mb-2 position-relative">
-        <label class="form-label small text-muted" required>Contraseña *</label>
-        <input type="password" class="form-control" required>
-        <i class="bi bi-eye eye"></i>
-      </div>
-
-      <div class="mb-4 text-end">
-        <a href="#" class="link-muted small">¿Olvidaste la contraseña?</a>
-      </div>
-
-      <!-- Captcha simulado -->
-      <div class="captcha-box mb-4">
-        <input class="form-check-input" type="checkbox" id="cap" style="width:20px;height:20px">
-        <label for="cap" class="ms-1">No soy un robot</label>
-        <span class="ms-auto small text-muted">reCAPTCHA</span>
-      </div>
-
-      <form action="mi_cuenta.html" method="POST">
-  <!-- campos del formulario -->
-  <button type="submit" class="btn btn-carrito w-100 btn-block" data-bs-toggle="modal" data-bs-target="#modalCuentaCreada">Crear Cuenta</button>
-
-</form>
-
-    </form>
-    <!--mod de cuenta creada-->
-    <div class="modal fade" id="modalCuentaCreada" tabindex="-1" aria-labelledby="modalCuentaCreadaLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content text-center">
-
-      <div class="modal-header">
-        <h5 class="modal-title w-100" id="modalCuentaCreadaLabel">🎉 ¡Cuenta creada exitosamente!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-
-      <div class="modal-body">
-        <p class="mb-4">Gracias por registrarte. Ya podés comenzar a explorar Luzia.</p>
-        <div class="d-flex flex-column gap-2">
-          <a href="index.html" class="btn btn-luzia w-100">
-            <i class="bi bi-house-door-fill me-2"></i> Ir al inicio
-          </a>
-          <a href="mi_cuenta.html" class="btn btn-luzia w-100">
-            <i class="bi bi-person-circle me-2"></i> Ir a mi cuenta
-          </a>
+    <div class="auth-page">
+      <div class="auth-card bg-white shadow-sm">
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <a href="login.html" class="auth-tab">Iniciar sesión</a>
+          <a href="newuser.html" class="auth-tab active">Crear cuenta</a>
         </div>
+
+        <!-- Registro -->
+        <form class="form-underline" action="#" method="post">
+          <!-- Nombre -->
+          <div class="mb-3">
+            <label class="form-label small text-muted" for="nombre">Nombre *</label>
+            <input id="nombre" name="nombre" type="text" class="form-control" required>
+          </div>
+
+          <!-- Apellido -->
+          <div class="mb-3">
+            <label class="form-label small text-muted" for="apellido">Apellido *</label>
+            <input id="apellido" name="apellido" type="text" class="form-control" required>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label class="form-label small text-muted" for="email">E-mail *</label>
+            <input id="email" name="email" type="email" class="form-control" required>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="mb-3">
+            <label class="form-label small text-muted" for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" class="form-control" inputmode="tel" placeholder="+54 9 11 1234-5678">
+          </div>
+
+          <!-- Contraseña -->
+          <div class="mb-3 position-relative">
+            <label class="form-label small text-muted" for="pass">Contraseña *</label>
+            <input id="pass" name="password" type="password" class="form-control"
+                   minlength="8" required
+                   pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$"
+                   title="Mínimo 8 caracteres e incluir al menos una letra y un número">
+            <i class="bi bi-eye eye"></i>
+          </div>
+
+          <!-- Confirmar contraseña -->
+          <div class="mb-3">
+            <label class="form-label small text-muted" for="pass2">Confirmar contraseña *</label>
+            <input id="pass2" name="password_confirm" type="password" class="form-control" minlength="8" required>
+          </div>
+
+          <!-- Términos -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="tyc" required>
+            <label class="form-check-label small" for="tyc">
+              Acepto los <a href="#" class="link-muted text-decoration-underline">Términos y condiciones</a>.
+            </label>
+          </div>
+
+          <!-- Captcha simulado -->
+          <div class="captcha-box mb-4">
+            <input class="form-check-input" type="checkbox" id="cap" style="width:20px;height:20px" required>
+            <label for="cap" class="ms-2">No soy un robot</label>
+            <span class="ms-auto small text-muted">reCAPTCHA</span>
+          </div>
+
+          <!-- Botón: abre modal (sin enviar) -->
+          <button type="button" class="btn btn-luzia w-100 btn-block" data-bs-toggle="modal" data-bs-target="#modalCuentaCreada">
+            Crear cuenta
+          </button>
+
+          <!-- Enlace alternativo -->
+          <div class="text-end mt-3">
+            <a href="#" class="link-muted small">¿Olvidaste la contraseña?</a>
+          </div>
+        </form>
+
+        <!-- Modal cuenta creada -->
+        <div class="modal fade" id="modalCuentaCreada" tabindex="-1" aria-labelledby="modalCuentaCreadaLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+              <div class="modal-header">
+                <h5 class="modal-title w-100" id="modalCuentaCreadaLabel">🎉 Cuenta creada exitosamente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                <p class="mb-4">Gracias por registrarte. Ya podés comenzar a explorar Luzia.</p>
+                <div class="d-flex flex-column gap-2">
+                  <a href="index.html" class="btn btn-luzia w-100">
+                    <i class="bi bi-house-door-fill me-2"></i> Ir al inicio
+                  </a>
+                  <a href="mi_cuenta.html" class="btn btn-luzia w-100">
+                    <i class="bi bi-person-circle me-2"></i> Ir a mi cuenta
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-
     </div>
-  </div>
-</div>
-  </div>
-</div>
   </section>
-
-  <article>
-    
-  </article>
 </main>
+
 
 <footer class="mt-5">
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>

@@ -143,75 +143,77 @@
         <!-- Banner envío -->
         <div class="ship-banner rounded-1 p-3 mb-4">
           <i class="bi bi-truck me-2"></i>
-          <span class="fw-semibold">Recibe envío gratis</span> por compras
-          iguales o superiores a <strong>70.000</strong>.
+          ¡<span class="fw-semibold">Envío gratis</span> por tu compra!
         </div>
 
         <div class="row g-4">
           <!-- Izquierda: productos -->
           <div class="col-lg-8">
-            <!-- >= md: TABLA -->
-            <div class="d-none d-md-block">
-              <div class="table-responsive">
-                <table class="table align-middle mb-0">
-                  <thead class="table-light">
-                    <tr>
-                      <th style="width: 45%">Producto</th>
-                      <th style="width: 15%">Envío</th>
-                      <th style="width: 15%">Precio</th>
-                      <th style="width: 15%">Cantidad</th>
-                      <th style="width: 10%">Total</th>
-                      <th class="text-center"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex align-items-center gap-3">
-                          <img
-                            src="img/anillo_piedra_3.png"
-                            class="rounded"
-                            alt=""
-                            width="72"
-                            height="72"
-                          />
-                          <div>
-                            
-                            <div class="fw-semibold">Anillo Aurora</div>
-                            
-                            <div class="text-muted small">Talla: 6</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="text-muted">a calcular</td>
-                      <td>$ 53.000</td>
-                      <td>
-                        <div class="d-inline-flex align-items-center">
-                          <button class="btn btn-sm" type="button">−</button>
-                          <input
-                            type="number"
-                            min="1"
-                            value="1"
-                            class="form-control form-control-sm mx-1"
-                            style="width: 68px; text-align: center"
-                          />
-                          <button class="btn btn-sm" type="button">+</button>
-                        </div>
-                      </td>
-                      <td class="fw-semibold">$ 53.000</td>
-                      <td class="text-center">
-                        <button
-                          class="btn btn-sm text-danger"
-                          aria-label="Eliminar"
-                        >
-                          <i class="bi bi-trash"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+         <!-- >= md: TABLA -->
+<div class="d-none d-md-block">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 text-center">
+      <thead class="table-light align-middle">
+        <tr>
+          <th class="text-start" style="width: 45%">Producto</th>
+          <th style="width: 15%">Cantidad</th>
+          <th style="width: 15%">Precio</th>
+          <th style="width: 15%">Total</th>
+          <th style="width: 10%" class="text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- Producto: alineado a la izquierda -->
+          <td class="text-start align-middle">
+            <div class="d-flex align-items-center gap-3">
+              <img
+                src="img/anillo_piedra_3.png"
+                class="rounded"
+                alt="Anillo Aurora"
+                width="72"
+                height="72"
+              />
+              <div>
+                <div class="fw-semibold">Anillo Aurora</div>
+                <div class="text-muted small">Talla: 6</div>
               </div>
             </div>
+          </td>
+
+          <!-- Cantidad: centrada -->
+          <td class="text-center align-middle">
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-sm px-2 py-1" type="button">−</button>
+              <input
+                type="number"
+                min="1"
+                value="1"
+                class="form-control form-control-sm mx-1 text-center"
+                style="width: 60px;"
+              />
+              <button class="btn btn-sm px-2 py-1" type="button">+</button>
+            </div>
+          </td>
+
+          <!-- Precio -->
+          <td class="align-middle text-center">$ 53.000</td>
+
+          <!-- Total -->
+          <td class="fw-semibold align-middle text-center">$ 53.000</td>
+
+          <!-- Eliminar -->
+          <td class="text-center align-middle">
+            <button class="btn btn-sm text-danger" aria-label="Eliminar">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
             <!-- < md: TARJETA -->
             <div class="d-md-none">
@@ -225,7 +227,6 @@
                       style="width: 72px; height: 72px; object-fit: cover"
                     />
                     <div class="flex-grow-1">
-                      
                       <div class="fw-semibold">Anillo Aurora</div>
                       <div class="small text-muted">Talla: XS</div>
                     </div>
@@ -263,8 +264,12 @@
               <div class="col">
                 <div class="card rec-card h-100 text-center">
                   <div class="ratio ratio-4x3 rec-thumb">
-  <img src="img/bracelet_fino_2.jpg" class="w-100 h-100 object-fit-cover" alt="">
-</div>
+                    <img
+                      src="img/bracelet_fino_2.jpg"
+                      class="w-100 h-100 object-fit-cover"
+                      alt=""
+                    />
+                  </div>
 
                   <div class="card-body">
                     <div class="small">Brazalete Iris</div>
@@ -280,8 +285,12 @@
               <div class="col">
                 <div class="card rec-card h-100 text-center">
                   <div class="ratio ratio-4x3 rec-thumb">
-  <img src="img/bracelet_fino_3.jpg" class="w-100 h-100 object-fit-cover" alt="">
-</div>
+                    <img
+                      src="img/bracelet_fino_3.jpg"
+                      class="w-100 h-100 object-fit-cover"
+                      alt=""
+                    />
+                  </div>
 
                   <div class="card-body">
                     <div class="small">Brazalete Amelia</div>
@@ -296,15 +305,16 @@
               </div>
               <div class="col">
                 <div class="card rec-card h-100 text-center">
-                  
                   <div class="ratio ratio-4x3 rec-thumb">
-  <img src="master/aroscolagantes4.jpg" class="w-100 h-100 object-fit-cover" alt="">
-</div>
+                    <img
+                      src="master/aroscolagantes4.jpg"
+                      class="w-100 h-100 object-fit-cover"
+                      alt=""
+                    />
+                  </div>
 
                   <div class="card-body">
-                    <div class="small">Aros Aura
-
-</div>
+                    <div class="small">Aros Aura</div>
                     <div class="price mt-1">$ 47.000,00</div>
                   </div>
                   <div class="card-footer bg-white border-0">
@@ -340,10 +350,7 @@
                     <span class="text-muted">Subtotal</span
                     ><span>$ 53.000</span>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between">
-                    <span class="text-muted">Gastos de envío</span
-                    ><span class="text-muted">A calcular</span>
-                  </li>
+                 
                   <li class="list-group-item d-flex justify-content-between">
                     <span class="fw-bold">Total</span
                     ><span class="fw-bold">$ 53.000</span>
@@ -354,36 +361,29 @@
                   Continuar
                 </button>
                 <div class="text-center mt-3">
-                  <a href="listadoproductos.html" class="small text-decoration-underline"
+                  <a
+                    href="listadoproductos.html"
+                    class="small text-decoration-underline"
                     >Elegir más productos</a
                   >
                 </div>
               </div>
             </div>
 
-            <div class="card summary-card mt-3">
-              <div class="card-body">
-                <h6 class="fw-bold mb-2">Entrega</h6>
-                <p class="small text-muted mb-3">
-                  Consulte las opciones de entrega de sus artículos, con todos
-                  los plazos y valores.
-                </p>
-                <button class="btn btn-pink">Calcular</button>
-              </div>
-            </div>
+         
           </div>
         </div>
       </section>
     </main>
 
-  <footer class="mt-5">
-  <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
-  <div class="d-flex flex-wrap justify-content-center gap-3">
-    <a href="politicas.html">Política de privacidad</a>
-    <a href="terminos.html">Términos y condiciones</a>
-    <a href="contacto.html">Contacto</a>
-  </div>
-</footer>
+    <footer class="mt-5">
+      <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="politicas.html">Política de privacidad</a>
+        <a href="terminos.html">Términos y condiciones</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script

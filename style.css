@@ -583,18 +583,6 @@ main {
 }
 
 
-/* Productos recomendados */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1);
-}
-
-
-.carousel-control-prev,
-.carousel-control-next {
-  width: 5%;
-}
-
 
 /* Ajuste de la card de producto */
 .product-card {

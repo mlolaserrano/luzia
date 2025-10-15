@@ -574,11 +574,10 @@ main {
   opacity: 1;
 }
 
-/* Normaliza el alto de las imágenes de las cards de productos */
 .product-card img {
   width: 100%;
-  height: 260px; /* o el alto que uses más comúnmente */
-  object-fit: cover; /* mantiene proporción recortando lo que sobra */
+  height: 260px; 
+  object-fit: cover; 
   border-top-left-radius: .375rem;
   border-top-right-radius: .375rem;
 }

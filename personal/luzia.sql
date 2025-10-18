@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2025 a las 14:18:03
+-- Tiempo de generación: 16-10-2025 a las 22:45:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -55,7 +55,7 @@ INSERT INTO `cupon` (`id`, `codigo`, `nombre`, `monto`, `vigencia`) VALUES
 
 CREATE TABLE `pedido` (
   `id` int(11) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `id_cupon` int(11) NOT NULL,
   `fecha` date NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `pedido` (
 -- Volcado de datos para la tabla `pedido`
 --
 
-INSERT INTO `pedido` (`id`, `id_cliente`, `id_producto`, `id_cupon`, `fecha`, `cantidad`, `estado`, `precio`, `montobruto`, `cupon_descuento`, `total`) VALUES
+INSERT INTO `pedido` (`id`, `id_usuario`, `id_producto`, `id_cupon`, `fecha`, `cantidad`, `estado`, `precio`, `montobruto`, `cupon_descuento`, `total`) VALUES
 (2, 3, 1, 1, '2024-12-28', 1, 'entregado', 43000, 43000, 0, 45000),
 (3, 3, 3, 2, '2025-01-02', 1, 'entregado', 45000, 45000, 15000, 30000),
 (4, 19, 8, 3, '2025-02-13', 2, 'entregado', 25000, 50000, 20000, 30000),
@@ -169,7 +169,8 @@ INSERT INTO `usuario` (`id`, `dni`, `nombre`, `apellido`, `email`, `telefono`, `
 -- Indices de la tabla `cupon`
 --
 ALTER TABLE `cupon`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `codigo` (`codigo`);
 
 --
 -- Indices de la tabla `pedido`
@@ -177,7 +178,7 @@ ALTER TABLE `cupon`
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_pedido_producto` (`id_producto`),
-  ADD KEY `fk_pedido_cliente` (`id_cliente`),
+  ADD KEY `fk_pedido_cliente` (`id_usuario`),
   ADD KEY `fk_pedido_cupon` (`id_cupon`);
 
 --
@@ -231,7 +232,7 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  ADD CONSTRAINT `fk_pedido_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `usuario` (`id`),
+  ADD CONSTRAINT `fk_pedido_cliente` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`),
   ADD CONSTRAINT `fk_pedido_cupon` FOREIGN KEY (`id_cupon`) REFERENCES `cupon` (`id`),
   ADD CONSTRAINT `fk_pedido_producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`);
 COMMIT;

@@ -1,0 +1,1 @@
+Los archivos que se suben se almacenan en el directorio 'uploads'

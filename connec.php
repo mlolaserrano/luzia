@@ -6,7 +6,7 @@
     const nombreBaseDeDatos = "luzia";        
 
     function conectarBDLuzia(){  
-      echo "Entrar a BD Luzia";
+      //echo "Entrar a BD Luzia";
 
         mysqli_report(MYSQLI_REPORT_STRICT);         //para que lance excepciones
         try {                      // Crear conexión con la base de datos.

@@ -1,0 +1,3 @@
+Entrar a phpmyadmin y importar la base de datos
+desde el archivo 'crud1.sql'
+Felicitaciones .....

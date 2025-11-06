@@ -12,7 +12,10 @@
  */
 function obtenerTodosLosProductos($conn) {
     // Seleccionamos los campos que necesitamos para la tarjeta de producto
-    $sql = "SELECT id, nombre, descripcion, precio, imagen FROM producto WHERE estado = 'activo'";
+    $sql = 
+    "SELECT id, nombre, descripcion, precio, imagen 
+    FROM producto 
+    WHERE estado = 'activo'"; //seleccionamos todos los productos activos
     
     $stmt = $conn->prepare($sql);
     
@@ -35,7 +38,10 @@ function obtenerTodosLosProductos($conn) {
  */
 function obtenerProductosPorCategoria($conn, $categoria) {
     // Usamos '?' como placeholder para la categoría
-    $sql = "SELECT id, nombre, descripcion, precio, imagen FROM producto WHERE categoria = ? AND estado = 'activo'";
+    $sql = 
+    "SELECT id, nombre, descripcion, precio, imagen 
+    FROM producto 
+    WHERE categoria = ? AND estado = 'activo'"; //
     
     $stmt = $conn->prepare($sql);
     

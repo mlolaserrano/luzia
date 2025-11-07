@@ -153,6 +153,12 @@
             <input id="email" name="email" type="email" class="form-control" required>
           </div>
 
+          <!-- DNI -->
+          <div class="mb-3">
+            <label class="form-label small text-muted" for="dni">DNI *</label>
+            <input id="dni" name="dni" type="text" class="form-control" required>
+          </div>
+
           <!-- Teléfono -->
           <div class="mb-3">
             <label class="form-label small text-muted" for="telefono">Teléfono</label>
@@ -179,16 +185,10 @@
           <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" id="tyc" required>
             <label class="form-check-label small" for="tyc">
-              Acepto los <a href="#" class="link-muted text-decoration-underline">Términos y condiciones</a>.
+              Acepto los <a href="terminos.html" class="link-muted text-decoration-underline">Términos y condiciones</a>.
             </label>
           </div>
 
-          <!-- Captcha simulado -->
-          <div class="captcha-box mb-4">
-            <input class="form-check-input" type="checkbox" id="cap" style="width:20px;height:20px" required>
-            <label for="cap" class="ms-2">No soy un robot</label>
-            <span class="ms-auto small text-muted">reCAPTCHA</span>
-          </div>
 
           <!-- Botón: abre modal (sin enviar) -->
           <button type="button" class="btn btn-luzia w-100 btn-block" data-bs-toggle="modal" data-bs-target="#modalCuentaCreada">

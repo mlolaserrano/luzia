@@ -11,7 +11,7 @@ $consulta = $conexion->query("SELECT * FROM producto WHERE estado='activo'");
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"> 
   <title>Listado de Productos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>

@@ -1,10 +1,10 @@
-<?php 
+<?php  
 include("connec.php");
 
-// Llamamos a la función que CREA la conexión
+// Conectamos a la BD
 $conexion = conectarBDLuzia();
 
-// Pedimos los productos activos
+// Consulta de productos activos
 $consulta = $conexion->query("SELECT * FROM producto WHERE estado='activo'");
 ?>
 
@@ -32,12 +32,21 @@ $consulta = $conexion->query("SELECT * FROM producto WHERE estado='activo'");
               $imagen = "img/default-product.png";
             }
           ?>
+
           <img src="<?php echo $imagen; ?>" class="card-img-top" alt="<?php echo $p['nombre']; ?>">
 
           <div class="card-body text-center">
             <h5 class="card-title"><?php echo $p['nombre']; ?></h5>
-            <p class="card-text">$<?php echo number_format($p['precio'], 0, ',', '.'); ?></p>
-            <a class="btn btn-outline-primary" href="#">Ver información</a>
+            <p class="card-text">
+              $<?php echo number_format($p['precio'], 0, ',', '.'); ?>
+            </p>
+
+            <!-- ACA AGREGO EL LINK AL DETALLE DEL PRODUCTO -->
+            <a class="btn btn-outline-primary" 
+               href="detalle_producto.html?id=<?php echo $p['id']; ?>">
+               Ver información
+            </a>
+
           </div>
 
         </div>

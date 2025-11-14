@@ -6,7 +6,7 @@
     const nombreBaseDeDatos = "luzia";        
 
     function conectarBDLuzia(){  
-      //echo "Entrar a BD Luzia";
+      echo "Entrar a BD Luzia";
 
         mysqli_report(MYSQLI_REPORT_STRICT);         //para que lance excepciones
         try {                      // Crear conexión con la base de datos.
@@ -39,7 +39,8 @@
       //echo "Entró a consultar usuario";
     $resultado = NULL;
         
-    $sql = "SELECT * FROM usuario WHERE email= '$email' AND clave = '$clave'";
+    //$sql = "SELECT * FROM usuario WHERE email= '$email' AND clave = '$clave'";
+      $sql = "SELECT nombre FROM usuario WHERE email= '$email' AND clave = '$clave'";
 
     $resultado = $conn->query($sql);
      
@@ -47,21 +48,35 @@
     return $resultado;
   }
 
-/*
-  function verficarEmail($conn,$email){
+  function validarDni($conn,$dni){
+    $resultado = NULL;
+    $sql="SELECT * FROM usuario WHERE dni=$dni";  
+    $resultado = $conn->query($sql);                   
+    return $resultado;
+  }
+
+
+  function validarEmail($conn,$email){
     $resultado = NULL;
     $sql="SELECT * FROM usuario WHERE email='$email'";  
     $resultado = $conn->query($sql);                   
     return $resultado;
   }
+
   
-  function agregarUsuario($conn,$dni,$nombre,$apellido,$email,$telefono,$clave){
+
+  function agregarUsuario($conn,$nombre,$apellido,$dni,$email,$telefono,$clave){
     $filasAfectadas = 0;
-    $sql="INSERT INTO usuario (dni,nombre,apellido,email,telefono,clave) VALUES ($dni,'$nombre','$apellido','$email',$telefono,'$clave')";
+    $sql="INSERT INTO usuario (nombre,apellido,dni,email,telefono,clave,rol) VALUES ('$nombre','$apellido',$dni,'$email',$telefono,'$clave','cliente')";
     $conn->query($sql);
     $filasAfectadas=$conn->affected_rows;
     return $filasAfectadas;
   }
+
+/*
+  
+  
+  
 
   function consultaDatosUsuario($conn,$email){
     $resultado = NULL;

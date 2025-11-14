@@ -66,7 +66,10 @@
               </li>
             </ul>
             <div class="d-flex ms-lg-auto">
-              <a class="btn icon-btn" href="login.html" aria-label="Usuario"
+              
+              <!-- Aquí se muestra el nombre del usuario -->
+
+              <a class="btn icon-btn" href="login.html" aria-label="email"
                 ><i class="bi bi-person"></i
               ></a>
               <a
@@ -177,40 +180,49 @@
   <!-- Productos -->
   <article>
     <h1 class="display-4">Productos Destacados</h1>
-
+    <!--<form class="form-underline" action="validar_sesion.php" method="post">-->
     <div class="container py-4">
-      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
-        <!-- Producto -->
-        <div class="col">
-          <div class="card h-100">
-            <div class="product-img-wrap ratio-1x1">
-               
-              <img src="img/BRA001bracelet_fino_2.jpg" class="card-img-top" alt="Producto 1">
-              <div class="btn-wrap">
-                <a href="detalle_producto.html" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
+      
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+          
+          <!-- Producto 1-->
+
+          <div class="col">
+            <div class="card h-100">
+              <div class="product-img-wrap ratio-1x1">   
+                <img src="img/BRA001bracelet_fino_2.jpg" class="card-img-top" alt="Producto 1">
+                <form class="form-underline" action="validar_sesion1.php" method="post">
+                <div class="btn-wrap">
+                  <a href="validar_sesion1.php" class="btn btn-carrito w-100 rounded-0" name="agg_carrito">AGREGAR AL CARRITO</a>
+                </div>
+                </form>
+              </div>
+              
+              <a href="#">
+              <div class="card-body">
+            
+                <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Doble Trazo</h6>
+                <p class="mb-0">$45.000</p>
+              </a>
               </div>
             </div>
-            <a href="detalle_producto.html">
-            <div class="card-body">
-           
-              <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Doble Trazo</h6>
-              <p class="mb-0">$45.000</p>
-            </a>
-            </div>
-          </div>
         </div>
 
-        <!-- Duplicá este .col para más productos -->
+        <!-- Producto 2 -->
+
         <div class="col">
           <div class="card h-100">
             <div class="product-img-wrap ratio-1x1">
               <img src="img/BRA002bracelet_fino_1.jpg" class="card-img-top" alt="Producto 2">
+              
+              <form class="form-underline" action="validar_sesion1.php" method="post">
               <div class="btn-wrap">
-                <a href="#" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
+                <a href="validar_sesion1.php" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
               </div>
+              </form>
             </div>
             <div class="card-body">
-              <a href="detalle_producto.html">
+              <a href="#">
                 <h6 class="card-title text-uppercase fw-bold mb-1">Brazaletes Armonía</h6>
                 <p class="mb-0">$15.500</p>
               </a>
@@ -218,16 +230,20 @@
           </div>
         </div>
 
+        <!-- Producto 3 -->
+        
         <div class="col">
           <div class="card h-100">
             <div class="product-img-wrap ratio-1x1">
               <img src="img/ARO002aroscolagantes4.png" class="card-img-top" alt="Producto 3">
+              <form class="form-underline" action="validar_sesion.php" method="post">
               <div class="btn-wrap">
-                <a href="#" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
+                <a href="validar_sesion1.php" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
               </div>
+              </form>
             </div>
             <div class="card-body">
-              <a href="detalle_producto.html">
+              <a href="validar_sesion1.php">
                 <h6 class="card-title text-uppercase fw-bold mb-1">Aros Amare</h6>
                 <p class="mb-0">$39.000</p>
               </a>
@@ -235,16 +251,21 @@
           </div>
         </div>
 
+        <!-- Producto 4 -->
+
         <div class="col">
           <div class="card h-100">
             <div class="product-img-wrap ratio-1x1">
               <img src="img/ARO001aroscolagantes3.jpg" class="card-img-top" alt="Producto 4">
+              
+              <form class="form-underline" action="validar_sesion.php" method="post">
               <div class="btn-wrap">
-                <a href="#" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
+                <a href="validar_sesion1.php" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
               </div>
+              </form>
             </div>
             <div class="card-body">
-              <a href="detalle_producto.html">
+              <a href="validar_sesion1.php">
                 <h6 class="card-title text-uppercase fw-bold mb-1">Aros Aura</h6>
                 <p class="mb-0">$40.000</p>
               </a>
@@ -252,11 +273,12 @@
           </div>
         </div>
 
-      </div>
     </div>
+      
+  
     <div class="container py-4">
       <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
-
+</form>
 
         
   </article>

@@ -134,7 +134,7 @@
         </div>
 
         <!-- Registro -->
-        <form class="form-underline" action="#" method="post">
+        <form class="form-underline" action="newuser.php" method="post">
           <!-- Nombre -->
           <div class="mb-3">
             <label class="form-label small text-muted" for="nombre">Nombre *</label>
@@ -147,11 +147,6 @@
             <input id="apellido" name="apellido" type="text" class="form-control" required>
           </div>
 
-          <!-- Email -->
-          <div class="mb-3">
-            <label class="form-label small text-muted" for="email">E-mail *</label>
-            <input id="email" name="email" type="email" class="form-control" required>
-          </div>
 
           <!-- DNI -->
           <div class="mb-3">
@@ -159,25 +154,37 @@
             <input id="dni" name="dni" type="text" class="form-control" required>
           </div>
 
+          <!-- Email -->
+          <div class="mb-3">
+            <label class="form-label small text-muted" for="email">E-mail *</label>
+            <input id="email" name="email" type="email" class="form-control" required>
+          </div>
+
+          
+
           <!-- Teléfono -->
           <div class="mb-3">
             <label class="form-label small text-muted" for="telefono">Teléfono</label>
-            <input id="telefono" name="telefono" type="tel" class="form-control" inputmode="tel" placeholder="+54 9 11 1234-5678">
+            <input id="telefono" name="telefono" type="tel" class="form-control" inputmode="tel" placeholder="11 1234-5678">
           </div>
 
           <!-- Contraseña -->
           <div class="mb-3 position-relative">
             <label class="form-label small text-muted" for="pass">Contraseña *</label>
-            <input id="pass" name="password" type="password" class="form-control"
+            <input id="pass" name="clave" type="password" class="form-control"
                    minlength="8" required
                    pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$"
                    title="Mínimo 8 caracteres e incluir al menos una letra y un número">
-          </div>
+            </div>
 
           <!-- Confirmar contraseña -->
-          <div class="mb-3">
+          <div class="mb-3 position-relative">  
             <label class="form-label small text-muted" for="pass2">Confirmar contraseña *</label>
-            <input id="pass2" name="password_confirm" type="password" class="form-control" minlength="8" required>
+            <input id="pass2" name="confirmarClave" type="password" class="form-control" 
+                  minlength="8" required
+                  pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$"
+                  title="Mínimo 8 caracteres e incluir al menos una letra y un número"         
+            >
           </div>
 
           <!-- Términos -->
@@ -190,7 +197,8 @@
 
 
           <!-- Botón: abre modal (sin enviar) -->
-          <button type="button" class="btn btn-luzia w-100 btn-block" data-bs-toggle="modal" data-bs-target="#modalCuentaCreada">
+          <button type="submit" class="btn btn-luzia w-100 btn-block" value="crear cuenta">
+            <!-- esto estaba en la etiqueta -> data-bs-toggle="modal" data-bs-target="#modalCuentaCreada"-->
             Crear cuenta
           </button>
 
@@ -198,7 +206,7 @@
         </form>
 
         <!-- Modal cuenta creada -->
-        <div class="modal fade" id="modalCuentaCreada" tabindex="-1" aria-labelledby="modalCuentaCreadaLabel" aria-hidden="true">
+        <!--<div class="modal fade" id="modalCuentaCreada" tabindex="-1" aria-labelledby="modalCuentaCreadaLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center">
               <div class="modal-header">
@@ -218,7 +226,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>

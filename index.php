@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: login.html"); // Redirigir si no ha iniciado sesión
+    exit();
+}
+
+
+// 1. Recoger y sanear datos
+$nombre   = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -29,8 +42,7 @@
   </head>
 
   <body>
-   <header>  
-
+   <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid position-relative">
           <!-- Brand fijo centrado -->
@@ -123,19 +135,17 @@
           </ul>
 
           <hr class="my-3" />
-          <!-- Formulario con action y method -->
-          <form action="index.php" method="POST">
-            
-            <div class="d-flex justify-content-center gap-3">
-              <label for="email" class="form-label"></label>
-              <input type="email" class="form-control" name="email" id="email">
-              <a href="login.html"><i class="bi bi-person fs-5"></i></a>
-              <a href="carrito.html" class="position-relative">
-                <i class="bi bi-cart fs-5"></i>
-                <span class="cart-counter">0</span>
-              </a>
-            </div>
-          </form>             
+
+          <div class="d-flex justify-content-center gap-3">
+
+        <!--línea de código php insertado--> 
+            <p><?php echo htmlspecialchars($_SESSION['email']);?></p>
+            <a href="login.html"><i class="bi bi-person fs-5"></i></a>
+            <a href="carrito.html" class="position-relative">
+              <i class="bi bi-cart fs-5"></i>
+              <span class="cart-counter">0</span>
+            </a>
+          </div>
         </div>
       </div>
     </header>

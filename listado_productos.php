@@ -1,64 +1,76 @@
-<?php  
-include("connec.php");
+<?php
+include "connec.php";
 
-// Conectamos a la BD
-$conexion = conectarBDLuzia();
 
-// Consulta de productos activos
-$consulta = $conexion->query("SELECT * FROM producto WHERE estado='activo'");
+function main() {
+
+    $conn = conectarBDLuzia();
+
+    if ($conn == NULL) {
+        echo "No se pudo conectar a la base de datos.";
+        return;
+    }
+
+    $sql = "SELECT * FROM producto WHERE estado='activo'";
+    $resultado = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"> 
-  <title>Listado de Productos</title>
+    <meta charset="UTF-8">
+    <title>Productos - Luzia</title>
 
-  <!-- BOOTSTRAP -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- TU ARCHIVO CSS (IMPORTANTE!!) -->
-  <link rel="stylesheet" href="style.css">
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="container my-5">
-  <h1 class="text-center mb-4 titulo">Nuestros Productos</h1>
+    <h1 class="text-center mb-4 titulo">Nuestros Productos</h1>
 
-  <div class="row g-4">
+    <div class="row g-4">
+        <?php while($p = $resultado->fetch_assoc()): ?>
 
-    <?php while($p = $consulta->fetch_assoc()): ?>
-      <div class="col-md-3">
-        <div class="card h-100 product-card">
+        <div class="col-md-3">
+            <div class="card h-100 product-card">
 
-          <?php 
-            $imagen = $p['imagen']; 
-            if ($imagen == "") { 
-              $imagen = "img/default-product.png";
-            }
-          ?>
+                <?php
+                    $imagen = $p['imagen'];
+                    if ($imagen == "" || $imagen == NULL) {
+                        $imagen = "img/default-product.png";
+                    }
+                ?>
 
-          <img src="<?php echo $imagen; ?>" class="card-img-top" alt="<?php echo $p['nombre']; ?>">
+                <img src="<?= $imagen ?>" class="card-img-top" alt="<?= $p['nombre'] ?>">
 
-          <div class="card-body text-center">
-            <h5 class="card-title"><?php echo $p['nombre']; ?></h5>
-            <p class="card-text">$<?php echo number_format($p['precio'], 0, ',', '.'); ?></p>
+                <div class="card-body text-center">
+                    <h5 class="card-title"><?= $p['nombre'] ?></h5>
+                    <p class="card-text">$<?= number_format($p['precio'],0,',','.') ?></p>
 
-            <!-- BOTÓN DE VER MÁS -->
-            <a class="btn btn-outline-primary" 
-               href="detalle_producto.php?id=<?php echo $p['id']; ?>">
-               Ver información
-            </a>
+                    <a class="btn btn-outline-primary"
+                       href="detalle_producto.php?id=<?= $p['id'] ?>">
+                       Ver información
+                    </a>
+                </div>
 
-          </div>
-
+            </div>
         </div>
-      </div>
-    <?php endwhile; ?>
 
-  </div>
+        <?php endwhile; ?>
+    </div>
 </div>
 
 </body>
 </html>
+
+<?php
+    cerrarBDConexion($conn);
+}
+
+main();
+?>

@@ -163,7 +163,7 @@ $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
         <h1 class="card-title mb-4">¡Gracias, <?php echo $nombre; ?>!</h1>
         <p class="mb-3">Hemos recibido tu consulta:</p>
         <blockquote class="blockquote mb-4 text-start">
-          <?php echo nl2br($consulta); ?>
+          <?php echo nl2br($email); ?>
         </blockquote>
         <p class="mb-4">
           Te responderemos en breve al correo

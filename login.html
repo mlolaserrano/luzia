@@ -58,15 +58,13 @@
               </li>
             </ul>
             <div class="d-flex ms-lg-auto">
-              <a class="btn icon-btn" href="login.html" aria-label="Usuario"
-                ><i class="bi bi-person"></i
-              ></a>
+              
               <a
                 class="btn icon-btn position-relative"
                 href="carrito.html"
                 aria-label="Carrito"
               >
-                <i class="bi bi-cart"></i><span class="cart-counter">0</span>
+                <i class="bi bi-cart"></i>
               </a>
             </div>
           </div>
@@ -138,24 +136,17 @@
     <form class="form-underline" action="login.php" method="post">
       <div class="mb-4">
         <label class="form-label small text-muted" for="email" required>E-mail *</label>
-        <input type="email" class="form-control" name="email" id="mg_01" required value="">
+        <input type="email" class="form-control" name="email" id="email" required value="">
       </div>
 
       <div class="mb-2 position-relative">
         <label class="form-label small text-muted" for="clave" required>Contraseña *</label>
-        <input type="password" class="form-control" name="clave" id="mg_02" required placeholder="Escribir contraseña">
+        <input type="password" class="form-control" name="clave" id="clave" required placeholder="Escribir contraseña">
         
       </div>
 
       <div class="mb-4 text-end">
         <a href="#" class="link-muted small">¿Olvidaste la contraseña?</a>
-      </div>
-
-      <!-- Captcha simulado -->
-      <div class="captcha-box mb-4">
-        <input class="form-check-input" type="checkbox" id="cap" style="width:20px;height:20px">
-        <label for="cap" class="ms-1">No soy un robot</label>
-        <span class="ms-auto small text-muted">reCAPTCHA</span>
       </div>
 
   <button type="submit" class="btn btn-carrito w-100 btn-block" value="ingresar">Ingresar</button>

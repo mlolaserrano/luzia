@@ -7,7 +7,9 @@ if (!isset($_SESSION['email'])) {
 
 
 // 1. Recoger y sanear datos
-$nombre   = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
+$email = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
+$x = "***".$_SESSION['email'];
+
 
 ?>
 
@@ -80,17 +82,13 @@ $nombre   = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
             </ul>
             <div class="d-flex ms-lg-auto">
               
-              <!-- Aquí se muestra el nombre del usuario -->
-
-              <a class="btn icon-btn" href="login.html" aria-label="email"
-                ><i class="bi bi-person"></i
-              ></a>
-              <a
-                class="btn icon-btn position-relative"
-                href="carrito.html"
-                aria-label="Carrito"
-              >
-                <i class="bi bi-cart"></i><span class="cart-counter">0</span>
+              <!-- Aquí se muestra el email del usuario -->
+             
+              <a class="btn" href="mi_cuenta.php" aria-label="email">
+                <i class="position-relative"><?php echo $_SESSION['email'];?></i>
+              </a>
+              <a class="btn icon-btn position-relative" href="carrito.html"aria-label="Carrito">
+                <i class="bi bi-cart"></i>
               </a>
             </div>
           </div>
@@ -139,7 +137,7 @@ $nombre   = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
           <div class="d-flex justify-content-center gap-3">
 
         <!--línea de código php insertado--> 
-            <p><?php echo htmlspecialchars($_SESSION['email']);?></p>
+            <p>****</p>
             <a href="login.html"><i class="bi bi-person fs-5"></i></a>
             <a href="carrito.html" class="position-relative">
               <i class="bi bi-cart fs-5"></i>

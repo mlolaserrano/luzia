@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Array de productos
+// productos
 $productos = [
     ["nombre"=>"Aros Celia","precio"=>39000,"imagen"=>"master/aroscolagantes4.jpg","detalle"=>"detalle_producto.html"],
     ["nombre"=>"Aros Aura","precio"=>47000,"imagen"=>"img/ARO001aroscolagantes3.jpg","detalle"=>"detalle_producto.html"],

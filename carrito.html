@@ -366,9 +366,16 @@
                   </li>
                 </ul>
 
-                <button class="btn btn-accent w-100 mt-3 py-2">
-                  Finalizar compra
-                </button>
+                                <!-- Este formulario reemplaza el botón de "Finalizar Compra" -->
+                                <!-- Fijarme que el CSS/Bootstrap estilice el botón <button type="submit"> -->
+                                <form method="POST" action="carrito.php">
+                                  <!-- Este campo oculto es lo que el PHP detecta para saber que se apretó el botón -->
+                                  <input type="hidden" name="finalizar_compra" value="1">
+                                
+                                  <button type="submit" class="btn btn-primary w-100">
+                                    Finalizar Compra
+                                  </button>
+                                </form>
             
               </div>
             </div>

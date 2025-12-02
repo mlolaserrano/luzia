@@ -542,14 +542,21 @@ main {
   border-color: var(--line);
 }
 
-.cart-page .btn-accent {
-  background: #222;
-  color: #fff;
-  border: 0;
+.cart-page .btn-primary {
+    background-color: #222;
+    color: var(--color-texto2); 
+    border: none;
+    transition: all 0.3s ease;
+    margin: 16px 0 0 0; 
+    padding: 8px 12px; 
 }
 
-.cart-page .btn-accent:hover {
-  background: #2f2f2f;
+.cart-page .btn-primary:hover,
+.cart-page .btn-primary:focus {
+    background-color: #2f2f2f;
+    color: var(--color-texto2);
+    /* Importante para que no use el focus box-shadow de Bootstrap por defecto */
+    box-shadow: none;
 }
 
 .cart-page .btn-pink {

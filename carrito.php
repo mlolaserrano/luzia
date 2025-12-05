@@ -1,8 +1,15 @@
 <?php
-
-declare(strict_types=1);
 session_start();
 
+// 1. Recoger y sanear datos
+$email = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
+$x = "***".$_SESSION['email'];
+
+// Función de ayuda para formatear precios.
+function format_price(float $price): string {
+    // Formatea el número: sin decimales, punto como separador de miles.
+    return number_format($price, 0, ',', '.');
+}
 
 
 // DEFINICIÓN DE DATOS FIJOS DEL PRODUCTO
@@ -10,21 +17,21 @@ $producto_fijo = [
     'id' => 1,
     'sku' => 'ANI001',
     'nombre' => 'Anillo Aurora',
-    'precio' => 53000,
-    'cantidad' => 1,
+    'precio_unitario' => 53000.00, // Precio de un solo artículo
+    'cantidad' => 1, // Cantidad en el carrito
     'talla' => '6',
     'imagen' => 'img/ANI001anillo_piedra_3.png'
 ];
 
-//CÁLCULO DE TOTALES
-$subtotal = $producto_fijo['precio'] * $producto_fijo['cantidad'];
+// CÁLCULO DE TOTALES
+$subtotal = $producto_fijo['precio_unitario'] * $producto_fijo['cantidad'];
 $total_productos = $producto_fijo['cantidad'];
-$total_final = $subtotal;
+$total_final = $subtotal; // Asumiendo envío $0 por el banner
 
-// ID de pedido de prueba (un identificador fijo para la demostración)
+// ID de pedido
 $id_pedido_prueba = 101;
 
-
+// "FINALIZAR COMPRA"
 // Detecta si se hizo clic en el botón del formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) {
 
@@ -34,6 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
     exit();
 }
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -106,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
               <!-- Aquí se muestra el email del usuario -->
              
               <a class="btn" href="mi_cuenta.php" aria-label="email">
-                <i class="position-relative"><?php echo $_SESSION['email'];?></i>
+                <i class="position-relative"><?php echo $_SESSION['email'];?>></i>
               </a>
               <a class="btn icon-btn position-relative" href="carrito.html"aria-label="Carrito">
                 <i class="bi bi-cart"></i>

@@ -18,7 +18,7 @@ select * from producto;
 
 select nombre, precio from producto where estado='activo';
 
-select nombre,apellido,email from usuario WHERE rol='cliente';
+select nombre,apellido,email,clave from usuario WHERE rol='cliente';
 
 select * from cupon where in asc = 1 de enero de 2025;
 

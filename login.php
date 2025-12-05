@@ -1,102 +1,40 @@
 <?php
+session_start();
+
 include "connec.php";
 include "sesion.php";  
 
-function iniciarSesion($email,$clave){
-    // echo "Iniciar sesion";
+function main(){
+    $email = $_POST['email'];      
+    $clave = $_POST['clave'];
 
-    $_SESSION['email']  = $email;      // Guardar el nombre de usuario en la sesión
-    $_SESSION['clave']  = $clave;
-    header("Location: index.html");
-    //exit();
-    //header("Location: login.html");
-    //$_SESSION['email']  = $usuario1;     // Guardar el nombre de usuario en la sesión*/
+    $conn = conectarBDLuzia(); // conectar a base de datos
+    $resultado = consultarUsuario($conn,$email,$clave); // Consulta usuario en la base de datos 
+
+    if($resultado != NULL && $resultado->num_rows > 0){  
+        $row = mysqli_fetch_assoc($resultado); 
+        if ($row) {
+            // Guardar datos en sesión
+            $_SESSION['id']       = $row['id'];
+            $_SESSION['nombre']   = $row['nombre'];
+            $_SESSION['apellido'] = $row['apellido'];
+            $_SESSION['email']    = $row['email'];
+            $_SESSION['dni']      = $row['dni'];
+            $_SESSION['telefono'] = $row['telefono'];
+
+            mysqli_free_result($resultado);
+            cerrarBDConexion($conn);
+
+            // Redirigir al index
+            header("Location: index.php");
+            exit();
+        } else {
+            echo "Usuario no encontrado";
+        }
+    } else {
+        echo 'El email o clave es incorrecto, <a href="login.html">vuelva a intentarlo</a>.<br/>';
+    }
 }
 
-/*
-function validarLogin(){
-    //echo "Validar login";
-
-    $email = $_POST['email'];       
-    $clave = $_POST['clave'];
-    //echo $email, $clave;
-    
-
-    // AQUI consultar a la BASE DE DATOS para ver si existe usuario y pass
-    $conn = conectarBDLuzia();
-    //echo "Salir de Conectar";
-
-    // consultar a partir de los datos obtenidos del formulario $_REQUEST['usuario']
-    $resultado = consultarUsuario($conn,$email,$clave);
-    echo "Salir de consultar usuario";
-    return $resultado;
-
-    //$clave='Val1234**';                        // obtengo de la BD el pass correspondiente 
-    $clave= $_POST['clave'];
-    if ($_REQUEST['clave']==$clave){        // Verificar si la contraseña ingresada coincide con la de la BD
-        
-        iniciarSesion($_REQUEST['email'], $_REQUEST['clave']); // Iniciar sesión si la contraseña es correcta
-    }
-    else {
-        header("Location: login.html");
-        exit();
-    }
-        
-}*/
-
-
-function main(){
-    #Inicia la sesión
-    /*if(isset($_SESSION['email'])){           // Verificar si ya hay una sesión iniciada 
-        //header("Location: index.html");
-        echo "Ir a mi cuenta";
-        #header("Location: mi_cuenta.html");
-        //header("Location: principal.php");     // Entonces hay sesion, redirigir al usuario a la página principal
-        exit();
-    }
-    else{  */                                   // Si no hay sesión iniciada
-    
-        $email = $_POST['email'];      
-        $clave = $_POST['clave'];
-        
-        //$nombre = $_POST['nombre'];
-
-        $conn = conectarBDLuzia(); // conectar a base de datos
-
-        $resultado = consultarUsuario($conn,$email,$clave); // Consulta usuario en la base de datos 
-
-        #VALIDAR USUARIO
-        if($resultado!=NULL && $resultado->num_rows>0){  
-            //echo "Usuario válido";
-
-
-            $row = mysqli_fetch_assoc($resultado); // Fetch the row as an associative array
-            if ($row) { // Check if a row was returned
-                
-                echo "Hola " . $row['nombre'];
-                //exit();
-                
-            } else {
-                echo "Usuario no encontrado";
-            }
-                mysqli_free_result($resultado); // Free the result set
-                cerrarBDConexion($conn);
-
-            #SE CREA LA SESIÓN
-            crearSesion('email', $email); 
-            #REDIRIGE AL INDEX.HTML
-            header("Location: index.html"); 
-            
-        }else{
-            echo 'El email o clave es incorrecto, <a href="login.html">vuelva a intenarlo</a>.<br/>';
-            }
-    }
-    /*else {
-            header("Location: principal.php"); // Redirigir al usuario a la página principal
-            exit();
-        }         
-    } */    
-//}
-
-main();                                     // Ejecutar la función principal
+main();
 ?>

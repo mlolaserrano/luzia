@@ -2,9 +2,10 @@
 // Declarar el tipo de contenido para asegurar que el navegador lo interprete como HTML
 header('Content-Type: text/html; charset=utf-8');
 
-// Obtener el ID del pedido de la URL, si existe.
+
 $id_pedido = isset($_GET['pedido']) ? htmlspecialchars($_GET['pedido']) : 'un momento'; 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 

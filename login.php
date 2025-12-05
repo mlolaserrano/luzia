@@ -7,7 +7,7 @@ function iniciarSesion($email,$clave){
 
     $_SESSION['email']  = $email;      // Guardar el nombre de usuario en la sesión
     $_SESSION['clave']  = $clave;
-    header("Location: index.html");
+    header("Location: index.html"); //dirige al index
     //exit();
     //header("Location: login.html");
     //$_SESSION['email']  = $usuario1;     // Guardar el nombre de usuario en la sesión*/

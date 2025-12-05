@@ -274,7 +274,7 @@
         <div class="col">
          <div class="card h-100">
             <div class="product-img-wrap ratio-1x1">
-              <img src="master/aroscolagantes3.jpg" class="card-img-top" alt="Producto 4">
+              <img src="img/ARO001aroscolagantes3.jpg" class="card-img-top" alt="Producto 4">
 
               <!-- Botones de gestión -->
 
@@ -379,56 +379,27 @@
  
 
 
-<!-- Ventana para Agregar -->
+<!-- Ventana para AGREGAR IMAGEN -->
 
-<div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
+<div class="modal fade" id="modalModificar" tabindex="-1" aria-labelledby="modalModificarLabel" aria-hidden="true">
+  <form action="procesar_upload.php" method="POST" enctype="multipart/form-data"> <!-- conexión con el php-->
+    <div class="modal-body modal-form">
+      <div class="col-md-12"> <div class="mb-3">
+          <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
+          <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*" required>
+          <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
+        </div>
 
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <div class="modal-header">
-
-        <h5 class="modal-title" id="modalAgregarLabel">Agregar Nueva Imagen</h5>
-
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
+        <input type="hidden" name="id_elemento" value="ID_DEL_BANNER_O_PRODUCTO_ACTUAL">
       </div>
-
-      <div class="modal-body modal-form">
-
-        <form>
-
-         <div class="col-md-6">
-
-              <div class="mb-3">
-
-                  <label for="productImage" class="form-label">Imagen del Producto</label>
-
-                  <input class="form-control" type="file" id="productImage" accept="image/*">
-
-                  <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
-
-              </div>
-
-          </div>
-
-        </form>
-
-      </div>
-
-      <div class="modal-footer">
-
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
-        <button type="button" class="btn btn-dark">Agregar Imagen</button>
-
-      </div>
-
     </div>
 
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      <button type="submit" class="btn btn-dark" name="submit">Guardar Cambios</button>
+    </div>
+  </form>
   </div>
-
 </div>
 
  
@@ -489,221 +460,7 @@
 </div>
 
  
-
-
-<!-- Ventana para Eliminar -->
-
-<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
-
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <div class="modal-header">
-
-        <h5 class="modal-title" id="modalEliminarLabel">Eliminar Imagen</h5>
-
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-      </div>
-
-      <div class="modal-body">
-
-        <div class="text-center mb-4">
-
-          <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
-
-        </div>
-
-        <p class="text-center">¿Está seguro que desea eliminar esta imagen?</p>
-
-        <div class="alert alert-warning" role="alert">
-
-          <i class="bi bi-info-circle"></i> Esta acción no se puede deshacer.
-
-        </div>
-
-      </div>
-
-      <div class="modal-footer">
-
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
-        <button type="button" class="btn btn-dark">Eliminar Imagen</button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
- 
-
-<!-- Nuevos modales para gestión de texto (Agregar, Modificar, Eliminar) -->
-
-<!-- Modal para Agregar Texto -->
-
-<div class="modal fade" id="modalAgregarTexto" tabindex="-1" aria-labelledby="modalAgregarTextoLabel" aria-hidden="true">
-
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <div class="modal-header">
-
-        <h5 class="modal-title" id="modalAgregarTextoLabel">Agregar Texto del Producto</h5>
-
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-      </div>
-
-      <div class="modal-body">
-
-        <form>
-
-          <div class="mb-3">
-
-            <label for="productName" class="form-label">Nombre del Producto</label>
-
-            <input type="text" class="form-control" id="productName">
-
-          </div>
-
-          <div class="mb-3">
-
-            <label for="productPrice" class="form-label">Precio</label>
-
-            <input type="text" class="form-control" id="productPrice">
-
-          </div>
-
-        </form>
-
-      </div>
-
-      <div class="modal-footer">
-
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
-        <button type="button" class="btn btn-dark">Agregar Texto</button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
- 
-
-<!-- Modal para Modificar Texto -->
-
-<div class="modal fade" id="modalModificarTexto" tabindex="-1" aria-labelledby="modalModificarTextoLabel" aria-hidden="true">
-
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <div class="modal-header">
-
-        <h5 class="modal-title" id="modalModificarTextoLabel">Modificar Texto del Producto</h5>
-
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-      </div>
-
-      <div class="modal-body">
-
-        <form>
-
-          <div class="mb-3">
-
-            <label for="editProductName" class="form-label">Nombre del Producto</label>
-
-            <input type="text" class="form-control" id="editProductName" value="Nombre de producto">
-
-          </div>
-
-          <div class="mb-3">
-
-            <label for="editProductPrice" class="form-label">Precio</label>
-
-            <input type="text" class="form-control" id="editProductPrice" value="$00.000">
-
-          </div>
-
-        </form>
-
-      </div>
-
-      <div class="modal-footer">
-
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
-        <button type="button" class="btn btn-dark">Guardar Cambios</button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
- 
-
-<!-- Modal para Eliminar Texto -->
-
-<div class="modal fade" id="modalEliminarTexto" tabindex="-1" aria-labelledby="modalEliminarTextoLabel" aria-hidden="true">
-
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <div class="modal-header">
-
-        <h5 class="modal-title" id="modalEliminarTextoLabel">Eliminar Texto del Producto</h5>
-
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-      </div>
-
-      <div class="modal-body">
-
-        <div class="text-center mb-4">
-
-          <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
-
-        </div>
-
-        <p class="text-center">¿Está seguro que desea eliminar el texto de este producto?</p>
-
-        <div class="alert alert-warning" role="alert">
-
-          <i class="bi bi-info-circle"></i> Esta acción no se puede deshacer.
-
-        </div>
-
-      </div>
-
-      <div class="modal-footer">
-
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-
-        <button type="button" class="btn btn-dark">Eliminar Texto</button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
- 
+<!-- Footer -->
 
 <footer class="mt-5 text-center">
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>

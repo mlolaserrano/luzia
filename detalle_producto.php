@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-/*
-  Se asume que $producto viene de tu BD.
-  Si lo estás probando suelto, podés dejar este ejemplo:
-*/
+
 if (!isset($producto)) {
     $producto = [
         'id'          => 'ANI001',
@@ -296,7 +293,7 @@ foreach ($cart_items as $item) {
           Finalizar compra
         </a>
 
-        <!-- (OPCIONAL) BOTÓN VACIAR TODO EL CARRITO -->
+        <!-- BOTÓN VACIAR TODO EL CARRITO -->
         <form method="POST" class="text-end">
           <button type="submit" name="empty_cart"
                   class="btn btn-link btn-sm text-danger">

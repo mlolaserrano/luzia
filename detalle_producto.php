@@ -20,6 +20,22 @@ if (!$producto) {
 }
 ?>
 
+<?php
+session_start();
+
+// Inicializar carrito si no existe
+if (!isset($_SESSION['carrito'])) {
+    $_SESSION['carrito'] = [];
+}
+
+// Calcular cantidad total para el numerito del ícono
+$cart_count = 0;
+foreach ($_SESSION['carrito'] as $item) {
+    $cart_count += $item['cantidad'];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -68,9 +84,11 @@ if (!$producto) {
 
           <div class="d-flex ms-lg-auto">
             <a class="btn icon-btn" href="login.html"><i class="bi bi-person"></i></a>
-            <a class="btn icon-btn position-relative" href="carrito.html">
-              <i class="bi bi-cart"></i><span class="cart-counter">0</span>
-            </a>
+            <a class="btn icon-btn position-relative" href="carrito.php" aria-label="Carrito">
+  <i class="bi bi-cart"></i>
+  <span class="cart-counter"><?php echo $cart_count; ?></span>
+</a>
+
           </div>
         </div>
       </div>
@@ -110,10 +128,20 @@ if (!$producto) {
           </div>
 
           <!-- BOTÓN CARRITO -->
-          <div class="d-grid gap-2">
-            <button class="btn btn-lg btn-carrito" type="button">
-              Añadir al Carrito
-            </button>
+      <!-- BOTÓN AÑADIR AL CARRITO  -->
+<div class="d-grid gap-2">
+  <form method="POST" action="carrito.php">
+    <input type="hidden" name="id" value="ANI001">
+    <input type="hidden" name="nombre" value="Anillo Aurora">
+    <input type="hidden" name="precio" value="53000">
+    <input type="hidden" name="talla" value="6"> <!-- si después querés hacerlo dinámico, lo cambiás -->
+
+    <button class="btn btn-lg btn-carrito" type="submit" name="add_to_cart">
+      Añadir al Carrito
+    </button>
+  </form>
+</div>
+
           </div>
 
         </div>

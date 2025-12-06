@@ -3,7 +3,7 @@ session_start();
 
 // 1. Recoger y sanear datos
 $email = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
-$x = "***".$_SESSION['email'];
+
 
 // Función de ayuda para formatear precios.
 function format_price(float $price): string {
@@ -158,6 +158,7 @@ foreach ($cart_items as $item) {
                 <a class="nav-link" href="productos_collares.html">Collares</a>
               </li>
             </ul>
+
            <div class="d-flex ms-lg-auto">
               
               <!-- Aquí se muestra el email del usuario -->
@@ -169,6 +170,7 @@ foreach ($cart_items as $item) {
                 <i class="bi bi-cart"></i>
               </a>
             </div>
+            
           </div>
         </div>
       </nav>

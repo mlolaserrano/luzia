@@ -3,7 +3,7 @@ session_start();
 
 // 1. Recoger y sanear datos
 $email = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
-
+$x = "***".$_SESSION['email'];
 
 // Función de ayuda para formatear precios.
 function format_price(float $price): string {
@@ -39,52 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
     // Uso PRG (Redirect after POST) para evitar reenvío de formulario.
     header('Location: pedido_confirmado.php?pedido=' . urlencode((string)$id_pedido_prueba));
     exit();
-}
-?>
-
-<?php
-session_start();
-
-// Inicializar carrito
-if (!isset($_SESSION['carrito'])) {
-    $_SESSION['carrito'] = [];
-}
-
-// 1) Agregar producto al carrito (viene desde la ficha)
-if (isset($_POST['add_to_cart'])) {
-    $id     = $_POST['id'];
-    $nombre = $_POST['nombre'];
-    $precio = (float) $_POST['precio'];
-    $talla  = $_POST['talla'];
-
-    // Si ya existe ese producto en el carrito, sumo cantidad
-    if (isset($_SESSION['carrito'][$id])) {
-        $_SESSION['carrito'][$id]['cantidad'] += 1;
-    } else {
-        $_SESSION['carrito'][$id] = [
-            'id'       => $id,
-            'nombre'   => $nombre,
-            'precio'   => $precio,
-            'talla'    => $talla,
-            'cantidad' => 1
-        ];
-    }
-}
-
-// 2) (Opcional) Eliminar producto
-if (isset($_POST['eliminar']) && isset($_POST['id'])) {
-    $id = $_POST['id'];
-    unset($_SESSION['carrito'][$id]);
-}
-
-// 3) Calcular totales
-$cart_items = $_SESSION['carrito'];
-
-$cart_count = 0;
-$cart_total = 0;
-foreach ($cart_items as $item) {
-    $cart_count += $item['cantidad'];
-    $cart_total += $item['precio'] * $item['cantidad'];
 }
 ?>
 
@@ -158,7 +112,6 @@ foreach ($cart_items as $item) {
                 <a class="nav-link" href="productos_collares.html">Collares</a>
               </li>
             </ul>
-
            <div class="d-flex ms-lg-auto">
               
               <!-- Aquí se muestra el email del usuario -->
@@ -170,7 +123,6 @@ foreach ($cart_items as $item) {
                 <i class="bi bi-cart"></i>
               </a>
             </div>
-            
           </div>
         </div>
       </nav>

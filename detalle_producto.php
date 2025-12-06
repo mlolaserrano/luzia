@@ -293,7 +293,7 @@ foreach ($cart_items as $item) {
           Finalizar compra
         </a>
 
-        <!-- BOTÓN VACIAR TODO EL CARRITO -->
+        <!--  BOTÓN VACIAR TODO EL CARRITO -->
         <form method="POST" class="text-end">
           <button type="submit" name="empty_cart"
                   class="btn btn-link btn-sm text-danger">

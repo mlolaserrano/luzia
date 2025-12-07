@@ -160,19 +160,19 @@ $x = "***".$_SESSION['email'];
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="img/banner1.jpg" class="d-block w-100" alt="Banner 1" />
+          <img src="img/banner1.jpg?v=<?php echo time();?>" class="d-block w-100" alt="Banner 1" />
           <div class="carousel-caption d-none d-md-block">
         <a href="listado_productos.php" class="btn btn-outline-primary">Ver más</a>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="img/banner2.jpg" class="d-block w-100" alt="Banner 2" />
+          <img src="img/banner2.jpg?v=<?php echo time();?>" class="d-block w-100" alt="Banner 2" />
           <div class="carousel-caption d-none d-md-block">
             <button type="button" class="btn btn-outline-primary" disabled>Próximamente</button>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="img/banner_3.jpg" class="d-block w-100" alt="Banner 3" />
+          <img src="img/banner_3.jpg?v=<?php echo time();?>" class="d-block w-100" alt="Banner 3" />
           <div class="carousel-caption d-none d-md-block">
         <a href="producto_brazaletes.php" class="btn btn-outline-primary">Ver más</a>
           </div>
@@ -202,7 +202,7 @@ $x = "***".$_SESSION['email'];
         <div class="card h-100">
           <div class="product-img-wrap ratio-1x1">
             <a href="detalle_producto.php?id=9">
-              <img src="img/BRA001bracelet_fino_2.jpg" class="card-img-top" alt="Brazalete Doble Trazo">
+              <img src="img/BRA001bracelet_fino_2.jpg?v=<?php echo time();?>" class="card-img-top" alt="Brazalete Doble Trazo">
             </a>
             <div class="btn-wrap">
               <a href="detalle_producto.php?id=9" class="btn btn-carrito w-100 rounded-0">
@@ -224,7 +224,7 @@ $x = "***".$_SESSION['email'];
         <div class="card h-100">
           <div class="product-img-wrap ratio-1x1">
             <a href="detalle_producto.php?id=10">
-              <img src="img/BRA002bracelet_fino_1.jpg" class="card-img-top" alt="Brazaletes Armonía">
+              <img src="img/BRA002bracelet_fino_1.jpg?v=<?php echo time();?>" class="card-img-top" alt="Brazaletes Armonía">
             </a>
             <div class="btn-wrap">
               <a href="detalle_producto.php?id=10" class="btn btn-carrito w-100 rounded-0">
@@ -246,7 +246,7 @@ $x = "***".$_SESSION['email'];
         <div class="card h-100">
           <div class="product-img-wrap ratio-1x1">
             <a href="detalle_producto.php?id=6">
-              <img src="img/ARO002aroscolagantes4.png" class="card-img-top" alt="Aros Amare">
+              <img src="img/ARO002aroscolagantes4.png?v=<?php echo time();?>" class="card-img-top" alt="Aros Amare">
             </a>
             <div class="btn-wrap">
               <a href="detalle_producto.php?id=6" class="btn btn-carrito w-100 rounded-0">
@@ -268,7 +268,7 @@ $x = "***".$_SESSION['email'];
         <div class="card h-100">
           <div class="product-img-wrap ratio-1x1">
             <a href="detalle_producto.php?id=4">
-              <img src="img/ARO001aroscolagantes3.jpg" class="card-img-top" alt="Aros Aura">
+              <img src="img/ARO001aroscolagantes3.jpg?v=<?php echo time();?>" class="card-img-top" alt="Aros Aura">
             </a>
             <div class="btn-wrap">
               <a href="detalle_producto.php?id=4" class="btn btn-carrito w-100 rounded-0">
@@ -303,7 +303,7 @@ $x = "***".$_SESSION['email'];
       <!-- Panel izquierdo -->
       <div class="col-12 col-md-6">
         <a href="#" class="d-block category-panel">
-          <img src="img/silver.jpg" alt="aros">
+          <img src="img/silver.jpg?v=<?php echo time();?>" alt="aros">
           <span class="position-absolute top-50 start-50 translate-middle badge rounded-pill text-bg-dark px-4 py-2 fs-6">
             Silver Time
           </span>
@@ -313,7 +313,7 @@ $x = "***".$_SESSION['email'];
       <!-- Panel derecho -->
       <div class="col-12 col-md-6">
         <a href="#" class="d-block category-panel">
-          <img src="img/dorada.jpg" alt="joyeria dorada">
+          <img src="img/dorada.jpg?v=<?php echo time();?>" alt="joyeria dorada">
           <span class="position-absolute top-50 start-50 translate-middle badge rounded-pill text-bg-dark px-4 py-2 fs-6">
             Golden Time
           </span>

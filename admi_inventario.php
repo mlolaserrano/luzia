@@ -213,7 +213,7 @@ if (!$conn) {
                                               </tr>";
                                     }
                                 } else {
-                                    // fallback de ventas estáticas (si querés borrar, avisame)
+                                    // fallback de ventas estáticas 
                                     echo '<tr>
                                             <td>01/08/2025</td><td>valen12@gmail.com</td><td>2</td><td><span class="badge bg-dark">Entregado</span></td><td>$88.000</td>
                                           </tr>

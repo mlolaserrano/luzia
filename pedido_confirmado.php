@@ -47,14 +47,13 @@ $id_pedido = isset($_GET['pedido']) ? htmlspecialchars($_GET['pedido']) : 'No en
 
         /* AJUSTE DEL TAMAÑO CARD */
         .product-info {
-            max-width: 750px; /* ¡Aumentado a 750px para ser más ancha! */
+            max-width: 750px; 
             width: 90%;
             text-align: center;
-            /* Se añade una altura mínima para que la tarjeta no se vea "aplastada" */
             min-height: 350px; 
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centra el contenido internamente si la altura es mayor */
+            justify-content: center; 
         }
         
         /* Estilos de contenido*/

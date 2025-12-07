@@ -412,9 +412,9 @@ if(isset($_SESSION['message'])){
 <footer class="mt-5 text-center">
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
   <div class="d-flex flex-wrap justify-content-center gap-3">
-    <a href="admi_politicas.html">Política de privacidad</a>
-    <a href="admi_terminos.html">Términos y condiciones</a>
-    <a href="admi_contacto.html">Contacto</a>
+    <a href="admi_politicas.php">Política de privacidad</a>
+    <a href="admi_terminos.php">Términos y condiciones</a>
+    <a href="admi_contacto.php">Contacto</a>
   </div>
 </footer>
 

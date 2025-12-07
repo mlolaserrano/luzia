@@ -162,7 +162,7 @@ $x = "***".$_SESSION['email'];
         <div class="carousel-item active">
           <img src="img/banner1.jpg" class="d-block w-100" alt="Banner 1" />
           <div class="carousel-caption d-none d-md-block">
-        <a href="listadoproductos.php" class="btn btn-outline-primary">Ver más</a>
+        <a href="listado_productos.php" class="btn btn-outline-primary">Ver más</a>
           </div>
         </div>
         <div class="carousel-item">

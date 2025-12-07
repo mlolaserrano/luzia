@@ -57,7 +57,7 @@ if(isset($_SESSION['message'])){
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid position-relative">
       <!-- Brand fijo centrado -->
-      <a class="navbar-brand navbar-brand-top" href="admi_home.html">LUZIA</a>
+      <a class="navbar-brand navbar-brand-top" href="admi_home.php">LUZIA</a>
 
       <!-- Toggler abre el panel derecho -->
       <button class="navbar-toggler ms-auto" type="button"
@@ -125,14 +125,14 @@ if(isset($_SESSION['message'])){
     <div id="carouselExampleCaptions" class="carousel slide">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"  class="active" aria-current="true" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"  class="active" aria-current="true" aria-label="Slide 3"></button>
       </div>
 
       <div class="carousel-inner">
         <!-- Slide 1, como en el home del cliente-->
         <div class="carousel-item active">
-          <img src="img/banner1.jpg" class="d-block w-100" alt="Banner 1" />
+          <img src="img/banner1.jpg?v=<?php echo time(); ?>" class="d-block w-100" alt="Banner 1" />  <!-- el php fuerza hacer Ctrl + F5, para cargar la imagen nueva-->
           <div class="carousel-buttons">
  <button class="btn btn-modify btn-management" 
         data-bs-toggle="modal" 
@@ -147,13 +147,16 @@ if(isset($_SESSION['message'])){
 
         <!-- Slide 2 -->
         <div class="carousel-item">
-          <img src="img/banner2.jpg" class="d-block w-100" alt="Banner 2" />
+          <img src="img/banner2.jpg?v=<?php echo time(); ?>" class="d-block w-100" alt="Banner 2" />
           <div class="carousel-buttons">
             
-            <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-              <i class="bi bi-pencil"></i>
-            </button>
-            
+         <button class="btn btn-modify btn-management" 
+        data-bs-toggle="modal" 
+        data-bs-target="#modalModificar" 
+        onclick="setTargetFile('banner2.jpg')" 
+        title="Modificar"> 
+    <i class="bi bi-pencil"></i>
+</button> 
           </div>
         </div>
 
@@ -162,12 +165,16 @@ if(isset($_SESSION['message'])){
         <!-- Slide 3 -->
 
         <div class="carousel-item">
-          <img src="img/banner_3.jpg" class="d-block w-100" alt="Banner 3" />
+          <img src="img/banner_3.jpg?v=<?php echo time(); ?>" class="d-block w-100" alt="Banner 3" />
           <div class="carousel-buttons">
            
-            <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-              <i class="bi bi-pencil"></i>
-            </button>
+             <button class="btn btn-modify btn-management" 
+        data-bs-toggle="modal" 
+        data-bs-target="#modalModificar" 
+        onclick="setTargetFile('banner_3.jpg')" 
+        title="Modificar"> 
+    <i class="bi bi-pencil"></i>
+</button>
             
           </div>
         </div>
@@ -189,67 +196,48 @@ if(isset($_SESSION['message'])){
   <br> <!--Para darle espacio entre bloque y bloque--> 
 
   <!-- Productos -->
-  <article>
+ <article>
     <h1 class="display-4">Productos Destacados</h1>
-     <div class="container py-4">
+    <div class="container py-4">
       <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
 
-        <!-- Producto 1 -->
         <div class="col">
           <div class="card h-100">
             <div class="product-img-wrap ratio-1x1">
-              <img src="img/BRA001bracelet_fino_2.jpg" class="card-img-top" alt="Producto 1">
+              <img src="img/BRA001bracelet_fino_2.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 1">
 
-              <!-- Botones de gestión -->
               <div class="management-buttons">
-                
-                <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-                  <i class="bi bi-pencil"></i>
+                <button class="btn btn-modify btn-management" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#modalModificar" 
+                        onclick="setTargetFile('BRA001bracelet_fino_2.jpg')" 
+                        title="Modificar"> 
+                    <i class="bi bi-pencil"></i>
                 </button>
-                
               </div>           
             </div>
 
             <div class="card-body position-relative">
-
-              <!-- Botones para gestionar el texto (nuevos) -->
-
               <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Iris</h6>
-
               <p class="mb-0">$29.000</p>
-
             </div>
-
           </div>
-
         </div>
 
- 
-
-         <!-- Producto 2 -->
-
         <div class="col">
-
           <div class="card h-100">
-
             <div class="product-img-wrap ratio-1x1">
-
-              <img src="img/BRA002bracelet_fino_1.jpg" class="card-img-top" alt="Producto 2">
-
- 
-
-              <!-- Botones de gestión -->
+              <img src="img/BRA002bracelet_fino_1.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 2">
 
               <div class="management-buttons">
-
-                <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-
-                  <i class="bi bi-pencil"></i>
-
+                <button class="btn btn-modify btn-management" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#modalModificar" 
+                        onclick="setTargetFile('BRA002bracelet_fino_1.jpg')" 
+                        title="Modificar"> 
+                    <i class="bi bi-pencil"></i>
                 </button>
-
               </div>
-
             </div> 
 
             <div class="card-body position-relative">
@@ -259,25 +247,18 @@ if(isset($_SESSION['message'])){
           </div>
         </div>
 
- 
-
-        <!-- Producto 3 -->
-
         <div class="col">
-
           <div class="card h-100">
-
             <div class="product-img-wrap ratio-1x1">
-
-              <img src="img/ARO003aros1.jpg" class="card-img-top" alt="Producto 3">
-
- 
-
-              <!-- Botones de gestión -->
+              <img src="img/ARO003aros1.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 3">
 
               <div class="management-buttons">
-                <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-                  <i class="bi bi-pencil"></i>
+                <button class="btn btn-modify btn-management" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#modalModificar" 
+                        onclick="setTargetFile('ARO003aros1.jpg')" 
+                        title="Modificar"> 
+                    <i class="bi bi-pencil"></i>
                 </button>
               </div>
             </div>
@@ -289,46 +270,31 @@ if(isset($_SESSION['message'])){
           </div>
         </div>
 
-        <!-- Producto 4 -->
-
         <div class="col">
-         <div class="card h-100">
+          <div class="card h-100">
             <div class="product-img-wrap ratio-1x1">
-              <img src="img/ARO001aroscolagantes3.jpg" class="card-img-top" alt="Producto 4">
-
-              <!-- Botones de gestión -->
+              <img src="img/ARO001aroscolagantes3.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 4">
 
               <div class="management-buttons">
-
-
-                <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-
-                  <i class="bi bi-pencil"></i>
-
+                <button class="btn btn-modify btn-management" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#modalModificar" 
+                        onclick="setTargetFile('ARO001aroscolagantes3.jpg')" 
+                        title="Modificar"> 
+                    <i class="bi bi-pencil"></i>
                 </button>
-
               </div>
-
             </div>
-
- 
 
             <div class="card-body position-relative">
-
               <h6 class="card-title text-uppercase fw-bold mb-1">Aros Aura</h6>
-
               <p class="mb-0">$47.000</p>
-
             </div>
-
           </div>
-
         </div>
 
       </div>
-
     </div>
-
   </article>
 
  
@@ -341,13 +307,17 @@ if(isset($_SESSION['message'])){
          <!-- Panel izquierdo -->
         <div class="col-12 col-md-6">
           <a href="#" class="d-block category-panel position-relative">
-            <img src="img/silver.jpg" alt="aros">
+            <img src="img/silver.jpg?v=<?php echo time(); ?>" alt="aros">
             <!-- Botones de gestión -->
             <div class="management-buttons">
               
-              <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-                <i class="bi bi-pencil"></i>
-              </button>
+  <button class="btn btn-modify btn-management" 
+        data-bs-toggle="modal" 
+        data-bs-target="#modalModificar" 
+        onclick="setTargetFile('silver.jpg')" 
+        title="Modificar"> 
+    <i class="bi bi-pencil"></i>
+</button>
               
             </div>
             <span class="position-absolute top-50 start-50 translate-middle badge rounded-pill text-bg-dark px-4 py-2 fs-6">
@@ -362,17 +332,19 @@ if(isset($_SESSION['message'])){
 
           <a href="#" class="d-block category-panel position-relative">
 
-            <img src="img/dorada.jpg" alt="joyeria dorada">
+            <img src="img/dorada.jpg?v=<?php echo time(); ?>" alt="joyeria dorada">
 
             <!-- Botones de gestión -->
 
             <div class="management-buttons">
 
-              <button class="btn btn-modify btn-management" data-bs-toggle="modal" data-bs-target="#modalModificar" title="Modificar">
-
-                <i class="bi bi-pencil"></i>
-
-              </button>
+             <button class="btn btn-modify btn-management" 
+        data-bs-toggle="modal" 
+        data-bs-target="#modalModificar" 
+        onclick="setTargetFile('dorada.jpg')" 
+        title="Modificar"> 
+    <i class="bi bi-pencil"></i>
+</button>
             </div>
         
 
@@ -399,59 +371,39 @@ if(isset($_SESSION['message'])){
  
 
 
-<!-- Ventana para AGREGAR IMAGEN -->
-
-<div class="modal fade" id="modalModificar" tabindex="-1" aria-labelledby="modalModificarLabel" aria-hidden="true">
-  <form action="upload_home.php" method="POST" enctype="multipart/form-data"> <!-- conexión con el php-->
-    <div class="modal-body modal-form">
-      <div class="col-md-12"> <div class="mb-3">
-          <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
-          <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*" required>
-          <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
-        </div>
-
-        <input type="hidden" name="id_elemento" value="ID_DEL_BANNER_O_PRODUCTO_ACTUAL">
-      </div>
-    </div>
-
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-      <button type="submit" class="btn btn-dark" name="submit">Guardar Cambios</button>
-    </div>
-  </form>
-  </div>
-</div>
-
- 
 
 <!-- modificador de imagen -->
 <div class="modal fade" id="modalModificar" tabindex="-1" aria-labelledby="modalModificarLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
-      <div class="modal-header">
+     <div class="modal-content">
+    <div class="modal-header">
         <h5 class="modal-title" id="modalModificarLabel">Modificar Imagen</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+    </div>
 
-      <form action="upload_home.php" method="POST" enctype="multipart/form-data"> 
+    <form action="upload_home.php" method="POST" enctype="multipart/form-data"> 
         
         <div class="modal-body modal-form">
-          <div class="col-md-12">
-            <div class="mb-3">
-              <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
-              <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*, video/*" required>
-              <div class="form-text">Formatos: Imágenes (JPG, PNG) o Videos. Máx: 5MB</div>
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
+                    <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*, video/*" required>
+                    <div class="form-text">Formatos: Imágenes (JPG, PNG) o Videos. Máx: 5MB</div>
+                </div>
             </div>
-          </div>
-          <input type="hidden" name="id_elemento" id="id_elemento_target" value="">
+            <input type="hidden" name="id_elemento" id="id_elemento_target" value="">
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-dark" name="submit">Guardar Cambios</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-dark" name="submit">Guardar Cambios</button>
         </div>
-      </form>
+
+    </form>
+</div>
+
       </div>
   </div>
 </div>

@@ -1,49 +1,54 @@
 <?php
+include 'connec.php';  // Include your connection file
 session_start();
 
-// 1. Recoger y sanear datos
-$email = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
-$x = "***".$_SESSION['email'];
+// CONEXIÓN A LA BASE DE DATOS
+$conexion = conectarBDLuzia();
 
-// Función de ayuda para formatear precios.
-function format_price(float $price): string {
-    // Formatea el número: sin decimales, punto como separador de miles.
-    return number_format($price, 0, ',', '.');
+// COMPROBAMOS CONEXIÓN
+if (!$conexion) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
+// SACAMOS "Anillo Aurora" DE LA BASE DE DATOS
+$query = "SELECT id, sku, nombre, precio AS precio_unitario FROM producto WHERE sku = 'ANI001' LIMIT 1";
+$stmt = $conexion->prepare($query);
+$stmt->execute();
+$result = $stmt->get_result();
+$producto_db = $result->fetch_assoc();
 
-// DEFINICIÓN DE DATOS FIJOS DEL PRODUCTO
-$producto_fijo = [
-    'id' => 1,
-    'sku' => 'ANI001',
-    'nombre' => 'Anillo Aurora',
-    'precio_unitario' => 53000.00, // Precio de un solo artículo
-    'cantidad' => 1, // Cantidad en el carrito
-    'talla' => '6',
-    'imagen' => 'img/ANI001anillo_piedra_3.png'
+// BD para el carrito 
+$producto = [
+    'id' => $producto_db['id'],
+    'sku' => $producto_db['sku'],
+    'nombre' => $producto_db['nombre'],
+    'precio_unitario' => (float)$producto_db['precio_unitario'],
+    'cantidad' => 1, 
+    'talla' => '6', 
+    'imagen' => 'img/ANI001anillo_piedra_3.png' 
 ];
 
-// CÁLCULO DE TOTALES
-$subtotal = $producto_fijo['precio_unitario'] * $producto_fijo['cantidad'];
-$total_productos = $producto_fijo['cantidad'];
-$total_final = $subtotal; // Asumiendo envío $0 por el banner
+// Calculamos totales
+$subtotal = $producto['precio_unitario'] * $producto['cantidad'];
+$total_productos = $producto['cantidad'];
+$total_final = $subtotal; 
 
-// ID de pedido
+$stmt->close();
+
+// ID de pedido o número de orden 
 $id_pedido_prueba = 101;
 
-// "FINALIZAR COMPRA"
-// Detecta si se hizo clic en el botón del formulario
+// "FINALIZAR COMPRA"  ---> redirige a página de confirmación de pedido
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) {
-
-    // Aquí podría guardarse en BD o en $_SESSION['pedido'] etc.
-    // Uso PRG (Redirect after POST) para evitar reenvío de formulario.
     header('Location: pedido_confirmado.php?pedido=' . urlencode((string)$id_pedido_prueba));
     exit();
 }
+
+// Función para formatear precios 
+function format_price(float $price): string {
+    return number_format($price, 0, ',', '.');
+}
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -117,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
               <!-- Aquí se muestra el email del usuario -->
              
               <a class="btn" href="mi_cuenta.php" aria-label="email">
-                <i class="position-relative"><?php echo $_SESSION['email'];?>></i>
+                <i class="position-relative"><?php echo $_SESSION['email'];?></i>
               </a>
               <a class="btn icon-btn position-relative" href="carrito.html"aria-label="Carrito">
                 <i class="bi bi-cart"></i>
@@ -214,15 +219,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
           <td class="text-start align-middle">
             <div class="d-flex align-items-center gap-3">
               <img
-                src="<?php echo $producto_fijo['imagen']; ?>"
+                src="<?php echo $producto['imagen']; ?>"
                 class="rounded"
-                alt="<?php echo $producto_fijo['nombre']; ?>"
+                alt="<?php echo $producto['nombre']; ?>"
                 width="72"
                 height="72"
               />
               <div>
-                <div class="fw-semibold"><?php echo $producto_fijo['nombre']; ?></div>
-                <div class="text-muted small">Talla: <?php echo $producto_fijo['talla']; ?></div>
+                <div class="fw-semibold"><?php echo $producto['nombre']; ?></div>
+                <div class="text-muted small">Talla: <?php echo $producto['talla']; ?></div>
               </div>
             </div>
           </td>
@@ -234,7 +239,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
               <input
                 type="number"
                 min="1"
-                value="<?php echo $producto_fijo['cantidad']; ?>"
+                value="<?php echo $producto['cantidad']; ?>"
                 class="form-control form-control-sm mx-1 text-center"
                 style="width: 60px;"
               />
@@ -243,10 +248,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
           </td>
 
           <!-- Precio -->
-          <td class="align-middle text-center">$ 53.000</td>
+          <td class="align-middle text-center">$ <?php echo format_price($producto['precio_unitario']); ?></td>
 
           <!-- Total -->
-          <td class="fw-semibold align-middle text-center">$ 53.000</td>
+          <td class="fw-semibold align-middle text-center">$ <?php echo format_price($subtotal); ?></td>
 
           <!-- Eliminar -->
           <td class="text-center align-middle">
@@ -268,13 +273,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
     <div class="card-body pb-3">
       <!-- Producto + eliminar -->
       <div class="d-flex align-items-start">
-        <img src="<?php echo $producto_fijo['imagen']; ?>"
+        <img src="<?php echo $producto['imagen']; ?>"
              class="rounded me-3"
-             alt="<?php echo $producto_fijo['nombre']; ?>"
+             alt="<?php echo $producto['nombre']; ?>"
              style="width:72px;height:72px;object-fit:cover;">
         <div class="flex-grow-1">
-          <div class="fw-semibold"><?php echo $producto_fijo['nombre']; ?></div>
-          <div class="small text-muted">Talla: <?php echo $producto_fijo['talla']; ?></div>
+          <div class="fw-semibold"><?php echo $producto['nombre']; ?></div>
+          <div class="small text-muted">Talla: <?php echo $producto['talla']; ?></div>
         </div>
         <button class="btn btn-sm text-danger ms-2" aria-label="Eliminar">
           <i class="bi bi-trash"></i>
@@ -288,7 +293,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
           <div class="small text-muted mb-1">Cantidad</div>
           <div class="d-inline-flex align-items-center justify-content-center qty">
             <button class="btn btn-sm px-2 py-1" type="button">−</button>
-            <input type="number" min="1" value="<?php echo $producto_fijo['cantidad']; ?>"
+            <input type="number" min="1" value="<?php echo $producto['cantidad']; ?>"
                    class="form-control form-control-sm mx-1 text-center"
                    style="width:60px;">
             <button class="btn btn-sm px-2 py-1" type="button">+</button>
@@ -298,13 +303,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
         <!-- Precio -->
         <div>
           <div class="small text-muted mb-1">Precio</div>
-          <div class="text-nowrap">$ 53.000</div>
+          <div class="text-nowrap">$ <?php echo format_price($producto['precio_unitario']); ?></div>
         </div>
 
         <!-- Total -->
         <div>
           <div class="small text-muted mb-1">Total</div>
-          <div class="fw-semibold text-nowrap">$ 53.000</div>
+          <div class="fw-semibold text-nowrap">$ <?php echo format_price($subtotal); ?></div>
         </div>
       </div>
     </div>
@@ -403,12 +408,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_compra'])) 
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between">
                     <span class="text-muted">Subtotal</span
-                    ><span>$ 53.000</span>
+                    ><span>$ <?php echo format_price($subtotal); ?></span>
                   </li>
                  
                   <li class="list-group-item d-flex justify-content-between">
                     <span class="fw-bold">Total</span
-                    ><span class="fw-bold">$ 53.000</span>
+                    ><span class="fw-bold">$ <?php echo format_price($total_final); ?></span>
                   </li>
                 </ul>
 

@@ -1,9 +1,9 @@
-<?php 
+<?php
 // Declarar el tipo de contenido para asegurar que el navegador lo interprete como HTML
 header('Content-Type: text/html; charset=utf-8');
 
-
-$id_pedido = isset($_GET['pedido']) ? htmlspecialchars($_GET['pedido']) : 'un momento'; 
+// Obtener el ID del pedido desde la URL, con un fallback mejorado
+$id_pedido = isset($_GET['pedido']) ? htmlspecialchars($_GET['pedido']) : 'No encontrado';
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ $id_pedido = isset($_GET['pedido']) ? htmlspecialchars($_GET['pedido']) : 'un mo
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> Anillo Aurora | Luzia</title>
+  <title>Pedido Confirmado | Luzia</title>  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />

@@ -1,93 +1,58 @@
 <?php
-$message = "";
+// procesar_upload.php - Controlador de Subida de Archivos
+session_start();
 
-// Funciones auxiliares
-function getTermsData($key) {
-    $file = "terms_{$key}.txt";
-    return file_exists($file) ? trim(file_get_contents($file)) : '';
-}
+$dirUpload = "img/"; 
+$maxSize = 5 * 1024 * 1024; // 5MB
+$allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'video/mp4', 'video/webm']; // Incluye videos
 
-function setTermsData($key, $value) {
-    $file = "terms_{$key}.txt";
-    file_put_contents($file, $value);
-}
 
-$currentImage = getTermsData('image_path');
-
-// Manejo de la subida de imagen
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['upload_image'])) {
-    if (isset($_FILES['image'])) {
-        $file = $_FILES['image'];
-        $error = $file['error'];
-        
-        // Errores de carga específicos
-        if ($error !== UPLOAD_ERR_OK) {
-            switch ($error) {
-                case UPLOAD_ERR_INI_SIZE:
-                case UPLOAD_ERR_FORM_SIZE:
-                    $message = "Error: El archivo es demasiado grande. Verifique los límites del servidor (máx. 5MB).";
-                    break;
-                case UPLOAD_ERR_PARTIAL:
-                    $message = "Error: La subida del archivo fue parcial. Inténtelo de nuevo.";
-                    break;
-                case UPLOAD_ERR_NO_FILE:
-                    $message = "Error: No se seleccionó ninguna imagen.";
-                    break;
-                case UPLOAD_ERR_NO_TMP_DIR:
-                case UPLOAD_ERR_CANT_WRITE:
-                case UPLOAD_ERR_EXTENSION:
-                    $message = "Error: Problema interno del servidor al subir la imagen.";
-                    break;
-                default:
-                    $message = "Error: Falló la carga de la imagen.";
-                    break;
-            }
-        } else {
-            // Continuar con la validación si no hay error de carga
-            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-            $maxSize = 5 * 1024 * 1024; // 5MB
-            $targetDir = "uploads/";
-            
-            // Asegurar que el directorio de uploads exista y sea escribible
-            if (!is_dir($targetDir)) {
-                mkdir($targetDir, 0755, true); // Crear si no existe
-            }
-            if (!is_writable($targetDir)) {
-                $message = "Error: El directorio de uploads no es escribible.";
-            } elseif (!in_array($file['type'], $allowedTypes)) {
-                $message = "Error: Solo se permiten JPG, PNG o GIF.";
-            } elseif ($file['size'] > $maxSize) {
-                $message = "Error: El tamaño del archivo debe ser menor a 5MB.";
-            } else {
-                $imageInfo = getimagesize($file['tmp_name']);
-                if ($imageInfo === false || $imageInfo[0] != 600 || $imageInfo[1] != 400) {
-                    $message = "Error: La imagen debe tener exactamente 600 px x 400 px.";
-                } else {
-                    $targetFile = $targetDir . basename($file['name']);
-                    if (move_uploaded_file($file['tmp_name'], $targetFile)) {
-                        setTermsData('image_path', $targetFile);
-                        $message = "Imagen subida con éxito!";
-                    } else {
-                        $message = "Error: No se pudo mover la imagen al directorio de destino.";
-                    }
-                }
-            }
-        }
+function transferirArchivo($target_dir, $file_name, $tmp_name){
+    $target_file = $target_dir . $file_name;   
+    
+    if (move_uploaded_file($tmp_name, $target_file)) {
+        $_SESSION['message']="OK: Archivo '".$file_name."' actualizado con éxito.";
+        $_SESSION['error']=FALSE;
+        return true;
     } else {
-        $message = "Error: No se recibió ningún archivo.";
+        $_SESSION['message']="ERROR: No se pudo mover el archivo al directorio de destino.";
+        $_SESSION['error']=TRUE;
+        return false;
     }
 }
+// ----------------------------------------------------------------------------------
 
-// Manejar eliminación de imagen
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_image'])) {
-    if (!empty($currentImage) && file_exists($currentImage)) {
-        unlink($currentImage);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+    
+    // 1. Obtener el nombre fijo que viene del HTML (ej: banner1.jpg)
+    $targetFileNameFixed = $_POST['id_elemento'] ?? null; 
+    
+    // 2. Verificar si se subió un archivo
+    if (!isset($_FILES['fileToUpload']) || $_FILES['fileToUpload']['error'] === UPLOAD_ERR_NO_FILE) {
+        $_SESSION['message'] = "Error: No se seleccionó ninguna imagen/video.";
+        $_SESSION['error'] = TRUE;
+    } 
+    // 3. Verificar si el nombre fijo es válido
+    elseif (empty($targetFileNameFixed) || $targetFileNameFixed == 'ID_DEL_BANNER_O_PRODUCTO_ACTUAL') {
+        $_SESSION['message'] = "Error: El sistema no pudo identificar el elemento a modificar.";
+        $_SESSION['error'] = TRUE;
+    } 
+    // 4. Validación de tamaño y tipo
+    elseif ($_FILES['fileToUpload']['size'] > $maxSize) {
+        $_SESSION['message'] = "Error: El tamaño del archivo debe ser menor a 5MB.";
+        $_SESSION['error'] = TRUE;
+    } elseif (!in_array($_FILES['fileToUpload']['type'], $allowedTypes)) {
+        $_SESSION['message'] = "Error: Tipo de archivo no permitido.";
+        $_SESSION['error'] = TRUE;
+    } 
+    // 5. Ejecutar la transferencia
+    else {
+        transferirArchivo($dirUpload, $targetFileNameFixed, $_FILES['fileToUpload']['tmp_name']);
     }
-    setTermsData('image_path', '');
-    $message = "¡Imagen eliminada exitosamente!";
+
+    // Redirigir siempre de vuelta a la página de administración
+    header("Location: admi_home.php");
+    exit;
 }
 
-// Redirigir de vuelta a la página principal con mensaje
-header("Location: admi_terminos.php?msg=" . urlencode($message));
-exit;
 ?>

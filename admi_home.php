@@ -399,59 +399,39 @@ if(isset($_SESSION['message'])){
  
 
 
-<!-- Ventana para AGREGAR IMAGEN -->
-
-<div class="modal fade" id="modalModificar" tabindex="-1" aria-labelledby="modalModificarLabel" aria-hidden="true">
-  <form action="upload_home.php" method="POST" enctype="multipart/form-data"> <!-- conexión con el php-->
-    <div class="modal-body modal-form">
-      <div class="col-md-12"> <div class="mb-3">
-          <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
-          <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*" required>
-          <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
-        </div>
-
-        <input type="hidden" name="id_elemento" value="ID_DEL_BANNER_O_PRODUCTO_ACTUAL">
-      </div>
-    </div>
-
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-      <button type="submit" class="btn btn-dark" name="submit">Guardar Cambios</button>
-    </div>
-  </form>
-  </div>
-</div>
-
- 
 
 <!-- modificador de imagen -->
 <div class="modal fade" id="modalModificar" tabindex="-1" aria-labelledby="modalModificarLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
-      <div class="modal-header">
+     <div class="modal-content">
+    <div class="modal-header">
         <h5 class="modal-title" id="modalModificarLabel">Modificar Imagen</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+    </div>
 
-      <form action="upload_home.php" method="POST" enctype="multipart/form-data"> 
+    <form action="upload_home.php" method="POST" enctype="multipart/form-data"> 
         
         <div class="modal-body modal-form">
-          <div class="col-md-12">
-            <div class="mb-3">
-              <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
-              <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*, video/*" required>
-              <div class="form-text">Formatos: Imágenes (JPG, PNG) o Videos. Máx: 5MB</div>
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
+                    <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*, video/*" required>
+                    <div class="form-text">Formatos: Imágenes (JPG, PNG) o Videos. Máx: 5MB</div>
+                </div>
             </div>
-          </div>
-          <input type="hidden" name="id_elemento" id="id_elemento_target" value="">
+            <input type="hidden" name="id_elemento" id="id_elemento_target" value="">
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-dark" name="submit">Guardar Cambios</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-dark" name="submit">Guardar Cambios</button>
         </div>
-      </form>
+
+    </form>
+</div>
+
       </div>
   </div>
 </div>

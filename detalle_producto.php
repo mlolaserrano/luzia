@@ -1,27 +1,50 @@
+
+
 <?php
 session_start();
+require __DIR__ . '/conexion.php';
 
+/* 1) OBTENER ID DEL PRODUCTO DESDE LA URL O DESDE EL POST */
+$idProducto = 0;
 
-if (!isset($producto)) {
-    $producto = [
-        'id'          => 'ANI001',
-        'nombre'      => 'Anillo Aurora',
-        'sku'         => 'ANI001',
-        'precio'      => 53000,
-        'imagen'      => 'img/ANI001anillo_piedra_3.png',
-        'descripcion' => 'Anillo en oro 18K, hecho a mano.'
-    ];
+// Primero intento por GET (detalle_producto.php?id=6)
+if (isset($_GET['id'])) {
+    $idProducto = (int) $_GET['id'];
 }
 
-/* Inicializar carrito */
+// Si no vino por GET y estoy en un POST (al hacer clic en "Añadir al carrito"),
+// intento tomarlo del POST (hidden input del formulario)
+if ($idProducto <= 0 && isset($_POST['id'])) {
+    $idProducto = (int) $_POST['id'];
+}
+
+// Si sigue sin ID válido, muestro error
+if ($idProducto <= 0) {
+    die("No se indicó un producto válido.");
+}
+
+/* 2) BUSCAR PRODUCTO EN LA BASE DE DATOS */
+$stmt = $conn->prepare("
+    SELECT id, sku, nombre, descripcion, categoria, precio, imagen
+    FROM producto
+    WHERE id = ?
+");
+$stmt->execute([$idProducto]);
+$producto = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$producto) {
+    die("Producto no encontrado para el ID: " . htmlspecialchars($idProducto));
+}
+
+/* 3) INICIALIZAR CARRITO EN SESSION */
 if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
 }
 
-/* Flags */
+/* Flag para mensaje 'producto agregado' */
 $producto_agregado = false;
 
-/* MANEJO DE ACCIONES DEL CARRITO */
+/* 4) MANEJO DE ACCIONES DEL CARRITO */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // ELIMINAR UN PRODUCTO
@@ -58,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // AÑADIR AL CARRITO
     elseif (isset($_POST['add_to_cart'])) {
+
         $id     = $_POST['id'];
         $nombre = $_POST['nombre'];
         $precio = (float) $_POST['precio'];
@@ -79,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-/* Datos del carrito para el icono y el offcanvas */
+/* 5) DATOS DEL CARRITO PARA ICONO Y MINI-CARRITO */
 $cart_items    = $_SESSION['carrito'];
 $cart_count    = 0;
 $cart_subtotal = 0;
@@ -132,9 +156,19 @@ foreach ($cart_items as $item) {
           </ul>
 
           <div class="d-flex ms-lg-auto">
-            <a class="btn icon-btn" href="login.php" aria-label="Usuario">
-              <i class="bi bi-person"></i>
-            </a>
+                <div class="d-flex ms-lg-auto">
+              
+              <!--aca se muestra el email del usuario -->
+             
+              <a class="btn" href="mi_cuenta.php" aria-label="email">
+                <i class="position-relative"><?php echo $_SESSION['email'];?></i>
+              </a>
+              <a class="btn icon-btn position-relative" href="carrito.html"aria-label="Carrito">
+                <i class="bi bi-cart"></i>
+              </a>
+            </div>
+          </div>
+        </div>
 
             <!-- Icono de carrito que abre el mini-carrito -->
             <button class="btn icon-btn position-relative"
@@ -156,7 +190,7 @@ foreach ($cart_items as $item) {
     <div class="row">
       <!-- Imagen -->
       <div class="col-12 col-md-6 text-center mb-3">
-        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>"
+        <img src=""
              class="img-fluid rounded shadow-sm"
              alt="Imagen de <?php echo htmlspecialchars($producto['nombre']); ?>">
       </div>
@@ -227,9 +261,8 @@ foreach ($cart_items as $item) {
         <?php foreach ($cart_items as $item): ?>
           <div class="d-flex mb-3 align-items-start">
 
-            <!-- IMAGEN -->
             <?php if (!empty($item['imagen'])): ?>
-              <img src="<?php echo htmlspecialchars($item['imagen']); ?>"
+              <img src=""
                    class="rounded me-3"
                    style="width:60px;height:60px;object-fit:cover;">
             <?php endif; ?>
@@ -293,7 +326,6 @@ foreach ($cart_items as $item) {
           Finalizar compra
         </a>
 
-        <!--  BOTÓN VACIAR TODO EL CARRITO -->
         <form method="POST" class="text-end">
           <button type="submit" name="empty_cart"
                   class="btn btn-link btn-sm text-danger">
@@ -306,7 +338,6 @@ foreach ($cart_items as $item) {
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="mt-5">
     <p class="text-center">&copy; 2024 Luzia. Todos los derechos reservados.</p>
   </footer>

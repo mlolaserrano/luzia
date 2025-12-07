@@ -69,10 +69,10 @@ if(isset($_SESSION['message'])){
       <!-- Menú desktop -->
       <div class="collapse navbar-collapse d-none d-lg-flex">
         <div class="d-flex ms-lg-auto">
-          <a class="btn icon-btn" href="admi_inventario.html" aria-label="Inventario">
+          <a class="btn icon-btn" href="admi_inventario.php" aria-label="Inventario">
             <i class="bi bi-boxes"></i>
           </a>
-          <a class="btn icon-btn" href="admi_productos.html" aria-label="Vista">
+          <a class="btn icon-btn" href="admi_productos.php" aria-label="Vista">
             <i class="bi bi-gear"></i>
           </a>
           <a class="btn icon-btn" href="admi_logout.html" aria-label="Salir">

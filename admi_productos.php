@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Administrador | Gestión de Productos</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+   <header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid position-relative">
+      <!-- Brand fijo centrado -->
+      <a class="navbar-brand navbar-brand-top" href="admi_home.php">LUZIA</a>
+
+      <!-- Toggler abre el panel derecho -->
+      <button class="navbar-toggler ms-auto" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#menuRight"
+              aria-controls="menuRight" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menú desktop -->
+      <div class="collapse navbar-collapse d-none d-lg-flex">
+        <div class="d-flex ms-lg-auto">
+          <a class="btn icon-btn" href="admi_inventario.php" aria-label="Inventario">
+            <i class="bi bi-boxes"></i>
+          </a>
+          <a class="btn icon-btn" href="admi_home.php" aria-label="Vista">
+            <i class="bi bi-eye"></i>
+          </a>
+          <a class="btn icon-btn" href="admi_logout.html" aria-label="Salir">
+            <i class="bi bi-door-open"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Offcanvas móvil a la derecha -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="menuRight" aria-labelledby="menuRightLabel">
+    <div class="offcanvas-header justify-content-center">
+      <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
+      <button type="button" class="btn-close position-absolute end-0 me-3"
+              data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <!-- Mismos iconos, en columna con texto -->
+      <ul class="list-unstyled text-center w-100">
+        <li class="mb-3">
+          <a href="admi_inventario.html" class="d-flex flex-column align-items-center text-decoration-none">
+            <i class="bi bi-boxes fs-3"></i>
+            <span class="small mt-1">Inventario</span>
+          </a>
+        </li>
+        <li class="mb-3">
+          <a href="admi_home.html" class="d-flex flex-column align-items-center text-decoration-none">
+            <i class="bi bi-eye fs-3"></i>
+            <span class="small mt-1">Vista</span>
+          </a>
+        </li>
+        <li>
+          <a href="admi_logout.html" class="d-flex flex-column align-items-center text-decoration-none">
+            <i class="bi bi-door-open fs-3"></i>
+            <span class="small mt-1">Salir</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+<body class="bg-light">
+    <div class="container py-4">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h1 class="display-5 fw-bold">Gestión de productos</h1>
+                <p class="lead">Productos de la tienda</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta de acciones principales -->
+<main>
+  <div class="container py-3">
+    <div class="row g-3">
+
+      <div class="col-md-4">
+        <div class="card text-center h-100 shadow-sm">
+          <button class="btn btn-card w-100 h-100 p-0 text-reset"
+                  data-bs-toggle="modal" data-bs-target="#addProductModal">
+            <div class="card-body">
+              <i class="bi bi-plus-circle display-4"></i>
+              <h5 class="card-title mb-0">Agregar Producto</h5>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card text-center h-100 shadow-sm">
+          <button class="btn btn-card w-100 h-100 p-0 text-reset"
+                  data-bs-toggle="modal" data-bs-target="#editModal">
+            <div class="card-body">
+              <i class="bi bi-pencil display-4"></i>
+              <h5 class="card-title mb-0">Modificar Producto</h5>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card text-center h-100 shadow-sm">
+          <button class="btn btn-card w-100 h-100 p-0 text-reset"
+                  data-bs-toggle="modal" data-bs-target="#deleteModal">
+            <div class="card-body">
+              <i class="bi bi-trash display-4"></i>
+              <h5 class="card-title mb-0">Eliminar Producto</h5>
+            </div>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+        <!-- Tabla de productos -->
+
+        <div class="card shadow">
+            <div class="card-header text-white d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0"> Lista de Productos</h5>
+                <span class="badge bg-light text-dark">9 productos</span>
+            </div>
+
+           <div class="card-body p-0">
+                <div class="table-container">
+                    <table class="table table-hover table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">SKU</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Categoría</th>
+                                <th scope="col" class="featured-cell">Destacado</th>
+                                <th scope="col" class="text-center">Recomendado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <img src="img/ANI001anillo_piedra_3.png" class="table-img" alt="Anillo de plata">
+                                </td>
+                                <td>Anillo Aurora</td>
+                                <td>ANI001</td>
+                                <td>Fabricado con oro de la más alta calidad, su brillo natural...
+                                </td>                           
+                                <td>$53.000</td>
+                                <td>Anillos</td>
+                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
+                                <th class="text-center"><i class="bi bi-dash-circle text-muted"></i></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/ARO001aroscolagantes3.jpg" class="table-img" alt="Anillo con priedra">
+                                </td>
+                                <td>Aros Aura</td>
+                                <td>ARO001</td>
+                                <td>Aros largos que forman parte de una línea elegante que...</td>
+                                <td>$47.000</td>
+                                <td>Anillos</td>
+                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
+                                <th class="text-center"><i class="bi bi-dash-circle text-muted"></i></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/ARO002aroscolagantes4.png" class="table-img" alt="Aros modernos">
+                                </td>
+                                <td>Aros Celia</td>
+                                <td>ARO002</td>
+                                <td>Aros cortos elegantes de oro</td>
+                                <td>$39.000</td>
+                                <td>Aros</td>
+                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
+                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/BRA001bracelet_fino_2.jpg" class="table-img" alt="Brazalete fino">
+                                </td>
+                                <td>Brazalete Iris</td>
+                                <td>BRA001</td>
+                                <td>Brazalete ajustable de oro</td>
+                                <td>$29.000</td>
+                                <td>Brazaletes</td>
+                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
+                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/COL002collarlargo.png" class="table-img" alt="Anillo Cromática">
+                                </td>
+                                <td>Collar Lyra</td>
+                                <td>COL002</td>
+                                <td>Collar de oro con perlas y dije</td>
+                                <td>$30.000</td>
+                                <td>Anillos</td>
+                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
+                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/ARO003aros1.png" class="table-img" alt="Aros clásicos">
+                                </td>
+                                <td>Aros Amaré</td>
+                                <td>ARO003</td>
+                                <td>Aros largos clásicos de oro laminado, hipoalergénicos</td>
+                                <td>$41.000</td>
+                                <td>Aros</td>
+                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
+                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/BRA002bracelet_fino_1.jpg" class="table-img" alt="Anillo con priedra">
+                                </td>
+                                <td>Brazalete Amelia</td>
+                                <td>BRA002</td>
+                                <td>Brazalete de colección de tres bañados en oro ...</td>
+                                <td>$37.000</td>
+                                <td>Brazaletes</td>
+                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
+                                <th class="text-center"><i class="bi bi-dash-circle text-muted"></i></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/ANI002anillo_piedra_1.png" class="table-img" alt="Anillo con priedra">
+                                </td>
+                                <td>Anillo Cromática</td>
+                                <td>ANI002</td>
+                                <td>Elaborado con plata esterlina 925, este anillo com...</td>
+                                <td>$40.000</td>
+                                <td>Brazaletes</td>
+                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
+                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="img/ANI003anillo_piedra_4.png" class="table-img" alt="Anillo Cromática">
+                                </td>
+                                <td>Anillo Cloe</td>
+                                <td>ANI003</td>
+                                <td>Una pieza de lujo y distinción, forjada en oro de 18K ...</td>
+                                <td>$37.000</td>
+                                <td>Anillos</td>
+                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
+                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana emergente para agregar producto -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title"><i class="bi bi-plus-circle"></i> Agregar Nuevo Producto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                       <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="productImage" class="form-label">Imagen del Producto</label>
+                                    <input class="form-control" type="file" id="productImage" accept="image/*">
+                                    <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="productName" class="form-label">Nombre del Producto</label>
+                                    <input type="text" class="form-control" id="productName" placeholder="Ej: Anillo de Plata con Zafiro" required>
+                                </div>
+                              
+                                <div class="mb-3">
+                                    <label for="productSKU" class="form-label">SKU (Código de Producto)</label>
+                                    <input type="text" class="form-control" id="productSKU" placeholder="Ej: ANI-ZAF-001" required>
+                                </div>
+                            </div>
+                        </div>                      
+
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="productDescription" rows="3" placeholder="Describe las características del producto..." required></textarea>
+                        </div>                     
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="productPrice" class="form-label">Precio ($)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" class="form-control" id="productPrice" min="0" step="0.01" placeholder="0.00" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="productCategory" class="form-label">Categoría</label>
+                                    <select class="form-select" id="productCategory" required>
+                                        <option value="" selected disabled>Selecciona una categoría</option>
+                                        <option value="anillos">Anillos</option>
+                                        <option value="collares">Collares</option>
+                                        <option value="aros">Aros</option>
+                                        <option value="pulseras">Brazaletes</option>                                     
+                                    </select>
+                                </div>
+                            </div>
+                        </div>                       
+
+                        <div class="mb-3 form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="productFeatured">
+                            <label class="form-check-label" for="productFeatured">Producto Destacado</label>
+                            <label class="form-check-label" for="productFeatured">Producto Rec</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-dark">Guardar Producto</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <!-- Ventana emergente para modificar producto -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title"><i class="bi bi-pencil"></i> Modificar Producto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle"></i> En un sistema real, aquí aparecería un formulario para seleccionar y editar el producto.
+                    </div>
+                    <p>Funcionalidades que incluiría:</p>
+                    <ul>
+                        <li>Selector de producto a modificar</li>
+                        <li>Formulario con datos actuales del producto</li>
+                        <li>Posibilidad de cambiar imagen, nombre, SKU, etc.</li>
+                        <li>Guardar cambios</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-dark">Aplicar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+
+    <!-- Ventana emergente para eliminar producto -->
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-white">
+                    <h5 class="modal-title"><i class="bi bi-trash"></i> Eliminar Producto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle"></i> Esta acción eliminará permanentemente el producto seleccionado.
+                    </div>
+                    <p>Funcionalidades que incluiría:</p>
+                    <ul>
+                        <li>Selector de producto a eliminar</li>
+                        <li>Confirmación de eliminación</li>
+                        <li>Información del producto a eliminar</li>
+                        <li>Posibilidad de cancelar la operación</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger">Eliminar Producto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<footer class="mt-5 text-center">
+  <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <a href="admi_politicas.html">Política de privacidad</a>
+    <a href="admi_terminos.html">Términos y condiciones</a>
+    <a href="admi_contacto.html">Contacto</a>
+  </div>
+</footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

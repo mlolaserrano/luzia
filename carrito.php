@@ -504,10 +504,11 @@ foreach ($cart_items as $item) {
                     </li>
                   </ul>
 
-                  <!-- AGUS AGREGALO ACA -->
-<a href="pedido_confirmado.php" class="btn btn-primary w-100">
-  Finalizar compra
-</a>
+<form action="procesar_pedido.php" method="post">
+  <button type="submit" class="btn btn-primary w-100">
+    Finalizar compra
+  </button>
+</form>
 
 
 

@@ -37,36 +37,64 @@ $imagenes_aros = [
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid position-relative">
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid position-relative">
+      <!-- Logotipo fijo centrado -->
+      <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
 
-        <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
+      <!-- Toggler abre el panel derecho -->
+      <button
+        class="navbar-toggler ms-auto"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#menuRight"
+        aria-controls="menuRight"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuRight">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <!-- Menú desktop normal -->
+      <div class="collapse navbar-collapse d-none d-lg-flex">
+        <ul class="navbar-nav mx-lg-3 me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="productos_aros.php">Aros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos_anillos.php">Anillos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="producto_brazaletes.php">Brazaletes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos_collares.php">Collares</a>
+          </li>
+        </ul>
 
-        <!-- NAV DESKTOP -->
-        <div class="collapse navbar-collapse d-none d-lg-flex">
-          <ul class="navbar-nav mx-lg-3 me-auto">
-            <li class="nav-item"><a class="nav-link active" href="productos_aros.php">Aros</a></li>
-            <li class="nav-item"><a class="nav-link" href="productos_anillos.php">Anillos</a></li>
-            <li class="nav-item"><a class="nav-link" href="producto_brazaletes.php">Brazaletes</a></li>
-            <li class="nav-item"><a class="nav-link" href="productos_collares.php">Collares</a></li>
-          </ul>
+        <!-- Derecha: email + carrito (ÚNICO) -->
+        <div class="d-flex ms-lg-auto align-items-center">
+          <!-- Aquí se muestra el email del usuario -->
+          <a class="btn" href="mi_cuenta.php" aria-label="email">
+            <i class="position-relative">
+              <?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>
+            </i>
+          </a>
 
-          <div class="d-flex ms-lg-auto">
-            <a class="btn" href="mi_cuenta.php"><i><?php echo $_SESSION['email']; ?></i></a>
-            <a class="btn icon-btn position-relative" href="carrito.php">
-              <i class="bi bi-cart"></i>
-            </a>
-          </div>
-
+          <a
+            class="btn icon-btn position-relative ms-2"
+            href="carrito.php"
+            aria-label="Carrito"
+          >
+            <i class="bi bi-cart"></i>
+            <span class="cart-counter"><?php echo $cart_count; ?></span>
+          </a>
         </div>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
+
 
   <main class="container my-5">
     <div class="text-center mb-5">

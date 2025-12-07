@@ -33,12 +33,13 @@ if (!$usuario) {
     exit();
 }
 
-$id_cliente = $usuario['id'];
+$id_usuario = (int)$usuario['id'];
 
 // 4) Definir SIEMPRE un cupón válido
 // Usamos el cupón "SinCodigo" que en tu tabla cupon tiene id = 1
-$id_cupon = 1;           // NO es null
-$cupon_descuento = 0;    // Descuento 0 por defecto
+$id_cupon        = 1;   // NO es null
+$cupon_descuento = 0;   // Descuento 0 por defecto
+$estado          = 'pendiente'; // ← estado inicial del pedido
 
 try {
     $conn->beginTransaction();
@@ -46,26 +47,30 @@ try {
     $ultimo_id_pedido = null;
 
     // 5) Preparar el INSERT en `pedido`
+    // OJO: en la base la columna es id_usuario, NO id_cliente
     $stmt_pedido = $conn->prepare("
         INSERT INTO pedido
-            (id_cliente, id_producto, id_cupon, fecha, cantidad, estado, precio, montobruto, cupon_descuento, total)
+            (id_usuario, id_producto, id_cupon, fecha, cantidad, estado,
+             precio, montobruto, cupon_descuento, total)
         VALUES
-            (?, ?, ?, NOW(), ?, 'en almacen', ?, ?, ?, ?)
+            (?, ?, ?, CURDATE(), ?, ?, ?, ?, ?, ?)
     ");
 
     foreach ($carrito as $item) {
-        $id_producto = $item['id'];          // ID del producto (desde el carrito)
+        // Ajustá estos índices si tu carrito tiene otros nombres
+        $id_producto = (int)$item['id'];          // ID del producto (desde el carrito)
         $cantidad    = (int)$item['cantidad'];
-        $precio      = (float)$item['precio'];
+        $precio      = (float)$item['precio'];   // precio unitario
 
         $montobruto = $precio * $cantidad;
         $total      = $montobruto - $cupon_descuento;
 
         $stmt_pedido->execute([
-            $id_cliente,        // id_cliente
+            $id_usuario,        // id_usuario (FK a usuario.id)
             $id_producto,       // id_producto
             $id_cupon,          // id_cupon (1 = SinCodigo)
             $cantidad,          // cantidad
+            $estado,            // estado = 'pendiente'
             $precio,            // precio unitario
             $montobruto,        // montobruto
             $cupon_descuento,   // cupon_descuento

@@ -58,65 +58,63 @@ $imagenes = [
 
 <!-- NAV -->
 <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid position-relative">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid position-relative">
+      <!-- Logotipo fijo centrado -->
+      <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
 
-            <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
+      <!-- Toggler abre el panel derecho -->
+      <button
+        class="navbar-toggler ms-auto"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#menuRight"
+        aria-controls="menuRight"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <button class="navbar-toggler ms-auto" type="button"
-                    data-bs-toggle="offcanvas" data-bs-target="#menuRight">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+      <!-- Menú desktop normal -->
+      <div class="collapse navbar-collapse d-none d-lg-flex">
+        <ul class="navbar-nav mx-lg-3 me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="productos_aros.php">Aros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos_anillos.php">Anillos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="producto_brazaletes.php">Brazaletes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos_collares.php">Collares</a>
+          </li>
+        </ul>
 
-            <div class="collapse navbar-collapse d-none d-lg-flex">
-                <ul class="navbar-nav mx-lg-3 me-auto">
-                    <li class="nav-item"><a class="nav-link" href="productos_aros.php">Aros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="productos_anillos.php">Anillos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="producto_brazaletes.php">Brazaletes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="productos_collares.php">Collares</a></li>
-                </ul>
+        <!-- Derecha: email + carrito (ÚNICO) -->
+        <div class="d-flex ms-lg-auto align-items-center">
+          <!-- Aquí se muestra el email del usuario -->
+          <a class="btn" href="mi_cuenta.php" aria-label="email">
+            <i class="position-relative">
+              <?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>
+            </i>
+          </a>
 
-                <div class="d-flex ms-lg-auto">
-
-                    <!-- EMAIL DEL USUARIO -->
-                    <a class="btn" href="mi_cuenta.php" aria-label="email">
-                        <i class="position-relative"><?php echo $_SESSION['email']; ?></i>
-                    </a>
-
-                    <a class="btn icon-btn position-relative" href="carrito.php">
-                        <i class="bi bi-cart"></i>
-                    </a>
-                </div>
-            </div>
-
+          <a
+            class="btn icon-btn position-relative ms-2"
+            href="carrito.php"
+            aria-label="Carrito"
+          >
+            <i class="bi bi-cart"></i>
+            <span class="cart-counter"><?php echo $cart_count; ?></span>
+          </a>
         </div>
-    </nav>
-
-    <!-- MENU MOVIL -->
-    <div class="offcanvas offcanvas-end" id="menuRight">
-        <div class="offcanvas-header justify-content-center">
-            <h5 class="offcanvas-title">LUZIA</h5>
-            <button type="button" class="btn-close position-absolute end-0 me-3"
-                    data-bs-dismiss="offcanvas"></button>
-        </div>
-
-        <div class="offcanvas-body">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="productos_aros.php">Aros</a></li>
-                <li class="nav-item"><a class="nav-link" href="productos_anillos.php">Anillos</a></li>
-                <li class="nav-item"><a class="nav-link" href="producto_brazaletes.php">Brazaletes</a></li>
-                <li class="nav-item"><a class="nav-link" href="productos_collares.php">Collares</a></li>
-            </ul>
-
-            <hr class="my-3">
-
-            <div class="d-flex justify-content-center gap-3">
-                <a href="mi_cuenta.php"><i class="bi bi-person fs-5"></i></a>
-                <a href="carrito.php"><i class="bi bi-cart fs-5"></i></a>
-            </div>
-        </div>
+      </div>
     </div>
+  </nav>
 </header>
+
 
 
 <!-- CONTENIDO -->

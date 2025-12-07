@@ -42,7 +42,7 @@ function controlarSesion(){
     //exit();
     $sesionUsuario=$_SESSION['email']; 
     
-    header("Location:detalle_producto.html"); //Hacia acá se redirigirá
+    header("Location:detalle_producto.php"); //Hacia acá se redirigirá
     
     
   }else{

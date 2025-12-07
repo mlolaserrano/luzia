@@ -48,7 +48,7 @@ $x = "***".$_SESSION['email'];
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid position-relative">
           <!-- Brand fijo centrado -->
-          <a class="navbar-brand navbar-brand-top" href="index.html">LUZIA</a>
+          <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
 
           <!-- Toggler abre el panel derecho -->
           <button
@@ -66,18 +66,18 @@ $x = "***".$_SESSION['email'];
           <div class="collapse navbar-collapse d-none d-lg-flex">
             <ul class="navbar-nav mx-lg-3 me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="productos_aros.html">Aros</a>
+                <a class="nav-link active" href="productos_aros.php">Aros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="productos_anillos.html">Anillos</a>
+                <a class="nav-link" href="productos_anillos.php">Anillos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="producto_brazaletes.html"
+                <a class="nav-link" href="producto_brazaletes.php"
                   >Brazaletes</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="productos_collares.html">Collares</a>
+                <a class="nav-link" href="productos_collares.php">Collares</a>
               </li>
             </ul>
             <div class="d-flex ms-lg-auto">
@@ -87,7 +87,7 @@ $x = "***".$_SESSION['email'];
               <a class="btn" href="mi_cuenta.php" aria-label="email">
                 <i class="position-relative"><?php echo $_SESSION['email'];?></i>
               </a>
-              <a class="btn icon-btn position-relative" href="carrito.html"aria-label="Carrito">
+              <a class="btn icon-btn position-relative" href="carrito.php"aria-label="Carrito">
                 <i class="bi bi-cart"></i>
               </a>
             </div>
@@ -115,18 +115,18 @@ $x = "***".$_SESSION['email'];
         <div class="offcanvas-body">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link py-2" href="productos_aros.html">Aros</a>
+              <a class="nav-link py-2" href="productos_aros.php">Aros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-2" href="productos_anillos.html">Anillos</a>
+              <a class="nav-link py-2" href="productos_anillos.php">Anillos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-2" href="producto_brazaletes.html"
+              <a class="nav-link py-2" href="producto_brazaletes.php"
                 >Brazaletes</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link py-2" href="productos_collares.html"
+              <a class="nav-link py-2" href="productos_collares.php"
                 >Collares</a
               >
             </li>
@@ -136,10 +136,9 @@ $x = "***".$_SESSION['email'];
 
           <div class="d-flex justify-content-center gap-3">
 
-        <!--línea de código php insertado--> 
             <p>****</p>
-            <a href="login.html"><i class="bi bi-person fs-5"></i></a>
-            <a href="carrito.html" class="position-relative">
+            <a href="login.php"><i class="bi bi-person fs-5"></i></a>
+            <a href="carrito.php" class="position-relative">
               <i class="bi bi-cart fs-5"></i>
               <span class="cart-counter">0</span>
             </a>
@@ -163,7 +162,7 @@ $x = "***".$_SESSION['email'];
         <div class="carousel-item active">
           <img src="img/banner1.jpg" class="d-block w-100" alt="Banner 1" />
           <div class="carousel-caption d-none d-md-block">
-        <a href="listadoproductos.html" class="btn btn-outline-primary">Ver más</a>
+        <a href="listadoproductos.php" class="btn btn-outline-primary">Ver más</a>
           </div>
         </div>
         <div class="carousel-item">
@@ -175,7 +174,7 @@ $x = "***".$_SESSION['email'];
         <div class="carousel-item">
           <img src="img/banner_3.jpg" class="d-block w-100" alt="Banner 3" />
           <div class="carousel-caption d-none d-md-block">
-        <a href="producto_brazaletes.html" class="btn btn-outline-primary">Ver más</a>
+        <a href="producto_brazaletes.php" class="btn btn-outline-primary">Ver más</a>
           </div>
         </div>
       </div>
@@ -192,110 +191,104 @@ $x = "***".$_SESSION['email'];
   </section>
 <br>
   <!-- Productos -->
-  <article>
-    <h1 class="display-4">Productos Destacados</h1>
-    <!--<form class="form-underline" action="validar_sesion.php" method="post">-->
-    <div class="container py-4">
+<article>
+  <h1 class="display-4">Productos Destacados</h1>
+
+  <div class="container py-4">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
       
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
-          
-          <!-- Producto 1-->
-
-          <div class="col">
-            <div class="card h-100">
-              <div class="product-img-wrap ratio-1x1">   
-                <img src="img/BRA001bracelet_fino_2.jpg" class="card-img-top" alt="Producto 1">
-                <form class="form-underline" action="validar_sesion1.php" method="post">
-                <div class="btn-wrap">
-                  <a href="validar_sesion1.php" class="btn btn-carrito w-100 rounded-0" name="agg_carrito">AGREGAR AL CARRITO</a>
-                </div>
-                </form>
-              </div>
-              
-              <a href="#">
-              <div class="card-body">
-            
-                <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Doble Trazo</h6>
-                <p class="mb-0">$45.000</p>
-              </a>
-              </div>
-            </div>
-        </div>
-
-        <!-- Producto 2 -->
-
-        <div class="col">
-          <div class="card h-100">
-            <div class="product-img-wrap ratio-1x1">
-              <img src="img/BRA002bracelet_fino_1.jpg" class="card-img-top" alt="Producto 2">
-              
-              <form class="form-underline" action="validar_sesion1.php" method="post">
-              <div class="btn-wrap">
-                <a href="validar_sesion1.php" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
-              </div>
-              </form>
-            </div>
-            <div class="card-body">
-              <a href="#">
-                <h6 class="card-title text-uppercase fw-bold mb-1">Brazaletes Armonía</h6>
-                <p class="mb-0">$15.500</p>
+      <!-- Producto 1: Brazalete Doble Trazo (ID 9) -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="product-img-wrap ratio-1x1">
+            <a href="detalle_producto.php?id=9">
+              <img src="img/BRA001bracelet_fino_2.jpg" class="card-img-top" alt="Brazalete Doble Trazo">
+            </a>
+            <div class="btn-wrap">
+              <a href="detalle_producto.php?id=9" class="btn btn-carrito w-100 rounded-0">
+                AGREGAR AL CARRITO
               </a>
             </div>
           </div>
+          <div class="card-body">
+            <a href="detalle_producto.php?id=9" class="text-decoration-none text-dark">
+              <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Iris</h6>
+              <p class="mb-0">$45.000</p>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- Producto 3 -->
-        
-        <div class="col">
-          <div class="card h-100">
-            <div class="product-img-wrap ratio-1x1">
-              <img src="img/ARO002aroscolagantes4.png" class="card-img-top" alt="Producto 3">
-              <form class="form-underline" action="validar_sesion.php" method="post">
-              <div class="btn-wrap">
-                <a href="validar_sesion1.php" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
-              </div>
-              </form>
-            </div>
-            <div class="card-body">
-              <a href="validar_sesion1.php">
-                <h6 class="card-title text-uppercase fw-bold mb-1">Aros Amare</h6>
-                <p class="mb-0">$39.000</p>
+      <!-- Producto 2: Brazaletes Armonía (ID 10) -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="product-img-wrap ratio-1x1">
+            <a href="detalle_producto.php?id=10">
+              <img src="img/BRA002bracelet_fino_1.jpg" class="card-img-top" alt="Brazaletes Armonía">
+            </a>
+            <div class="btn-wrap">
+              <a href="detalle_producto.php?id=10" class="btn btn-carrito w-100 rounded-0">
+                AGREGAR AL CARRITO
               </a>
             </div>
           </div>
+          <div class="card-body">
+            <a href="detalle_producto.php?id=10" class="text-decoration-none text-dark">
+              <h6 class="card-title text-uppercase fw-bold mb-1">Brazaletes Amelia</h6>
+              <p class="mb-0">$15.500</p>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- Producto 4 -->
-
-        <div class="col">
-          <div class="card h-100">
-            <div class="product-img-wrap ratio-1x1">
-              <img src="img/ARO001aroscolagantes3.jpg" class="card-img-top" alt="Producto 4">
-              
-              <form class="form-underline" action="validar_sesion.php" method="post">
-              <div class="btn-wrap">
-                <a href="validar_sesion1.php" class="btn btn-carrito w-100 rounded-0">AGREGAR AL CARRITO</a>
-              </div>
-              </form>
-            </div>
-            <div class="card-body">
-              <a href="validar_sesion1.php">
-                <h6 class="card-title text-uppercase fw-bold mb-1">Aros Aura</h6>
-                <p class="mb-0">$40.000</p>
+      <!-- Producto 3: Aros Amare (ID 6) -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="product-img-wrap ratio-1x1">
+            <a href="detalle_producto.php?id=6">
+              <img src="img/ARO002aroscolagantes4.png" class="card-img-top" alt="Aros Amare">
+            </a>
+            <div class="btn-wrap">
+              <a href="detalle_producto.php?id=6" class="btn btn-carrito w-100 rounded-0">
+                AGREGAR AL CARRITO
               </a>
             </div>
           </div>
+          <div class="card-body">
+            <a href="detalle_producto.php?id=6" class="text-decoration-none text-dark">
+              <h6 class="card-title text-uppercase fw-bold mb-1">Aros Amaré</h6>
+              <p class="mb-0">$39.000</p>
+            </a>
+          </div>
         </div>
+      </div>
+
+      <!-- Producto 4: Aros Aura (ID 4) -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="product-img-wrap ratio-1x1">
+            <a href="detalle_producto.php?id=4">
+              <img src="img/ARO001aroscolagantes3.jpg" class="card-img-top" alt="Aros Aura">
+            </a>
+            <div class="btn-wrap">
+              <a href="detalle_producto.php?id=4" class="btn btn-carrito w-100 rounded-0">
+                AGREGAR AL CARRITO
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <a href="detalle_producto.php?id=4" class="text-decoration-none text-dark">
+              <h6 class="card-title text-uppercase fw-bold mb-1">Aros Aura</h6>
+              <p class="mb-0">$40.000</p>
+            </a>
+          </div>
+        </div>
+      </div>
 
     </div>
-      
-  
-    <div class="container py-4">
-      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
-</form>
+  </div>
+</article>
 
-        
-  </article>
 
 
 

@@ -223,7 +223,7 @@ if ($email) {
       </p>
       
       <div class="btn-narrow-container">
-        <a href="index.html" class="btn btn-luzia">Volver al Inicio</a>
+        <a href="index.php" class="btn btn-luzia">Volver al Inicio</a>
       </div>
     </div>
   </div>

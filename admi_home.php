@@ -307,7 +307,7 @@ if(isset($_SESSION['message'])){
          <!-- Panel izquierdo -->
         <div class="col-12 col-md-6">
           <a href="#" class="d-block category-panel position-relative">
-            <img src="img/silver.jpg?v=<?php echo time(); ?>" alt="aros">
+            <img src="img/silver.jpg?v=<?php echo time();?>" alt="aros">
             <!-- Botones de gestión -->
             <div class="management-buttons">
               

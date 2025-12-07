@@ -34,7 +34,6 @@ function comprobacionPrevia($target_dir,$file_name){
     $target_file = $target_dir . $file_name;   
     $fileTypeExtension = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     global $tamMaxArchivo;
-     
     // comprobar que haya una archivo seleccionado
     if($file_name==""){
         $_SESSION['message']="ERROR: Ningun archivo seleccionado.";

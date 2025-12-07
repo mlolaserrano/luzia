@@ -504,8 +504,8 @@ foreach ($cart_items as $item) {
                     </li>
                   </ul>
 
-                  <!-- Botón finalizar (simulado) -->
-<a href="confirmacion_compra.php" class="btn btn-primary w-100">
+                  <!-- AGUS AGREGALO ACA -->
+<a href="" class="btn btn-primary w-100">
   Finalizar compra
 </a>
 

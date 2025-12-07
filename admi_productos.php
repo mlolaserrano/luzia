@@ -1,3 +1,16 @@
+<?php 
+session_start(); 
+if(isset($_SESSION['message'])){
+    $tipoAlert = $_SESSION['error'] ? "alert-danger" : "alert-success";
+    echo '<div class="alert '.$tipoAlert.' alert-dismissible fade show" role="alert">
+            '.$_SESSION['message'].'
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+    unset($_SESSION['message']);
+    unset($_SESSION['error']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -134,8 +147,8 @@
           <button class="btn btn-card w-100 h-100 p-0 text-reset"
                   data-bs-toggle="modal" data-bs-target="#deleteModal">
             <div class="card-body">
-              <i class="bi bi-trash display-4"></i>
-              <h5 class="card-title mb-0">Eliminar Producto</h5>
+              <i class="bi bi-bag display-4"></i>
+              <h5 class="card-title mb-0">Modificar Estado</h5>
             </div>
           </button>
         </div>
@@ -293,72 +306,97 @@
                     <h5 class="modal-title"><i class="bi bi-plus-circle"></i> Agregar Nuevo Producto</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form>
+                
+    <!-- Acá se conecta con el otro php, con ese action -->
+                <form action="agregar_productos.php" method="POST" enctype="multipart/form-data">
+                
+                    <div class="modal-body">
                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="productImage" class="form-label">Imagen del Producto</label>
-                                    <input class="form-control" type="file" id="productImage" accept="image/*">
-                                    <div class="form-text">Formatos: JPG, PNG, GIF. Máx: 5MB</div>
+                                    <input class="form-control" type="file" id="productImage" name="imagen" accept="image/*" required>
+                                    <div class="form-text">Formatos: JPG, PNG. Máx: 5MB</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="productName" class="form-label">Nombre del Producto</label>
-                                    <input type="text" class="form-control" id="productName" placeholder="Ej: Anillo de Plata con Zafiro" required>
+                                    <input type="text" class="form-control" id="productName" name="nombre" placeholder="Ej: Anillo de Plata" required>
                                 </div>
                               
                                 <div class="mb-3">
-                                    <label for="productSKU" class="form-label">SKU (Código de Producto)</label>
-                                    <input type="text" class="form-control" id="productSKU" placeholder="Ej: ANI-ZAF-001" required>
+                                    <label for="productSKU" class="form-label">SKU (Código único)</label>
+                                    <input type="text" class="form-control" id="productSKU" name="sku" placeholder="Ej: ANI005" required>
                                 </div>
                             </div>
                         </div>                      
 
                         <div class="mb-3">
                             <label for="productDescription" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="productDescription" rows="3" placeholder="Describe las características del producto..." required></textarea>
+                            <textarea class="form-control" id="productDescription" name="descripcion" rows="3" placeholder="Describe el producto..." required></textarea>
                         </div>                     
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="productPrice" class="form-label">Precio ($)</label>
                                     <div class="input-group">
                                         <span class="input-group-text">$</span>
-                                        <input type="number" class="form-control" id="productPrice" min="0" step="0.01" placeholder="0.00" required>
+                                        <input type="number" class="form-control" id="productPrice" name="precio" min="0" step="0.01" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label for="productCategory" class="form-label">Categoría</label>
-                                    <select class="form-select" id="productCategory" required>
-                                        <option value="" selected disabled>Selecciona una categoría</option>
-                                        <option value="anillos">Anillos</option>
-                                        <option value="collares">Collares</option>
-                                        <option value="aros">Aros</option>
-                                        <option value="pulseras">Brazaletes</option>                                     
-                                    </select>
+                                    <label for="productStock" class="form-label">Stock</label>
+                                    <input type="number" class="form-control" id="productStock" name="stock" min="1" value="10" required>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="productCategory" class="form-label">Categoría</label>
+                                        <select class="form-select" id="productCategory" name="categoria" required>
+                                            <option value="" selected disabled>Selecciona...</option>
+                                            <option value="anillos">Anillos</option>
+                                            <option value="collares">Collares</option>
+                                            <option value="aros">Aros</option>
+                                            <option value="brazaletes">Brazaletes</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="productStatus" class="form-label">Estado</label>
+                                        <select class="form-select" id="productStatus" name="estado" required>
+                                            <option value="activo" selected>Activo (Visible)</option>
+                                            <option value="pausado">Pausado (Sin Stock)</option>
+                                            <option value="no publicado">No Publicado (Oculto)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>                       
 
                         <div class="mb-3 form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="productFeatured">
-                            <label class="form-check-label" for="productFeatured">Producto Destacado</label>
-                            <label class="form-check-label" for="productFeatured">Producto Rec</label>
+                            <input class="form-check-input" type="checkbox" id="productFeatured" name="destacado" value="1">
+                            <label class="form-check-label" for="productFeatured">¿Es Producto Destacado?</label>
                         </div>
-                    </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-dark">Guardar Producto</button>
+                    </div>
+
+                </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-dark">Guardar Producto</button>
-                </div>
-            </div>
         </div>
-    </div> 
+    </div>
 
     <!-- Ventana emergente para modificar producto -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">

@@ -50,3 +50,6 @@ select *from usuario  where nombre like = 'L%';
 UPDATE producto SET stock = stock - 2 WHERE id = 3;
 
 select * from pedido vigencia>2025-10;
+UPDATE producto SET estado = 'activo' WHERE id = 11;
+UPDATE producto SET estado = 'no publicado' WHERE id = 12;
+UPDATE producto SET estado = 'no publicado' WHERE id = 13;

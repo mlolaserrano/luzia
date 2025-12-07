@@ -162,81 +162,85 @@ if (!$conn) {
         </section> 
 
         <!-- Sección de Ventas -->
+<section id="ventas" class="mt-5">
+    <h2 class="section-title">Historial de Ventas</h2>       
+    <div class="card">
+        <div class="card-header">
 
-        <section id="ventas" class="mt-5">
-            <h2 class="section-title">Historial de Ventas</h2>       
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0"  style="color: var(--color-texto2)">Ventas Realizadas</h5>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Cliente</th>
-                                    <th>Cantidad</th>
-                                    <th>Estado</th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $sqlVentas = "
-                                    SELECT p.fecha, u.email AS cliente, p.cantidad, p.estado, p.montobruto
-                                    FROM pedido p
-                                    LEFT JOIN usuario u ON p.id_usuario = u.id
-                                    ORDER BY p.fecha DESC
-                                ";
-                                $resV = $conn->query($sqlVentas);
-                                if ($resV && $resV->num_rows > 0) {
-                                    while ($v = $resV->fetch_assoc()) {
-                                        $fecha = htmlspecialchars($v['fecha']);
-                                        $cliente = htmlspecialchars($v['cliente'] ?? '-');
-                                        $cantidad = (int)($v['cantidad'] ?? 0);
-                                        $estado = htmlspecialchars($v['estado'] ?? '-');
-                                        $total = isset($v['montobruto']) ? '$'.number_format((float)$v['montobruto'],0,',','.') : '—';
+            <h5 class="mb-0" style="color: var(--color-texto2)">Ventas Realizadas</h5>
 
-                                        // badge color según estado
-                                        $badge = 'bg-secondary';
-                                        if ($estado === 'Entregado') $badge = 'bg-dark';
-                                        elseif ($estado === 'En almacen') $badge = 'bg-warning';
-                                        elseif ($estado === 'Transporte') $badge = 'bg-danger';
+            <!-- ✅ MENÚ DE FILTRO -->
+            <?php
+            // Captura segura del filtro
+            $filtro = $_GET['estado'] ?? 'Todos';
+            ?>
+            <form method="GET" class="mt-2" style="max-width:250px;">
+                <label class="small">Filtrar por estado:</label>
+                <select name="estado" class="form-select form-select-sm" onchange="this.form.submit()">
+                    <option value="Todos" <?= ($filtro=='Todos')?'selected':''; ?>>Todos</option>
+                    <option value="Entregado" <?= ($filtro=='Entregado')?'selected':''; ?>>Entregado</option>
+                    <option value="En almacen" <?= ($filtro=='En almacen')?'selected':''; ?>>En almacen</option>
+                    <option value="Transporte" <?= ($filtro=='Transporte')?'selected':''; ?>>Transporte</option>
+                </select>
+            </form>
+        </div>
 
-                                        echo "<tr>
-                                                <td>{$fecha}</td>
-                                                <td>{$cliente}</td>
-                                                <td>{$cantidad}</td>
-                                                <td><span class='badge {$badge}'>{$estado}</span></td>
-                                                <td>{$total}</td>
-                                              </tr>";
-                                    }
-                                } else {
-                                    // fallback de ventas estáticas 
-                                    echo '<tr>
-                                            <td>01/08/2025</td><td>valen12@gmail.com</td><td>2</td><td><span class="badge bg-dark">Entregado</span></td><td>$88.000</td>
-                                          </tr>
-                                          <tr>
-                                            <td>01/08/2025</td><td>mora22_silva@gmail.com</td><td>4</td><td><span class="badge bg-warning">En almacen</span></td><td>$164.000</td>
-                                          </tr>
-                                          <tr>
-                                            <td>03/08/2025</td><td>nicooooo_27@hotmail.com</td><td>1</td><td><span class="badge bg-warning">En almacen</span></td><td>$40.000</td>
-                                          </tr>
-                                          <tr>
-                                            <td>04/08/2025</td><td>fatimarodriguez01@yahoo.com</td><td>2</td><td><span class="badge bg-danger">Transporte</span></td><td>$70.000</td>
-                                          </tr>
-                                          <tr>
-                                            <td>05/08/2025</td><td>liliansuar3z@gmail.com</td><td>5</td><td><span class="badge bg-dark">Entregado</span></td><td>$189.000</td>
-                                          </tr>';
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <th>Cantidad</th>
+                            <th>Estado</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+<?php
+// ✅ Datos de ejemplo
+$ventasDemo = [
+    ["fecha"=>"01/08/2025","cliente"=>"valen12@gmail.com","cantidad"=>2,"estado"=>"Entregado","total"=>88000],
+    ["fecha"=>"01/08/2025","cliente"=>"mora22_silva@gmail.com","cantidad"=>4,"estado"=>"En almacen","total"=>164000],
+    ["fecha"=>"03/08/2025","cliente"=>"nicooooo_27@hotmail.com","cantidad"=>1,"estado"=>"En almacen","total"=>40000],
+    ["fecha"=>"04/08/2025","cliente"=>"fatimarodriguez01@yahoo.com","cantidad"=>2,"estado"=>"Transporte","total"=>70000],
+    ["fecha"=>"05/08/2025","cliente"=>"liliansuar3z@gmail.com","cantidad"=>5,"estado"=>"Entregado","total"=>189000],
+];
+
+// ✅ Lógica de filtrado corregida
+foreach ($ventasDemo as $v) {
+
+    // Si no es "Todos" y no coincide, lo saltamos
+    if ($filtro != 'Todos' && $v['estado'] != $filtro) {
+        continue;
+    }
+
+    $badge = 'bg-secondary';
+    if ($v['estado'] == 'Entregado') $badge = 'bg-dark';
+    elseif ($v['estado'] == 'En almacen') $badge = 'bg-warning';
+    elseif ($v['estado'] == 'Transporte') $badge = 'bg-danger';
+
+    echo "<tr>
+        <td>{$v['fecha']}</td>
+        <td>{$v['cliente']}</td>
+        <td>{$v['cantidad']}</td>
+        <td><span class='badge {$badge}'>{$v['estado']}</span></td>
+        <td>$".number_format($v['total'],0,',','.')."</td>
+    </tr>";
+}
+?>
+
+                    </tbody>
+                </table>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
+
+
+
 
     </div>
 </main>
@@ -254,3 +258,4 @@ if (!$conn) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

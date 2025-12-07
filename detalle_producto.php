@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 require __DIR__ . '/conexion.php';
@@ -154,9 +156,19 @@ foreach ($cart_items as $item) {
           </ul>
 
           <div class="d-flex ms-lg-auto">
-            <a class="btn icon-btn" href="login.php" aria-label="Usuario">
-              <i class="bi bi-person"></i>
-            </a>
+                <div class="d-flex ms-lg-auto">
+              
+              <!--aca se muestra el email del usuario -->
+             
+              <a class="btn" href="mi_cuenta.php" aria-label="email">
+                <i class="position-relative"><?php echo $_SESSION['email'];?></i>
+              </a>
+              <a class="btn icon-btn position-relative" href="carrito.html"aria-label="Carrito">
+                <i class="bi bi-cart"></i>
+              </a>
+            </div>
+          </div>
+        </div>
 
             <!-- Icono de carrito que abre el mini-carrito -->
             <button class="btn icon-btn position-relative"
@@ -178,7 +190,7 @@ foreach ($cart_items as $item) {
     <div class="row">
       <!-- Imagen -->
       <div class="col-12 col-md-6 text-center mb-3">
-        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>"
+        <img src=""
              class="img-fluid rounded shadow-sm"
              alt="Imagen de <?php echo htmlspecialchars($producto['nombre']); ?>">
       </div>
@@ -250,7 +262,7 @@ foreach ($cart_items as $item) {
           <div class="d-flex mb-3 align-items-start">
 
             <?php if (!empty($item['imagen'])): ?>
-              <img src="<?php echo htmlspecialchars($item['imagen']); ?>"
+              <img src=""
                    class="rounded me-3"
                    style="width:60px;height:60px;object-fit:cover;">
             <?php endif; ?>

@@ -48,7 +48,7 @@ $x = "***".$_SESSION['email'];
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid position-relative">
           <!-- Brand fijo centrado -->
-          <a class="navbar-brand navbar-brand-top" href="index.html">LUZIA</a>
+          <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
 
           <!-- Toggler abre el panel derecho -->
           <button
@@ -66,18 +66,18 @@ $x = "***".$_SESSION['email'];
           <div class="collapse navbar-collapse d-none d-lg-flex">
             <ul class="navbar-nav mx-lg-3 me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="productos_aros.html">Aros</a>
+                <a class="nav-link active" href="productos_aros.php">Aros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="productos_anillos.html">Anillos</a>
+                <a class="nav-link" href="productos_anillos.php">Anillos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="producto_brazaletes.html"
+                <a class="nav-link" href="producto_brazaletes.php"
                   >Brazaletes</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="productos_collares.html">Collares</a>
+                <a class="nav-link" href="productos_collares.php">Collares</a>
               </li>
             </ul>
             <div class="d-flex ms-lg-auto">
@@ -87,7 +87,7 @@ $x = "***".$_SESSION['email'];
               <a class="btn" href="mi_cuenta.php" aria-label="email">
                 <i class="position-relative"><?php echo $_SESSION['email'];?></i>
               </a>
-              <a class="btn icon-btn position-relative" href="carrito.html"aria-label="Carrito">
+              <a class="btn icon-btn position-relative" href="carrito.php"aria-label="Carrito">
                 <i class="bi bi-cart"></i>
               </a>
             </div>
@@ -115,18 +115,18 @@ $x = "***".$_SESSION['email'];
         <div class="offcanvas-body">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link py-2" href="productos_aros.html">Aros</a>
+              <a class="nav-link py-2" href="productos_aros.php">Aros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-2" href="productos_anillos.html">Anillos</a>
+              <a class="nav-link py-2" href="productos_anillos.php">Anillos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-2" href="producto_brazaletes.html"
+              <a class="nav-link py-2" href="producto_brazaletes.php"
                 >Brazaletes</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link py-2" href="productos_collares.html"
+              <a class="nav-link py-2" href="productos_collares.php"
                 >Collares</a
               >
             </li>
@@ -136,10 +136,9 @@ $x = "***".$_SESSION['email'];
 
           <div class="d-flex justify-content-center gap-3">
 
-        <!--línea de código php insertado--> 
             <p>****</p>
-            <a href="login.html"><i class="bi bi-person fs-5"></i></a>
-            <a href="carrito.html" class="position-relative">
+            <a href="login.php"><i class="bi bi-person fs-5"></i></a>
+            <a href="carrito.php" class="position-relative">
               <i class="bi bi-cart fs-5"></i>
               <span class="cart-counter">0</span>
             </a>
@@ -163,7 +162,7 @@ $x = "***".$_SESSION['email'];
         <div class="carousel-item active">
           <img src="img/banner1.jpg" class="d-block w-100" alt="Banner 1" />
           <div class="carousel-caption d-none d-md-block">
-        <a href="listadoproductos.html" class="btn btn-outline-primary">Ver más</a>
+        <a href="listadoproductos.php" class="btn btn-outline-primary">Ver más</a>
           </div>
         </div>
         <div class="carousel-item">
@@ -175,7 +174,7 @@ $x = "***".$_SESSION['email'];
         <div class="carousel-item">
           <img src="img/banner_3.jpg" class="d-block w-100" alt="Banner 3" />
           <div class="carousel-caption d-none d-md-block">
-        <a href="producto_brazaletes.html" class="btn btn-outline-primary">Ver más</a>
+        <a href="producto_brazaletes.php" class="btn btn-outline-primary">Ver más</a>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-//conexón
+//conexión
 include "connec.php";
 $conn = conectarBDLuzia();
 if (!$conn) {
@@ -195,6 +195,7 @@ if ($resV && $resV->num_rows > 0) {
             <td><?php echo $cantidad; ?></td>
             <td>
                 <div style="display:flex; gap:5px; align-items:center;">
+                    <!-- Formulario Actualizar -->
                     <form action="" method="post" style="margin:0;">
                         <input type="hidden" name="update_pedido_id" value="<?php echo $idPedido; ?>">
                         <select name="estado">
@@ -209,6 +210,7 @@ if ($resV && $resV->num_rows > 0) {
                         <button type="submit" class="btn btn-sm btn-primary">Actualizar</button>
                     </form>
 
+                    <!-- Formulario Borrar -->
                     <form action="" method="post" style="margin:0;">
                         <input type="hidden" name="borrar_pedido" value="<?php echo $idPedido; ?>">
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Desea borrar este pedido?');">Borrar</button>

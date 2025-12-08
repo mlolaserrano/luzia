@@ -498,7 +498,7 @@ $result = $conn->query($sql);
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="submit" class="btn btn-dark">Guardar Cambios</button>
                 </div>
             </form>
         </div>
@@ -509,17 +509,59 @@ $result = $conn->query($sql);
 
     <!-- Ventana emergente para modificar estado del producto -->
 
-    <div class="modal fade" id="estadoModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header text-white">
-                    <h5 class="modal-title"><i class="bi bi-trash"></i> Modificar Estado </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+ <div class="modal fade" id="estadoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title"><i class="bi bi-toggle-on"></i> Cambiar Estado de Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            
+            <form action="cambiar_estado.php" method="POST">
+                <div class="modal-body">
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Seleccionar Producto:</label>
+                        <select class="form-select" id="selectProductoEstado" name="id_producto" required onchange="actualizarEstadoVisual()">
+                            <option value="" selected disabled>-- Elige un producto --</option>
+                            <?php 
+                            
+                            if(isset($result) && $result->num_rows > 0) {
+                                $result->data_seek(0); 
+                                while($row = $result->fetch_assoc()): 
+                                ?>
+                                    <option value="<?php echo $row['id']; ?>" data-estado-actual="<?php echo $row['estado']; ?>">
+                                        <?php echo $row['sku'] . " - " . $row['nombre']; ?>
+                                    </option>
+                                <?php endwhile; 
+                            } ?>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nuevo Estado:</label>
+                        <select class="form-select" name="nuevo_estado" id="inputNuevoEstado" required>
+                            <option value="activo">Activo (Visible)</option>
+                            <option value="pausado">Pausado (Sin Stock)</option>
+                            <option value="no publicado">No Publicado (Oculto)</option>
+                        </select>
+                    </div>
+
+                    <div class="alert alert-light border">
+                        <small><i class="bi bi-info-circle"></i> <strong>Activo:</strong> Visible en tienda. <br>
+                        <strong>Pausado:</strong> Se muestra pero no se puede comprar. <br>
+                        <strong>No Publicado:</strong> Oculto totalmente.</small>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-dark">Actualizar Estado</button>
+                </div>
+            </form>
         </div>
     </div>
-    </div>
+</div>
 </main>
 
 

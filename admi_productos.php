@@ -1,5 +1,7 @@
 <?php 
 session_start(); 
+include "connec.php"; // Conectamos a la BD para leer los productos
+//mensaje de aleta
 if(isset($_SESSION['message'])){
     $tipoAlert = $_SESSION['error'] ? "alert-danger" : "alert-success";
     echo '<div class="alert '.$tipoAlert.' alert-dismissible fade show" role="alert">
@@ -9,6 +11,10 @@ if(isset($_SESSION['message'])){
     unset($_SESSION['message']);
     unset($_SESSION['error']);
 }
+// CONSULTA PARA OBTENER PRODUCTOS REALES
+$conn = conectarBDLuzia();
+$sql = "SELECT * FROM producto";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -145,7 +151,7 @@ if(isset($_SESSION['message'])){
       <div class="col-md-4">
         <div class="card text-center h-100 shadow-sm">
           <button class="btn btn-card w-100 h-100 p-0 text-reset"
-                  data-bs-toggle="modal" data-bs-target="#deleteModal">
+                  data-bs-toggle="modal" data-bs-target="#estadoModal">
             <div class="card-body">
               <i class="bi bi-bag display-4"></i>
               <h5 class="card-title mb-0">Modificar Estado</h5>
@@ -156,6 +162,10 @@ if(isset($_SESSION['message'])){
 
     </div>
   </div>
+
+
+
+
 
         <!-- Tabla de productos -->
 
@@ -399,65 +409,162 @@ if(isset($_SESSION['message'])){
     </div>
 
     <!-- Ventana emergente para modificar producto -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title"><i class="bi bi-pencil"></i> Modificar Producto</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-info">
-                        <i class="bi bi-info-circle"></i> En un sistema real, aquí aparecería un formulario para seleccionar y editar el producto.
-                    </div>
-                    <p>Funcionalidades que incluiría:</p>
-                    <ul>
-                        <li>Selector de producto a modificar</li>
-                        <li>Formulario con datos actuales del producto</li>
-                        <li>Posibilidad de cambiar imagen, nombre, SKU, etc.</li>
-                        <li>Guardar cambios</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-dark">Aplicar Cambios</button>
-                </div>
+   <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title"><i class="bi bi-pencil-square"></i> Modificar Producto</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </div>
-    </div>
-
- 
-
-    <!-- Ventana emergente para eliminar producto -->
-
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header text-white">
-                    <h5 class="modal-title"><i class="bi bi-trash"></i> Eliminar Producto</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+            
+            <form action="editar_productos.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <div class="alert alert-warning">
-                        <i class="bi bi-exclamation-triangle"></i> Esta acción eliminará permanentemente el producto seleccionado.
+                    
+                    <div class="alert alert-info py-2">
+                        <i class="bi bi-info-circle"></i> Selecciona un producto para cargar sus datos.
                     </div>
-                    <p>Funcionalidades que incluiría:</p>
-                    <ul>
-                        <li>Selector de producto a eliminar</li>
-                        <li>Confirmación de eliminación</li>
-                        <li>Información del producto a eliminar</li>
-                        <li>Posibilidad de cancelar la operación</li>
-                    </ul>
+
+                    <div class="mb-4">
+                        <label for="selectProductoEditar" class="form-label fw-bold">Producto a Editar:</label>
+                        <select class="form-select" id="selectProductoEditar" name="id_producto" required onchange="cargarDatosProducto()">
+                            <option value="" selected disabled>-- Elige un producto --</option>
+                            <?php 
+                            // Reiniciamos el puntero para recorrer productos desde el principio
+                            if(isset($result) && $result->num_rows > 0) {
+                                $result->data_seek(0);
+                                while($row = $result->fetch_assoc()): 
+                                ?>
+                                    <option value="<?php echo $row['id']; ?>"
+                                        data-nombre="<?php echo htmlspecialchars($row['nombre']); ?>"
+                                        data-sku="<?php echo $row['sku']; ?>"
+                                        data-desc="<?php echo htmlspecialchars($row['descripcion']); ?>"
+                                        data-precio="<?php echo $row['precio']; ?>"
+                                        data-stock="<?php echo $row['stock']; ?>"
+                                        data-cat="<?php echo $row['categoria']; ?>"
+                                        data-dest="<?php echo $row['destacado']; ?>"
+                                    >
+                                        <?php echo $row['sku'] . " - " . $row['nombre']; ?>
+                                    </option>
+                                <?php endwhile; 
+                            } ?>
+                        </select>
+                    </div>
+                    
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Nueva Imagen (Opcional)</label>
+                                <input class="form-control" type="file" name="imagen_nueva" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="editNombre" name="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">SKU</label>
+                                <input type="text" class="form-control" id="editSku" name="sku" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Descripción</label>
+                        <textarea class="form-control" id="editDesc" name="descripcion" rows="3" required></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label">Precio ($)</label>
+                            <input type="number" class="form-control" id="editPrecio" name="precio" step="0.01" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="editStock" name="stock" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Categoría</label>
+                            <select class="form-select" id="editCat" name="categoria" required>
+                                <option value="anillos">Anillos</option>
+                                <option value="collares">Collares</option>
+                                <option value="aros">Aros</option>
+                                <option value="brazaletes">Brazaletes</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger">Eliminar Producto</button>
+                    <button type="submit" class="btn btn-dark">Guardar Cambios</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
+</div>
+
+ 
+
+    <!-- Ventana emergente para modificar estado del producto -->
+
+ <div class="modal fade" id="estadoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title"><i class="bi bi-toggle-on"></i> Cambiar Estado de Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <form action="cambiar_estado.php" method="POST">
+                <div class="modal-body">
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Seleccionar Producto:</label>
+                        <select class="form-select" id="selectProductoEstado" name="id_producto" required onchange="actualizarEstadoVisual()">
+                            <option value="" selected disabled>-- Elige un producto --</option>
+                            <?php 
+                            
+                            if(isset($result) && $result->num_rows > 0) {
+                                $result->data_seek(0); 
+                                while($row = $result->fetch_assoc()): 
+                                ?>
+                                    <option value="<?php echo $row['id']; ?>" data-estado-actual="<?php echo $row['estado']; ?>">
+                                        <?php echo $row['sku'] . " - " . $row['nombre']; ?>
+                                    </option>
+                                <?php endwhile; 
+                            } ?>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nuevo Estado:</label>
+                        <select class="form-select" name="nuevo_estado" id="inputNuevoEstado" required>
+                            <option value="activo">Activo (Visible)</option>
+                            <option value="pausado">Pausado (Sin Stock)</option>
+                            <option value="no publicado">No Publicado (Oculto)</option>
+                        </select>
+                    </div>
+
+                    <div class="alert alert-light border">
+                        <small><i class="bi bi-info-circle"></i> <strong>Activo:</strong> Visible en tienda. <br>
+                        <strong>Pausado:</strong> Se muestra pero no se puede comprar. <br>
+                        <strong>No Publicado:</strong> Oculto totalmente.</small>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-dark">Actualizar Estado</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 </main>
+
+
 <footer class="mt-5 text-center">
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
   <div class="d-flex flex-wrap justify-content-center gap-3">
@@ -466,6 +573,31 @@ if(isset($_SESSION['message'])){
     <a href="admi_contacto.php">Contacto</a>
   </div>
 </footer>
+
+<script>
+    // Función para llenar el formulario cuando eliges un producto
+    function cargarDatosProducto() {
+        // 1. Obtener el select y la opción elegida
+        var select = document.getElementById('selectProductoEditar');
+        var opcion = select.options[select.selectedIndex];
+
+        // 2. Si no eligió nada, salir
+        if(select.value === "") return;
+
+        // 3. Leer los datos ocultos (data-*) y ponerlos en los inputs
+        document.getElementById('editNombre').value = opcion.getAttribute('data-nombre');
+        document.getElementById('editSku').value = opcion.getAttribute('data-sku');
+        document.getElementById('editDesc').value = opcion.getAttribute('data-desc');
+        document.getElementById('editPrecio').value = opcion.getAttribute('data-precio');
+        document.getElementById('editStock').value = opcion.getAttribute('data-stock');
+        document.getElementById('editCat').value = opcion.getAttribute('data-cat');
+        document.getElementById('editEstado').value = opcion.getAttribute('data-estado');
+
+        // 4. Marcar o desmarcar el checkbox de Destacado
+        var esDestacado = opcion.getAttribute('data-dest') == "1";
+        document.getElementById('editDest').checked = esDestacado;
+    }
+</script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

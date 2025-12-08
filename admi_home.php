@@ -1,20 +1,26 @@
 <?php 
-// admi_home.php - Debe contener todo el HTML de la home
-session_start();
+session_start(); 
 $mensajes = "";
+
 if(isset($_SESSION['message'])){
-    $tipoAlert = isset($_SESSION['error']) && $_SESSION['error'] ? "alert-danger" : "alert-success";					
+    // Si hay error es rojo (error), si no es verde (si se pudo)
+    $tipoAlert = isset($_SESSION['error']) && $_SESSION['error'] ? "alert-danger" : "alert-success";
     $el_mensaje = $_SESSION['message'];
+    
+
     $mensajes = <<<HTML
-        <div id="upload-alert" class="alert alert-dismissible {$tipoAlert}" role="alert" style="margin-top:20px;">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert {$tipoAlert} alert-dismissible fade show" role="alert" style="margin: 20px 0;">
             {$el_mensaje}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     HTML;
-    unset($_SESSION['message']); 
+
+    unset($_SESSION['message']);
     unset($_SESSION['error']);
 }
 ?>
+<!DOCTYPE html>
+<html lang="es">
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -54,6 +60,7 @@ if(isset($_SESSION['message'])){
 
   <body>
    <header>
+     <?php echo $mensajes; ?> 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid position-relative">
       <!-- Brand fijo centrado -->
@@ -101,7 +108,7 @@ if(isset($_SESSION['message'])){
           </a>
         </li>
         <li class="mb-3">
-          <a href="admi_productos.html" class="d-flex flex-column align-items-center text-decoration-none">
+          <a href="admi_productos.php" class="d-flex flex-column align-items-center text-decoration-none">
             <i class="bi bi-gear"></i>
             <span class="small mt-1">Productos</span>
           </a>
@@ -116,6 +123,9 @@ if(isset($_SESSION['message'])){
     </div>
   </div>
 </header>
+        
+       
+
 <main>
 
  
@@ -421,11 +431,21 @@ if(isset($_SESSION['message'])){
  
 
 <script>
-    function setTargetFile(fileName) {
-        // Asigna el nombre fijo del archivo a sobrescribir al campo oculto.
-        // Así, PHP sabe que debe guardar la imagen como 'banner1.jpg'
-        document.getElementById('id_elemento_target').value = fileName;
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+        // Busca el cartel de alerta
+        var alerta = document.querySelector('.alert');
+        
+        if(alerta) {
+            // setTimeout ejecuta la función después del tiempo indicado
+            setTimeout(function() {
+                
+                // Cierra la alerta usando el efecto de Bootstrap
+                var alertInstance = new bootstrap.Alert(alerta);
+                alertInstance.close();
+                
+            }, 3000); // <--- AQUÍ ESTÁ EL CAMBIO: 6000 milisegundos = 6 segundos
+        }
+    });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

@@ -85,12 +85,12 @@ $imagenes_brazaletes = [
           </li>
         </ul>
 
-        <!-- Derecha: email + carrito (ÚNICO) -->
+        <!-- PERSONALIZACIÓN -->
         <div class="d-flex ms-lg-auto align-items-center">
-          <!-- Aquí se muestra el email del usuario -->
+          <!-- Aquí se muestra el nombre y apellido del usuario -->
           <a class="btn" href="mi_cuenta.php" aria-label="email">
             <i class="position-relative">
-              <?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>
+              <?php echo $_SESSION ['nombre']." ". $_SESSION ['apellido']; ?>
             </i>
           </a>
 

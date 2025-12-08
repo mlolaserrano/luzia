@@ -85,7 +85,7 @@ $x = "***".$_SESSION['email'];
               <!-- Aquí se muestra el email del usuario -->
              
               <a class="btn" href="mi_cuenta.php" aria-label="email">
-                <i class="position-relative"><?php echo $_SESSION['email'];?></i>
+                <i class="position-relative"><?php echo $_SESSION ['nombre']." ". $_SESSION ['apellido']; ?></i>
               </a>
               <a class="btn icon-btn position-relative" href="carrito.php"aria-label="Carrito">
                 <i class="bi bi-cart"></i>

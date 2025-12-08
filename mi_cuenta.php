@@ -75,7 +75,7 @@ cerrarBDConexion($conn);
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid position-relative">
           <!-- Logotipo fijo centrado -->
-          <a class="navbar-brand navbar-brand-top" href="index.html">LUZIA</a>
+          <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
 
           <!-- Toggler abre el panel derecho -->
           <button
@@ -93,91 +93,41 @@ cerrarBDConexion($conn);
           <div class="collapse navbar-collapse d-none d-lg-flex">
             <ul class="navbar-nav mx-lg-3 me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="productos_aros.html">Aros</a>
+                <a class="nav-link active" href="productos_aros.php">Aros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="productos_anillos.html">Anillos</a>
+                <a class="nav-link" href="productos_anillos.php">Anillos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="producto_brazaletes.html"
+                <a class="nav-link" href="producto_brazaletes.php"
                   >Brazaletes</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="productos_collares.html">Collares</a>
+                <a class="nav-link" href="productos_collares.php">Collares</a>
               </li>
             </ul>
             <div class="d-flex ms-lg-auto">
-              <a class="btn icon-btn" href="login.html" aria-label="Usuario"
-                ><i class="bi bi-person"></i
-              ></a>
               <a
                 class="btn icon-btn position-relative"
-                href="carrito.html"
-                aria-label="Carrito"
-              >
+                href="carrito.php"
+                aria-label="Carrito">
                 <i class="bi bi-cart"></i>
               </a>
             </div>
           </div>
         </div>
       </nav>
-
-      <!-- Offcanvas móvil a la derecha -->
-      <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="menuRight"
-        aria-labelledby="menuRightLabel"
-      >
-        <div class="offcanvas-header justify-content-center">
-          <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
-          <button
-            type="button"
-            class="btn-close position-absolute end-0 me-3"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-
-        <div class="offcanvas-body">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link py-2" href="productos_aros.html">Aros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link py-2" href="productos_anillos.html">Anillos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link py-2" href="producto_brazaletes.html"
-                >Brazaletes</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link py-2" href="productos_collares.html"
-                >Collares</a
-              >
-            </li>
-          </ul>
-
-          <hr class="my-3" />
-
-          <div class="d-flex justify-content-center gap-3">
-            <a href="carrito.html" class="position-relative">
-              <i class="bi bi-cart fs-5"></i>
-            </a>
-          </div>
-        </div>
       </div>
     </header>
-<!--  MIS PERFIL -->
+<!--  MI PERFIL -->
     <section class="container py-5">
   <h2 class="mb-4 text-center titulo">Mi cuenta</h2>
-  <p class="mb-4 text-center subtitulo">Hola, <?php echo $_SESSION ['email']; ?></p>
+  <p class="mb-4 text-center subtitulo">Hola, <?php echo $_SESSION ['nombre']." ". $_SESSION ['apellido']; ?></p>
 
   <div class="row g-4">
 
-    <!-- MIS DATOS CON FOTO Y ESTILO -->
+    <!-- MIS DATOS CON ESTILO -->
 <div class="col-12">
   <div class="card shadow-sm">
     <div class="card-body d-flex flex-column flex-md-row align-items-center gap-4">

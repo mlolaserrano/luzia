@@ -20,7 +20,7 @@
         }   
         return $conn;
       
-       
+
       }
 
 
@@ -34,11 +34,11 @@
   // se consulta en la tabla de usuario de la BD luzia
     
       
-  //function consultarUsuario($conn,$dni,$nombre,$apellido,$email,$telefono,$clave){
+  //función consultarUsuario($conn,$dni,$nombre,$apellido,$email,$telefono,$clave){
    function consultarUsuario($conn, $email, $clave){
     $resultado = NULL;
     
-    // Traer todas las columnas necesarias
+    // Trae todas las columnas necesarias
     $sql = "SELECT id, dni, nombre, apellido, email, telefono 
             FROM usuario 
             WHERE email = '$email' AND clave = '$clave'";
@@ -95,6 +95,8 @@ function actualizarUsuario($conn, $nombre, $apellido, $telefono, $email) {
     $stmt->close();
     return $filasAfectadas;
 }
+
+#CONSULTA EN BD SOBRE EL PEDIDO DEL CLIENTE
 
 function pedidoCliente($conn, $id_usuario) {
     $pedidos = NULL;

@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $dirUpload = "img/"; 
@@ -45,13 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         $_SESSION['message'] = "Error: Tipo de archivo no permitido.";
         $_SESSION['error'] = TRUE;
     } 
-    // 5. Ejecutar la transferencia
+    // Ejecutar la transferencia
     else {
         transferirArchivo($dirUpload, $targetFileNameFixed, $_FILES['fileToUpload']['tmp_name']);
     }
 
     // Redirigir siempre de vuelta a la página de administración
-    header("Location: admi_home.php");
+    header("Location: admi_contacto.php");
     exit;
 }
 

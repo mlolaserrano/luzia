@@ -193,8 +193,9 @@ foreach ($cart_items as $item) {
     <div class="row">
       <!-- Imagen -->
       <div class="col-12 col-md-6 text-center mb-3">
-        <img src=""
+        <img src="<?php echo htmlspecialchars($producto['imagen']); ?>"
              class="img-fluid rounded shadow-sm"
+             style=" height: 90%; object-fit: cover;"
              alt="Imagen de <?php echo htmlspecialchars($producto['nombre']); ?>">
       </div>
 

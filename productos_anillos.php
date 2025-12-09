@@ -9,19 +9,23 @@ require __DIR__ . '/conexion.php';
 
 /* Traer anillos desde la BD */
 $stmt = $conn->prepare("
-    SELECT id, nombre, precio
+    SELECT id, nombre, precio,imagen
     FROM producto
     WHERE categoria = 'anillos' AND estado = 'activo'
 ");
 $stmt->execute();
 $anillos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-/* Mapeo de imágenes para anillos */
-$imagenes_anillos = [
-    1 => 'img/ANI001anillo_piedra_3.png', // Anillo Aurora
-    2 => 'img/ANI002anillo_piedra_1.png', // Anillo Cromática
-    3 => 'img/ANI003anillo_piedra_4.png', // Anillo Cloe
-];
+// CALCULAR TOTALES 
+$cart_items    = $_SESSION['carrito'];
+$cart_count    = 0;
+$cart_subtotal = 0;
+
+foreach ($cart_items as $item) {
+    $cart_count    += $item['cantidad'];
+    $cart_subtotal += $item['precio'] * $item['cantidad'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -120,7 +124,7 @@ $imagenes_anillos = [
         <?php foreach ($anillos as $ani): ?>
           <?php
             $id  = $ani['id'];
-            $img = $imagenes_anillos[$id] ?? 'img/placeholder.jpg';
+            $img = $ani['imagen'] ?? 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ANI001anillo_piedra_3.png';
           ?>
           <div class="col-md-3">
             <div class="card h-100">

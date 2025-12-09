@@ -8,19 +8,24 @@ if (!isset($_SESSION['email'])) {
 require __DIR__ . '/conexion.php';
 
 /* Traer brazaletes desde la BD */
-$stmt = $conn->prepare("
-    SELECT id, nombre, precio
+$stmt = $conn->prepare
+("  SELECT id, nombre, precio,imagen
     FROM producto
-    WHERE categoria = 'brazaletes' AND estado = 'activo'
-");
+    WHERE categoria = 'brazaletes' AND estado = 'activo'");
 $stmt->execute();
 $brazaletes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-/* Mapeo de imágenes (si no usás la columna imagen) */
-$imagenes_brazaletes = [
-    9  => 'master/bracelet_2.png', // Brazalete Iris
-    10 => 'master/bracelet_6.png', // Brazalete Amelia
-];
+
+
+// CALCULAR TOTALES 
+$cart_items    = $_SESSION['carrito'];
+$cart_count    = 0;
+$cart_subtotal = 0;
+
+foreach ($cart_items as $item) {
+    $cart_count    += $item['cantidad'];
+    $cart_subtotal += $item['precio'] * $item['cantidad'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -142,7 +147,7 @@ $imagenes_brazaletes = [
         <?php foreach ($brazaletes as $bra): ?>
           <?php
             $id = $bra['id'];
-            $img = $imagenes_brazaletes[$id] ?? 'img/placeholder.jpg';
+            $img = $bra['imagen'] ?? 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ANI002anillo_piedra_1.png';
           ?>
           <div class="col-md-3">
             <div class="card h-100">

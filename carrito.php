@@ -131,7 +131,7 @@ foreach ($cart_items as $item) {
           <!-- Aquí se muestra el email del usuario -->
           <a class="btn" href="mi_cuenta.php" aria-label="email">
             <i class="position-relative">
-              <?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>
+              <?php echo $_SESSION ['nombre']." ". $_SESSION ['apellido']; ?>
             </i>
           </a>
 

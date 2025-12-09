@@ -7,6 +7,7 @@
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
+USE luzia;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -123,6 +124,50 @@ INSERT INTO `producto` (`id`, `sku`, `nombre`, `descripcion`, `categoria`, `prec
 (10, 'BRA002', 'Brazalete Amelia', 'Una pieza atemporal que destila opulencia y estilo clásico. El Brazalete Viena está forjado en Oro 18K y presenta un diseño de eslabones entrelazados más robustos que reflejan la luz con un brillo intenso. Su presencia marcada lo convierte en un accesorio de lujo, ideal para eventos especiales o como pieza central.\r\n\r\nMaterial: Oro 18K\r\nLargo: 17.5 cm\r\nPeso: 11.5 gramos\r\nHecho a mano', 'brazaletes', 37000, 10, 'https://github.com/mlolaserrano/luzia/blob/desarrollo/img/BRA002bracelet_fino_1.jpg', 1, 'activo');
 
 -- --------------------------------------------------------
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ARO001aroscolagantes3.jpg'
+WHERE id = 4;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ARO002aroscolagantes4.png'
+WHERE id = 5;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ARO003aros1.png'
+WHERE id = 6;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ARO003aros1.jpg'
+WHERE id = 6;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ANI001anillo_piedra_3.png'
+WHERE id = 1;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ANI002anillo_piedra_1.png'
+WHERE id = 2;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ANI003anillo_piedra_4.png'
+WHERE id = 3;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/COL001gargantilla.png'
+WHERE id = 7;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/COL002collarlargo.png'
+WHERE id = 8;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/BRA001bracelet_fino_2.jpg'
+WHERE id = 9;
+
+UPDATE producto
+SET imagen = 'https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/BRA002bracelet_fino_1.jpg'
+WHERE id = 10;
+
 
 --
 -- Estructura de tabla para la tabla `usuario`

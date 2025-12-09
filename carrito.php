@@ -348,75 +348,7 @@ foreach ($cart_items as $item) {
                 <?php endforeach; ?>
               </div>
 
-              <!-- Recomendados (igual que antes, estático) -->
-              <hr class="my-4" />
-              <h2 class="h5 text-center mb-3">Completa tu look:</h2>
-              <div class="row row-cols-1 row-cols-md-3 g-3">
-                <div class="col">
-                  <div class="card rec-card h-100 text-center">
-                    <div class="ratio ratio-4x3 rec-thumb">
-                      <img
-                        src="img/BRA001bracelet_fino_2.jpg"
-                        class="w-100 h-100 object-fit-cover"
-                        alt=""
-                      />
-                    </div>
-
-                    <div class="card-body">
-                      <div class="small">Brazalete Iris</div>
-                      <div class="price mt-1">$ 29.000,00</div>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                      <button class="btn btn-pink w-100">
-                        AGREGAR AL CARRITO
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card rec-card h-100 text-center">
-                    <div class="ratio ratio-4x3 rec-thumb">
-                      <img
-                        src="img/bracelet_fino_3.jpg"
-                        class="w-100 h-100 object-fit-cover"
-                        alt=""
-                      />
-                    </div>
-
-                    <div class="card-body">
-                      <div class="small">Brazalete Amelia</div>
-                      <div class="price mt-1">$ 37.000,00</div>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                      <button class="btn btn-pink w-100">
-                        AGREGAR AL CARRITO
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card rec-card h-100 text-center">
-                    <div class="ratio ratio-4x3 rec-thumb">
-                      <img
-                        src="master/aroscolagantes4.jpg"
-                        class="w-100 h-100 object-fit-cover"
-                        alt=""
-                      />
-                    </div>
-
-                    <div class="card-body">
-                      <div class="small">Aros Aura</div>
-                      <div class="price mt-1">$ 47.000,00</div>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                      <button class="btn btn-pink w-100">
-                        AGREGAR AL CARRITO
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+             
 
             <!-- Derecha: resumen -->
             <div class="col-lg-4">

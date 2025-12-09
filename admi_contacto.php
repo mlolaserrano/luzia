@@ -1,11 +1,13 @@
 <?php
 session_start();
+
+// Logica de cambio de imagen
 $mensajes = "";
 if(isset($_SESSION['message'])){
     $tipoAlert = isset($_SESSION['error']) && $_SESSION['error'] ? "alert-danger" : "alert-success";
     $el_mensaje = $_SESSION['message'];
     
-    // El cartelito de alerta
+    // El cartelito de alerta, verde si es correcta y rojo si es error
     $mensajes = <<<HTML
         <div class="alert {$tipoAlert} alert-dismissible fade show" role="alert" style="margin-top:20px;">
             {$el_mensaje}
@@ -145,7 +147,8 @@ if(isset($_SESSION['message'])){
             <div class="modal-body modal-form">
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <label for="fileToUpload" class="form-label">Subir Nueva Imagen, debera medir 1530 x 1024px</label>
+                        <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
+                        <p>la imagen debera medir 1650 x 1024 px</p>
                         <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*, video/*" required>
                         <div class="form-text">Formatos: Imágenes (JPG, PNG) o Videos. Máx: 5MB</div>
                     </div>
@@ -174,9 +177,7 @@ if(isset($_SESSION['message'])){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
 <script>
-    // Script para pasar el nombre de la imagen al modal
-    //esta funcion para cuando hacemos clic en 'Modificar', el formulario sepa exactamente qué archivo debe sobrescribir en el servidor.
-    //funciona como conecte entre la llamada de la imagen y el cambio
+    //Script para pasar el nombre de la imagen al modal
     function setTargetFile(fileName) {
         document.getElementById('id_elemento_target').value = fileName;
     }
@@ -188,10 +189,11 @@ if(isset($_SESSION['message'])){
             setTimeout(function() {
                 var alertInstance = new bootstrap.Alert(alerta);
                 alertInstance.close();
-            }, 5000); //para que desaparesca el mensaje en un tiempo de 5seg
+            }, 5000); // despues de 5 segundos desaparece el mensaje
         }
     });
 </script>
 
 </body>
+</html>
 </html>

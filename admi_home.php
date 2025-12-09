@@ -3,11 +3,11 @@ session_start();
 $mensajes = "";
 
 if(isset($_SESSION['message'])){
-    // Si hay error es rojo (error), si no es verde (si se pudo)
+    // Si hay error es rojo (alert-danger), si no es verde (alert-success)
     $tipoAlert = isset($_SESSION['error']) && $_SESSION['error'] ? "alert-danger" : "alert-success";
     $el_mensaje = $_SESSION['message'];
     
-
+    // Construcción del cartel de alerta
     $mensajes = <<<HTML
         <div class="alert {$tipoAlert} alert-dismissible fade show" role="alert" style="margin: 20px 0;">
             {$el_mensaje}
@@ -15,74 +15,55 @@ if(isset($_SESSION['message'])){
         </div>
     HTML;
 
+    // Limpiamos las variables de sesión para que el mensaje no se repita
     unset($_SESSION['message']);
     unset($_SESSION['error']);
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<!DOCTYPE html>
-<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Administrador</title>
-    <!-- Bootstrap CSS -->
+    <title>Administrador | Home</title>
     <link
       href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
       rel="stylesheet"
       crossorigin="anonymous"
     />
-    <!-- Bootstrap Icons -->
     <link
       href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css
       rel="stylesheet"
     />
 
-    <!-- Estilos personalizados -->
-
     <link rel="stylesheet" href="style.css" />
-
  
-
-    <!-- Tipografia -->
-
-    <!-- Asimovian -->
-
     <link rel="preconnect" href=https://fonts.googleapis.com>
-
     <link rel="preconnect" href=https://fonts.gstatic.com crossorigin>
-
     <link href=https://fonts.googleapis.com/css2?family=Asimovian&display=swap rel="stylesheet">
-
-
   </head>
 
   <body>
    <header>
-     <?php echo $mensajes; ?> 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid position-relative">
-      <!-- Brand fijo centrado -->
       <a class="navbar-brand navbar-brand-top" href="admi_home.php">LUZIA</a>
 
-      <!-- Toggler abre el panel derecho -->
       <button class="navbar-toggler ms-auto" type="button"
               data-bs-toggle="offcanvas" data-bs-target="#menuRight"
               aria-controls="menuRight" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Menú desktop -->
       <div class="collapse navbar-collapse d-none d-lg-flex">
         <div class="d-flex ms-lg-auto">
           <a class="btn icon-btn" href="admi_inventario.php" aria-label="Inventario">
             <i class="bi bi-boxes"></i>
           </a>
-          <a class="btn icon-btn" href="admi_productos.php" aria-label="Vista">
+          <a class="btn icon-btn" href="admi_productos.php" aria-label="Productos">
             <i class="bi bi-gear"></i>
           </a>
-          <a class="btn icon-btn" href="admi_logout.htlm" aria-label="Salir">
+          <a class="btn icon-btn" href="admi_logout.html" aria-label="Salir">
             <i class="bi bi-door-open"></i>
           </a>
         </div>
@@ -90,7 +71,6 @@ if(isset($_SESSION['message'])){
     </div>
   </nav>
 
-  <!-- Offcanvas móvil a la derecha -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="menuRight" aria-labelledby="menuRightLabel">
     <div class="offcanvas-header justify-content-center">
       <h5 class="offcanvas-title" id="menuRightLabel">LUZIA</h5>
@@ -99,7 +79,6 @@ if(isset($_SESSION['message'])){
     </div>
 
     <div class="offcanvas-body">
-      <!-- Mismos iconos, en columna con texto -->
       <ul class="list-unstyled text-center w-100">
         <li class="mb-3">
           <a href="admi_inventario.php" class="d-flex flex-column align-items-center text-decoration-none">
@@ -114,7 +93,7 @@ if(isset($_SESSION['message'])){
           </a>
         </li>
         <li>
-          <a href="admi_logout.html" class="d-flex flex-column align-items-center text-decoration-none">
+          <a href="admi_logout.php" class="d-flex flex-column align-items-center text-decoration-none">
             <i class="bi bi-door-open fs-3"></i>
             <span class="small mt-1">Salir</span>
           </a>
@@ -124,300 +103,246 @@ if(isset($_SESSION['message'])){
   </div>
 </header>
         
-       
-
 <main>
-
- 
-
-  <!-- Carrusel -->
-  <section class="container-fluid px-0">
-    <div id="carouselExampleCaptions" class="carousel slide">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"  class="active" aria-current="true" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"  class="active" aria-current="true" aria-label="Slide 3"></button>
-      </div>
-
-      <div class="carousel-inner">
-        <!-- Slide 1, como en el home del cliente-->
-        <div class="carousel-item active">
-          <img src="img/banner1.jpg?v=<?php echo time(); ?>" class="d-block w-100" alt="Banner 1" />  <!-- el php fuerza hacer Ctrl + F5, para cargar la imagen nueva-->
-          <div class="carousel-buttons">
- <button class="btn btn-modify btn-management" 
-        data-bs-toggle="modal" 
-        data-bs-target="#modalModificar" 
-        onclick="setTargetFile('banner1.jpg')" 
-        title="Modificar"> 
-    <i class="bi bi-pencil"></i>
-</button>
-
-          </div>
-        </div>   
-
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-          <img src="img/banner2.jpg?v=<?php echo time(); ?>" class="d-block w-100" alt="Banner 2" />
-          <div class="carousel-buttons">
-            
-         <button class="btn btn-modify btn-management" 
-        data-bs-toggle="modal" 
-        data-bs-target="#modalModificar" 
-        onclick="setTargetFile('banner2.jpg')" 
-        title="Modificar"> 
-    <i class="bi bi-pencil"></i>
-</button> 
-          </div>
-        </div>
-
-       
-
-        <!-- Slide 3 -->
-
-        <div class="carousel-item">
-          <img src="img/banner_3.jpg?v=<?php echo time(); ?>" class="d-block w-100" alt="Banner 3" />
-          <div class="carousel-buttons">
-           
-             <button class="btn btn-modify btn-management" 
-        data-bs-toggle="modal" 
-        data-bs-target="#modalModificar" 
-        onclick="setTargetFile('banner_3.jpg')" 
-        title="Modificar"> 
-    <i class="bi bi-pencil"></i>
-</button>
-            
-          </div>
-        </div>
-      </div>
-
- 
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Siguiente</span>
-      </button>
-    </div>
-  </section>
-
-  <br> <!--Para darle espacio entre bloque y bloque--> 
-
-  <!-- Productos -->
- <article>
-    <h1 class="display-4">Productos Destacados</h1>
-    <div class="container py-4">
-      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
-
-        <div class="col">
-          <div class="card h-100">
-            <div class="product-img-wrap ratio-1x1">
-              <img src="img/BRA001bracelet_fino_2.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 1">
-
-              <div class="management-buttons">
-                <button class="btn btn-modify btn-management" 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#modalModificar" 
-                        onclick="setTargetFile('BRA001bracelet_fino_2.jpg')" 
-                        title="Modificar"> 
-                    <i class="bi bi-pencil"></i>
-                </button>
-              </div>           
-            </div>
-
-            <div class="card-body position-relative">
-              <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Iris</h6>
-              <p class="mb-0">$29.000</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card h-100">
-            <div class="product-img-wrap ratio-1x1">
-              <img src="img/BRA002bracelet_fino_1.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 2">
-
-              <div class="management-buttons">
-                <button class="btn btn-modify btn-management" 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#modalModificar" 
-                        onclick="setTargetFile('BRA002bracelet_fino_1.jpg')" 
-                        title="Modificar"> 
-                    <i class="bi bi-pencil"></i>
-                </button>
-              </div>
-            </div> 
-
-            <div class="card-body position-relative">
-              <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Amelia</h6>
-              <p class="mb-0">$37.000</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card h-100">
-            <div class="product-img-wrap ratio-1x1">
-              <img src="img/ARO003aros1.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 3">
-
-              <div class="management-buttons">
-                <button class="btn btn-modify btn-management" 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#modalModificar" 
-                        onclick="setTargetFile('ARO003aros1.jpg')" 
-                        title="Modificar"> 
-                    <i class="bi bi-pencil"></i>
-                </button>
-              </div>
-            </div>
-
-            <div class="card-body position-relative">      
-              <h6 class="card-title text-uppercase fw-bold mb-1">Aros Amaré</h6>
-              <p class="mb-0">$39.000</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card h-100">
-            <div class="product-img-wrap ratio-1x1">
-              <img src="img/ARO001aroscolagantes3.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 4">
-
-              <div class="management-buttons">
-                <button class="btn btn-modify btn-management" 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#modalModificar" 
-                        onclick="setTargetFile('ARO001aroscolagantes3.jpg')" 
-                        title="Modificar"> 
-                    <i class="bi bi-pencil"></i>
-                </button>
-              </div>
-            </div>
-
-            <div class="card-body position-relative">
-              <h6 class="card-title text-uppercase fw-bold mb-1">Aros Aura</h6>
-              <p class="mb-0">$47.000</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </article>
-
- 
-
-<!-- Contenedores de promos -->
-
-  <article>
-    <div class="container-fluid px-0">
-      <div class="row g-0">
-         <!-- Panel izquierdo -->
-        <div class="col-12 col-md-6">
-          <a href="#" class="d-block category-panel position-relative">
-            <img src="img/silver.jpg?v=<?php echo time();?>" alt="aros">
-            <!-- Botones de gestión -->
-            <div class="management-buttons">
-              
-  <button class="btn btn-modify btn-management" 
-        data-bs-toggle="modal" 
-        data-bs-target="#modalModificar" 
-        onclick="setTargetFile('silver.jpg')" 
-        title="Modificar"> 
-    <i class="bi bi-pencil"></i>
-</button>
-              
-            </div>
-            <span class="position-absolute top-50 start-50 translate-middle badge rounded-pill text-bg-dark px-4 py-2 fs-6">
-              Silver Time
-            </span>
-          </a>
-        </div>
-
-        <!-- Panel derecho -->
-
-        <div class="col-12 col-md-6">
-
-          <a href="#" class="d-block category-panel position-relative">
-
-            <img src="img/dorada.jpg?v=<?php echo time(); ?>" alt="joyeria dorada">
-
-            <!-- Botones de gestión -->
-
-            <div class="management-buttons">
-
-             <button class="btn btn-modify btn-management" 
-        data-bs-toggle="modal" 
-        data-bs-target="#modalModificar" 
-        onclick="setTargetFile('dorada.jpg')" 
-        title="Modificar"> 
-    <i class="bi bi-pencil"></i>
-</button>
-            </div>
-        
-
-            <span class="position-absolute top-50 start-50 translate-middle badge rounded-pill text-bg-dark px-4 py-2 fs-6">
-
-              Golden Time
-
-            </span>
-
-          </a>
-
-        </div>
-
-      </div>
-
+    <div class="container">
+        <?php echo $mensajes; ?> 
     </div>
 
-  </article>
+    <section class="container-fluid px-0">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
 
- 
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/banner1.jpg?v=<?php echo time(); ?>" class="d-block w-100" alt="Banner 1" />  
+                    <div class="carousel-buttons">
+                        <button class="btn btn-modify btn-management" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#modalModificar" 
+                                onclick="setTargetFile('banner1.jpg')" 
+                                title="Modificar"> 
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </div>
+                </div>   
 
+                <div class="carousel-item">
+                    <img src="img/banner2.jpg?v=<?php echo time(); ?>" class="d-block w-100" alt="Banner 2" />
+                    <div class="carousel-buttons">
+                        <button class="btn btn-modify btn-management" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#modalModificar" 
+                                onclick="setTargetFile('banner2.jpg')" 
+                                title="Modificar"> 
+                            <i class="bi bi-pencil"></i>
+                        </button> 
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/banner_3.jpg?v=<?php echo time(); ?>" class="d-block w-100" alt="Banner 3" />
+                    <div class="carousel-buttons">
+                        <button class="btn btn-modify btn-management" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#modalModificar" 
+                                onclick="setTargetFile('banner_3.jpg')" 
+                                title="Modificar"> 
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </section>
+
+    <br> 
+
+    <article>
+        <h1 class="display-4">Productos Destacados</h1>
+        <div class="container py-4">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="product-img-wrap ratio-1x1">
+                            <img src="img/BRA001bracelet_fino_2.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 1">
+
+                            <div class="management-buttons">
+                                <button class="btn btn-modify btn-management" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#modalModificar" 
+                                        onclick="setTargetFile('BRA001bracelet_fino_2.jpg')" 
+                                        title="Modificar"> 
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </div>           
+                        </div>
+
+                        <div class="card-body position-relative">
+                            <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Iris</h6>
+                            <p class="mb-0">$29.000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="product-img-wrap ratio-1x1">
+                            <img src="img/BRA002bracelet_fino_1.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 2">
+
+                            <div class="management-buttons">
+                                <button class="btn btn-modify btn-management" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#modalModificar" 
+                                        onclick="setTargetFile('BRA002bracelet_fino_1.jpg')" 
+                                        title="Modificar"> 
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </div>
+                        </div> 
+                        <div class="card-body position-relative">
+                            <h6 class="card-title text-uppercase fw-bold mb-1">Brazalete Amelia</h6>
+                            <p class="mb-0">$37.000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="product-img-wrap ratio-1x1">
+                            <img src="img/ARO003aros1.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 3">
+
+                            <div class="management-buttons">
+                                <button class="btn btn-modify btn-management" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#modalModificar" 
+                                        onclick="setTargetFile('ARO003aros1.jpg')" 
+                                        title="Modificar"> 
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body position-relative">      
+                            <h6 class="card-title text-uppercase fw-bold mb-1">Aros Amaré</h6>
+                            <p class="mb-0">$39.000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="product-img-wrap ratio-1x1">
+                            <img src="img/ARO001aroscolagantes3.jpg?v=<?php echo time(); ?>" class="card-img-top" alt="Producto 4">
+
+                            <div class="management-buttons">
+                                <button class="btn btn-modify btn-management" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#modalModificar" 
+                                        onclick="setTargetFile('ARO001aroscolagantes3.jpg')" 
+                                        title="Modificar"> 
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body position-relative">
+                            <h6 class="card-title text-uppercase fw-bold mb-1">Aros Aura</h6>
+                            <p class="mb-0">$47.000</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <div class="container-fluid px-0">
+            <div class="row g-0">
+                <div class="col-12 col-md-6">
+                    <a href="#" class="d-block category-panel position-relative">
+                        <img src="img/silver.jpg?v=<?php echo time();?>" alt="aros">
+                        <div class="management-buttons">
+                            <button class="btn btn-modify btn-management" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#modalModificar" 
+                                    onclick="setTargetFile('silver.jpg')" 
+                                    title="Modificar"> 
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                        </div>
+                        <span class="position-absolute top-50 start-50 translate-middle badge rounded-pill text-bg-dark px-4 py-2 fs-6">
+                            Silver Time
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <a href="#" class="d-block category-panel position-relative">
+                        <img src="img/dorada.jpg?v=<?php echo time(); ?>" alt="joyeria dorada">
+                        <div class="management-buttons">
+                            <button class="btn btn-modify btn-management" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#modalModificar" 
+                                    onclick="setTargetFile('dorada.jpg')" 
+                                    title="Modificar"> 
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                        </div>
+                        <span class="position-absolute top-50 start-50 translate-middle badge rounded-pill text-bg-dark px-4 py-2 fs-6">
+                            Golden Time
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
 </main>
 
- 
-
-
-
-<!-- modificador de imagen -->
 <div class="modal fade" id="modalModificar" tabindex="-1" aria-labelledby="modalModificarLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
-     <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="modalModificarLabel">Modificar Imagen</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalModificarLabel">Modificar Imagen</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
 
-    <form action="upload_home.php" method="POST" enctype="multipart/form-data"> 
-        
-        <div class="modal-body modal-form">
-            <div class="col-md-12">
-                <div class="mb-3">
-                    <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
-                    <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*, video/*" required>
-                    <div class="form-text">Formatos: Imágenes (JPG, PNG) o Videos. Máx: 5MB</div>
+        <form action="upload_home.php" method="POST" enctype="multipart/form-data"> 
+            
+            <div class="modal-body modal-form">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label for="fileToUpload" class="form-label">Subir Nueva Imagen</label>
+                        <input class="form-control" type="file" id="fileToUpload" name="fileToUpload" accept="image/*, video/*" required>
+                        <div class="form-text">Formatos: Imágenes (JPG, PNG) o Videos. Máx: 5MB</div>
+                    </div>
                 </div>
+                <input type="hidden" name="id_elemento" id="id_elemento_target" value="">
             </div>
-            <input type="hidden" name="id_elemento" id="id_elemento_target" value="">
-        </div>
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-dark" name="submit">Guardar Cambios</button>
-        </div>
-
-    </form>
-</div>
-
-      </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-dark" name="submit">Guardar Cambios</button>
+            </div>
+        </form>
+        
+    </div> 
   </div>
 </div>
-<!-- Footer -->
 
 <footer class="mt-5 text-center">
   <p>&copy; 2024 Joyas Elegantes. Todos los derechos reservados.</p>
@@ -429,32 +354,25 @@ if(isset($_SESSION['message'])){
 </footer>
 
  
-
 <script>
+    // Función para pasar el nombre de la imagen al modal
+    function setTargetFile(fileName) {
+        document.getElementById('id_elemento_target').value = fileName;
+    }
+
+    // Función para ocultar la alerta automáticamente
     document.addEventListener("DOMContentLoaded", function() {
-        // Busca el cartel de alerta
         var alerta = document.querySelector('.alert');
-        
         if(alerta) {
-            // setTimeout ejecuta la función después del tiempo indicado
             setTimeout(function() {
-                
-                // Cierra la alerta usando el efecto de Bootstrap
                 var alertInstance = new bootstrap.Alert(alerta);
                 alertInstance.close();
-                
-            }, 3000); // <--- AQUÍ ESTÁ EL CAMBIO: 6000 milisegundos = 6 segundos
+            }, 5000); // Se cierra después de 5 segundos
         }
     });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<!-- Bootstrap JS -->
-
-<script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js crossorigin="anonymous"></script>
-
  
-
 </body>
-
 </html>

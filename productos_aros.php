@@ -9,19 +9,23 @@ require __DIR__ . '/conexion.php';
 
 /* Traer AROS desde la BD */
 $stmt = $conn->prepare("
-    SELECT id, nombre, precio
+    SELECT id, nombre, precio, imagen
     FROM producto
     WHERE categoria = 'aros' AND estado = 'activo'
 ");
 $stmt->execute();
 $aros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-/* Mapeo de imágenes de aros (ya que no están en BD) */
-$imagenes_aros = [
-    4 => "img/ARO001aroscolagantes3.jpg",  // Aros Aura
-    5 => "master/aroscolagantes4.jpg",    // Aros Celia
-    6 => "img/aroscolga2.png",            // Aros Amaré
-];
+// CALCULAR TOTALES 
+$cart_items    = $_SESSION['carrito'];
+$cart_count    = 0;
+$cart_subtotal = 0;
+
+foreach ($cart_items as $item) {
+    $cart_count    += $item['cantidad'];
+    $cart_subtotal += $item['precio'] * $item['cantidad'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -104,10 +108,10 @@ $imagenes_aros = [
 
     <div class="row g-4">
       <?php foreach ($aros as $aro): ?>
-        <?php
-          $id = $aro['id'];
-          $img = $imagenes_aros[$id] ?? "img/placeholder.jpg";
-        ?>
+      <?php
+        $id = $aro['id'];
+        $img = $aro['imagen'] ?? "https://raw.githubusercontent.com/mlolaserrano/luzia/desarrollo/img/ARO001aroscolagantes3.jpg"; 
+      ?>
         <div class="col-md-3">
           <div class="card h-100">
             <img src="<?php echo $img; ?>" class="card-img-top" alt="<?php echo htmlspecialchars($aro['nombre']); ?>" />

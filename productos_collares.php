@@ -9,19 +9,23 @@ require __DIR__ . '/conexion.php';
 
 /* Traer COLLARES desde la BD */
 $stmt = $conn->prepare("
-    SELECT id, nombre, precio
+    SELECT id, nombre, precio, imagen
     FROM producto
     WHERE categoria = 'collares' AND estado = 'activo'
 ");
 $stmt->execute();
 $collares = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-/* Mapeo de imágenes (no están en la BD) */
-$imagenes_collares = [
-    7 => "img/COL001gargantilla.png",  // Collar Selene
-    8 => "img/COL002collarlargo.png",  // Collar Lyra
-    // Agregá más si tenés más collares
-];
+// CALCULAR TOTALES 
+$cart_items    = $_SESSION['carrito'];
+$cart_count    = 0;
+$cart_subtotal = 0;
+
+foreach ($cart_items as $item) {
+    $cart_count    += $item['cantidad'];
+    $cart_subtotal += $item['precio'] * $item['cantidad'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -129,7 +133,7 @@ $imagenes_collares = [
       <?php foreach ($collares as $col): ?>
         <?php
           $id  = $col['id'];
-          $img = $imagenes_collares[$id] ?? "img/placeholder.jpg";
+          $img = $col['imagen'] ?? "img/placeholder.jpg";
         ?>
         <div class="col-md-3">
           <div class="card shadow-sm h-100">

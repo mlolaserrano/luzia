@@ -1,7 +1,9 @@
 <?php 
 session_start(); 
-include "connec.php"; // Conectamos a la BD para leer los productos
-//mensaje de aleta
+
+include "admi_connec.php"; // Conectamos a la BD para leer los productos
+
+//mensaje de alerta
 if(isset($_SESSION['message'])){
     $tipoAlert = $_SESSION['error'] ? "alert-danger" : "alert-success";
     echo '<div class="alert '.$tipoAlert.' alert-dismissible fade show" role="alert">
@@ -61,6 +63,7 @@ $result = $conn->query($sql);
       <!-- Menú desktop -->
       <div class="collapse navbar-collapse d-none d-lg-flex">
         <div class="d-flex ms-lg-auto">
+          <a class="position-relative">  <?php echo $_SESSION ['nombre']." ". $_SESSION ['apellido']; ?> </a>
           <a class="btn icon-btn" href="admi_inventario.php" aria-label="Inventario">
             <i class="bi bi-boxes"></i>
           </a>
@@ -176,135 +179,51 @@ $result = $conn->query($sql);
             </div>
 
            <div class="card-body p-0">
-                <div class="table-container">
-                    <table class="table table-hover table-striped mb-0">
-                        <thead>
-                            <tr>
-                                <th scope="col">Imagen</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">SKU</th>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Categoría</th>
-                                <th scope="col" class="featured-cell">Destacado</th>
-                                <th scope="col" class="text-center">Recomendado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <div class="table-container">
+                    <table class="table table-hover table-striped mb-0">
+                        <thead>
+                                                        <tr>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">SKU</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Categoría</th>
+                                <th scope="col" class="featured-cell">Destacado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                            <tr>
-                                <td>
-                                    <img src="img/ANI001anillo_piedra_3.png" class="table-img" alt="Anillo de plata">
-                                </td>
-                                <td>Anillo Aurora</td>
-                                <td>ANI001</td>
-                                <td>Fabricado con oro de la más alta calidad, su brillo natural...
-                                </td>                           
-                                <td>$53.000</td>
-                                <td>Anillos</td>
-                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
-                                <th class="text-center"><i class="bi bi-dash-circle text-muted"></i></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/ARO001aroscolagantes3.jpg" class="table-img" alt="Anillo con priedra">
-                                </td>
-                                <td>Aros Aura</td>
-                                <td>ARO001</td>
-                                <td>Aros largos que forman parte de una línea elegante que...</td>
-                                <td>$47.000</td>
-                                <td>Anillos</td>
-                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
-                                <th class="text-center"><i class="bi bi-dash-circle text-muted"></i></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/ARO002aroscolagantes4.png" class="table-img" alt="Aros modernos">
-                                </td>
-                                <td>Aros Celia</td>
-                                <td>ARO002</td>
-                                <td>Aros cortos elegantes de oro</td>
-                                <td>$39.000</td>
-                                <td>Aros</td>
-                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
-                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/BRA001bracelet_fino_2.jpg" class="table-img" alt="Brazalete fino">
-                                </td>
-                                <td>Brazalete Iris</td>
-                                <td>BRA001</td>
-                                <td>Brazalete ajustable de oro</td>
-                                <td>$29.000</td>
-                                <td>Brazaletes</td>
-                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
-                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/COL002collarlargo.png" class="table-img" alt="Anillo Cromática">
-                                </td>
-                                <td>Collar Lyra</td>
-                                <td>COL002</td>
-                                <td>Collar de oro con perlas y dije</td>
-                                <td>$30.000</td>
-                                <td>Anillos</td>
-                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
-                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/ARO003aros1.png" class="table-img" alt="Aros clásicos">
-                                </td>
-                                <td>Aros Amaré</td>
-                                <td>ARO003</td>
-                                <td>Aros largos clásicos de oro laminado, hipoalergénicos</td>
-                                <td>$41.000</td>
-                                <td>Aros</td>
-                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
-                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/BRA002bracelet_fino_1.jpg" class="table-img" alt="Anillo con priedra">
-                                </td>
-                                <td>Brazalete Amelia</td>
-                                <td>BRA002</td>
-                                <td>Brazalete de colección de tres bañados en oro ...</td>
-                                <td>$37.000</td>
-                                <td>Brazaletes</td>
-                                <td class="featured-cell"><i class="bi bi-star-fill text-dark"></i></td>
-                                <th class="text-center"><i class="bi bi-dash-circle text-muted"></i></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/ANI002anillo_piedra_1.png" class="table-img" alt="Anillo con priedra">
-                                </td>
-                                <td>Anillo Cromática</td>
-                                <td>ANI002</td>
-                                <td>Elaborado con plata esterlina 925, este anillo com...</td>
-                                <td>$40.000</td>
-                                <td>Brazaletes</td>
-                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
-                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="img/ANI003anillo_piedra_4.png" class="table-img" alt="Anillo Cromática">
-                                </td>
-                                <td>Anillo Cloe</td>
-                                <td>ANI003</td>
-                                <td>Una pieza de lujo y distinción, forjada en oro de 18K ...</td>
-                                <td>$37.000</td>
-                                <td>Anillos</td>
-                                <td class="featured-cell"><i class="bi bi-dash-circle text-muted"></i></td>
-                                <th class="text-center"><i class="bi bi-check-circle-fill text-dark"></i></th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                            <?php 
+                            // Asegúrate de que la consulta se ejecutó y hay resultados
+                                if (isset($result) && $result->num_rows > 0) { 
+                                    // Recorrer cada fila de resultados 
+                                    while($row = $result->fetch_assoc()){
+                                    // Determinar el ícono de Destacado
+                                    $destacado_icono = ($row['destacado'] == 1) ? '<i class="bi bi-star-fill text-dark"></i>': '<i class="bi bi-dash-circle text-muted"></i>';
+
+                                    // Mostrar la fila de la tabla con los datos de PHP
+                                    ?>
+                                    <tr data-id="<?php echo $row['id']; ?>">
+                                        <td>
+                                            <img src="<?php echo $row['imagen']; ?>" class="table-img" alt="<?php echo htmlspecialchars($row['nombre']); ?>">
+                                        </td>
+                                        <td><?php echo htmlspecialchars($row['nombre']); ?></td>
+                                        <td><?php echo $row['sku']; ?></td>
+                                        <td><?php echo htmlspecialchars(substr($row['descripcion'], 0, 50)) . '...'; ?></td>                           
+                                        <td>$<?php echo number_format($row['precio'], 0, ',', '.'); ?></td>
+                                        <td><?php echo ucfirst($row['categoria']); ?></td>
+                                        <td class="featured-cell"><?php echo $destacado_icono; ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                            } else {
+                            // Mensaje si no hay productos
+                            echo '<tr><td colspan="7" class="text-center">No hay productos registrados.</td></tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
         </div>
     </div>
 
@@ -317,7 +236,7 @@ $result = $conn->query($sql);
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 
-    <!-- Acá se conecta con el otro php, con ese action -->
+    <!-- CONEXIÓN CON AGREGAR PRODUCTOS -->
                 <form action="agregar_productos.php" method="POST" enctype="multipart/form-data">
                 
                     <div class="modal-body">
@@ -416,7 +335,7 @@ $result = $conn->query($sql);
                 <h5 class="modal-title"><i class="bi bi-pencil-square"></i> Modificar Producto</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            
+     <!-- CONEXIÓN CON EDITAR PRODUCTOS -->       
             <form action="editar_productos.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     
@@ -485,15 +404,36 @@ $result = $conn->query($sql);
                             <label class="form-label">Stock</label>
                             <input type="number" class="form-control" id="editStock" name="stock" required>
                         </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Categoría</label>
-                            <select class="form-select" id="editCat" name="categoria" required>
-                                <option value="anillos">Anillos</option>
-                                <option value="collares">Collares</option>
-                                <option value="aros">Aros</option>
-                                <option value="brazaletes">Brazaletes</option>
-                            </select>
-                        </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Categoría</label>
+                            <select class="form-select" id="editCat" name="categoria" required>
+                                <option value="anillos">Anillos</option>
+                                <option value="collares">Collares</option>
+                                <option value="aros">Aros</option>
+                                <option value="brazaletes">Brazaletes</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                                        <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Estado</label>
+                            <select class="form-select" id="editEstado" name="estado" required>
+                                <option value="activo">Activo (Visible)</option>
+                                <option value="pausado">Pausado (Sin Stock)</option>
+                                <option value="no publicado">No Publicado (Oculto)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div class="form-check form-switch mt-4">
+                                <input class="form-check-input" type="checkbox" id="editDest" name="destacado" value="1">
+                                <label class="form-check-label" for="editDest">¿Producto Destacado?</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -505,8 +445,6 @@ $result = $conn->query($sql);
     </div>
 </div>
 
- 
-
     <!-- Ventana emergente para modificar estado del producto -->
 
  <div class="modal fade" id="estadoModal" tabindex="-1" aria-hidden="true">
@@ -516,7 +454,7 @@ $result = $conn->query($sql);
                 <h5 class="modal-title"><i class="bi bi-toggle-on"></i> Cambiar Estado de Producto</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            
+     <!-- CONEXIÓN CON CAMBIAR ESTADO -->       
             <form action="cambiar_estado.php" method="POST">
                 <div class="modal-body">
                     
@@ -575,28 +513,48 @@ $result = $conn->query($sql);
 </footer>
 
 <script>
-    // Función para llenar el formulario cuando eliges un producto
-    function cargarDatosProducto() {
-        // 1. Obtener el select y la opción elegida
-        var select = document.getElementById('selectProductoEditar');
-        var opcion = select.options[select.selectedIndex];
+    // Función para llenar el formulario de MODIFICAR PRODUCTO
+    function cargarDatosProducto() {
+        // 1. Obtener el select y la opción elegida
+        var select = document.getElementById('selectProductoEditar');
+        var opcion = select.options[select.selectedIndex];
 
-        // 2. Si no eligió nada, salir
-        if(select.value === "") return;
+        // 2. Si no eligió nada, salir
+        if(select.value === "") return;
 
-        // 3. Leer los datos ocultos (data-*) y ponerlos en los inputs
-        document.getElementById('editNombre').value = opcion.getAttribute('data-nombre');
-        document.getElementById('editSku').value = opcion.getAttribute('data-sku');
-        document.getElementById('editDesc').value = opcion.getAttribute('data-desc');
-        document.getElementById('editPrecio').value = opcion.getAttribute('data-precio');
-        document.getElementById('editStock').value = opcion.getAttribute('data-stock');
-        document.getElementById('editCat').value = opcion.getAttribute('data-cat');
-        document.getElementById('editEstado').value = opcion.getAttribute('data-estado');
+        // 3. Leer los datos ocultos (data-*) y ponerlos en los inputs
+        document.getElementById('editNombre').value = opcion.getAttribute('data-nombre');
+        document.getElementById('editSku').value = opcion.getAttribute('data-sku');
+        document.getElementById('editDesc').value = opcion.getAttribute('data-desc');
+        document.getElementById('editPrecio').value = opcion.getAttribute('data-precio');
+        document.getElementById('editStock').value = opcion.getAttribute('data-stock');
+        document.getElementById('editCat').value = opcion.getAttribute('data-cat');
+        document.getElementById('editEstado').value = opcion.getAttribute('data-estado'); // Este ya estaba en tus options!
 
-        // 4. Marcar o desmarcar el checkbox de Destacado
-        var esDestacado = opcion.getAttribute('data-dest') == "1";
-        document.getElementById('editDest').checked = esDestacado;
-    }
+        // 4. Marcar o desmarcar el checkbox de Destacado
+        var esDestacado = opcion.getAttribute('data-dest') == "1";
+        document.getElementById('editDest').checked = esDestacado;
+    }
+
+    // Función para cargar el estado actual en el modal de MODIFICAR ESTADO
+    function actualizarEstadoVisual() {
+        var selectProducto = document.getElementById('selectProductoEstado');
+        var opcionSeleccionada = selectProducto.options[selectProducto.selectedIndex];
+        var estadoActual = opcionSeleccionada.getAttribute('data-estado-actual');
+        
+        // Setea el select de 'Nuevo Estado' al valor actual para mayor claridad al usuario
+        document.getElementById('inputNuevoEstado').value = estadoActual;
+    }
+
+    // Opcional: Ejecutar actualizarEstadoVisual al abrir el modal (para productos con estado inicial)
+    document.getElementById('estadoModal').addEventListener('show.bs.modal', function () {
+        // Esto asegura que si ya hay un producto seleccionado al abrir el modal, se muestre su estado.
+        var select = document.getElementById('selectProductoEstado');
+        if (select.value !== "") {
+            actualizarEstadoVisual();
+        }
+    });
+
 </script>
 
     <script

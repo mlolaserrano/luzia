@@ -47,12 +47,15 @@
  
         <!-- Contenido de las pestañas -->
         <div class="tab-content" id="authTabsContent">
-            <!-- Formulario de inicio de sesión -->
+
+
+            <!-- FORMULARIO DE INICIO DE SESIÓN -->
+             
             <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                 <div class="auth-form">
                     <h3 class="text-center mb-4">Iniciar Sesión</h3>
                    
-                    <form method="POST" action="#">
+                    <form class="form-underline" method="POST" action="admi_login.php">
                         <div class="mb-3">
                             <label for="loginEmail" class="form-label">Correo electrónico</label>
                             <div class="input-group">
@@ -65,15 +68,13 @@
                             <label for="loginPassword" class="form-label">Contraseña</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="bi bi-key"></i></span>
-                                <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Ingresa tu contraseña" required>
+                                <input type="password" class="form-control" id="clave" name="clave" placeholder="Ingresa tu contraseña" required>
                             </div>
                         </div>
                        
-                       
+            <!-- Botón -->           
                         <button type="submit" class="btn btn-admin w-100 py-2 mb-3">
-                            <i class="bi bi-box-arrow-in-right"></i>
-                            <a class="color-ingresar" href="admi_productos.html">Ingresar</a> 
-                            
+                            <a class="color-ingresar" value="ingresar">Ingresar</a> 
                         </button>
                        
                         <div class="text-center">

@@ -6,12 +6,26 @@ if (!isset($_SESSION['email'])) {
 }
 
 
+
+
 // 1. Recoger y sanear datos
 $email = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
 $x = "***".$_SESSION['email'];
 
 
+// CALCULAR TOTALES 
+$cart_items    = $_SESSION['carrito'];
+$cart_count    = 0;
+$cart_subtotal = 0;
+
+foreach ($cart_items as $item) {
+    $cart_count    += $item['cantidad'];
+    $cart_subtotal += $item['precio'] * $item['cantidad'];
+}
 ?>
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -45,55 +59,61 @@ $x = "***".$_SESSION['email'];
 
   <body>
    <header>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid position-relative">
-          <!-- Brand fijo centrado -->
-          <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid position-relative">
+      <!-- Logotipo fijo centrado -->
+      <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
 
-          <!-- Toggler abre el panel derecho -->
-          <button
-            class="navbar-toggler ms-auto"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#menuRight"
-            aria-controls="menuRight"
-            aria-label="Toggle navigation"
+      <!-- Toggler abre el panel derecho -->
+      <button
+        class="navbar-toggler ms-auto"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#menuRight"
+        aria-controls="menuRight"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menú desktop normal -->
+      <div class="collapse navbar-collapse d-none d-lg-flex">
+        <ul class="navbar-nav mx-lg-3 me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="productos_aros.php">Aros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos_anillos.php">Anillos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="producto_brazaletes.php">Brazaletes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos_collares.php">Collares</a>
+          </li>
+        </ul>
+
+        <!-- PERSONALIZACIÓN -->
+        <div class="d-flex ms-lg-auto align-items-center">
+          <!-- Aquí se muestra el nombre y apellido del usuario -->
+          <a class="btn" href="mi_cuenta.php" aria-label="email">
+            <i class="position-relative">
+              <?php echo $_SESSION ['nombre']." ". $_SESSION ['apellido']; ?>
+            </i>
+          </a>
+
+          <a
+            class="btn icon-btn position-relative ms-2"
+            href="carrito.php"
+            aria-label="Carrito"
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <!-- Menú desktop normal -->
-          <div class="collapse navbar-collapse d-none d-lg-flex">
-            <ul class="navbar-nav mx-lg-3 me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="productos_aros.php">Aros</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="productos_anillos.php">Anillos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="producto_brazaletes.php"
-                  >Brazaletes</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="productos_collares.php">Collares</a>
-              </li>
-            </ul>
-            <div class="d-flex ms-lg-auto">
-              
-              <!-- Aquí se muestra el email del usuario -->
-             
-              <a class="btn" href="mi_cuenta.php" aria-label="email">
-                <i class="position-relative"><?php echo $_SESSION ['nombre']." ". $_SESSION ['apellido']; ?></i>
-              </a>
-              <a class="btn icon-btn position-relative" href="carrito.php"aria-label="Carrito">
-                <i class="bi bi-cart"></i>
-              </a>
-            </div>
-          </div>
+            <i class="bi bi-cart"></i>
+            <span class="cart-counter"><?php echo $cart_count; ?></span>
+          </a>
         </div>
-      </nav>
+      </div>
+    </div>
+  </nav>
 
       <!-- Offcanvas móvil a la derecha -->
       <div

@@ -82,7 +82,7 @@ if(isset($_SESSION['message'])){
           <a class="btn icon-btn" href="admi_productos.php" aria-label="Vista">
             <i class="bi bi-gear"></i>
           </a>
-          <a class="btn icon-btn" href="admi_logout.html" aria-label="Salir">
+          <a class="btn icon-btn" href="admi_logout.htlm" aria-label="Salir">
             <i class="bi bi-door-open"></i>
           </a>
         </div>
@@ -102,7 +102,7 @@ if(isset($_SESSION['message'])){
       <!-- Mismos iconos, en columna con texto -->
       <ul class="list-unstyled text-center w-100">
         <li class="mb-3">
-          <a href="admi_inventario.html" class="d-flex flex-column align-items-center text-decoration-none">
+          <a href="admi_inventario.php" class="d-flex flex-column align-items-center text-decoration-none">
             <i class="bi bi-boxes fs-3"></i>
             <span class="small mt-1">Inventario</span>
           </a>

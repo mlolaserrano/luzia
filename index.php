@@ -5,15 +5,56 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-
-
-
 // 1. Recoger y sanear datos
 $email = htmlspecialchars($_POST['email']   ?? '', ENT_QUOTES, 'UTF-8');
 $x = "***".$_SESSION['email'];
 
+/* 1) INICIALIZAR CARRITO */
+if (!isset($_SESSION['carrito'])) {
+    $_SESSION['carrito'] = [];
+}
 
-// CALCULAR TOTALES 
+/* 2) MANEJO DE ACCIONES ( + , - , eliminar, vaciar ) */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Eliminar un ítem
+    if (isset($_POST['remove_item'])) {
+        $id = $_POST['id'] ?? null;
+        if ($id !== null && isset($_SESSION['carrito'][$id])) {
+            unset($_SESSION['carrito'][$id]);
+        }
+    }
+
+    // Vaciar carrito
+    elseif (isset($_POST['empty_cart'])) {
+        $_SESSION['carrito'] = [];
+    }
+
+    // Aumentar cantidad
+    elseif (isset($_POST['increase_qty'])) {
+        $id = $_POST['id'] ?? null;
+        if ($id !== null && isset($_SESSION['carrito'][$id])) {
+            $_SESSION['carrito'][$id]['cantidad']++;
+        }
+    }
+
+    // Disminuir cantidad
+    elseif (isset($_POST['decrease_qty'])) {
+        $id = $_POST['id'] ?? null;
+        if ($id !== null && isset($_SESSION['carrito'][$id])) {
+            $_SESSION['carrito'][$id]['cantidad']--;
+            if ($_SESSION['carrito'][$id]['cantidad'] <= 0) {
+                unset($_SESSION['carrito'][$id]);
+            }
+        }
+    }
+
+    // Después de cualquier acción, recargar para evitar re-envío del POST
+    header("Location: carrito.php");
+    exit;
+}
+
+/* 3) CALCULAR TOTALES */
 $cart_items    = $_SESSION['carrito'];
 $cart_count    = 0;
 $cart_subtotal = 0;
@@ -22,7 +63,7 @@ foreach ($cart_items as $item) {
     $cart_count    += $item['cantidad'];
     $cart_subtotal += $item['precio'] * $item['cantidad'];
 }
-?>
+
 ?>
 
 

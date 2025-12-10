@@ -8,10 +8,14 @@
     function conectarBDLuzia(){  
       //echo "Entrar a BD Luzia"; (PRUEBA)
 
-        mysqli_report(MYSQLI_REPORT_STRICT);         //para que lance excepciones
-        try {                      // Crear conexión con la base de datos.
-            $conn = new mysqli(nombreServidor, nombreUsuario, claveBaseDeDatos, nombreBaseDeDatos);      
-        } catch (Exception $e) {   // si hay un error
+        mysqli_report(MYSQLI_REPORT_STRICT);  //genera reporte de errores y advertencias en mySQL a través de la const MYSQLI_REPORT_STRICT
+        
+        try {  // Controlar excepciones cuando se ejecute la línea $conn (conectar a BD)
+            
+          $conn = new mysqli(nombreServidor, nombreUsuario, claveBaseDeDatos, nombreBaseDeDatos);  // Crear conexión con la base de datos.    
+        } 
+
+        catch (Exception $e) {   // si hay un error
             
             // $_SESSION['message'] = $e->getMessage(); //guarda el mensaje de error en la variable de sesion
             // $_SESSION['error'] = TRUE;               //guarda un TRUE en la variable de sesion
@@ -69,12 +73,36 @@
   
 
   function agregarUsuario($conn,$nombre,$apellido,$dni,$email,$telefono,$clave){
-    $filasAfectadas = 0;
-    $sql="INSERT INTO usuario (nombre,apellido,dni,email,telefono,clave,rol) 
-          VALUES ('$nombre','$apellido',$dni,'$email',$telefono,'$clave','admin')";
-    $conn->query($sql);
-    $filasAfectadas=$conn->affected_rows;
-    return $filasAfectadas;
+    //echo "Agregar usuario";
+
+    $filasAfectadas = 0;              //limpio variable de trabajo
+
+    $sql = "INSERT INTO usuario (nombre, apellido, dni, email, telefono, clave, rol) 
+            VALUES (?, ?, ?, ?, ?, ?, 'admin')";
+    
+    // 3. Preparar la sentencia
+    if ($stmt = $conn->prepare($sql)) {
+        
+        // 4. Vincular los parámetros y especificar el tipo de dato (i=integer, s=string)
+        // Ejemplo: 'sssssis' asumiendo: (nombre-s, apellido-s, dni-s, email-s, telefono-s, clave-s, rol-s)
+        // *Nota: Se usa 's' para dni/teléfono para manejar números grandes o ceros iniciales.
+        $stmt->bind_param("ssisis", $nombre, $apellido, $dni, $email, $telefono, $clave);
+        
+        // 5. Ejecutar la sentencia
+        $stmt->execute();
+
+        // 6. Obtener las filas afectadas y cerrar la sentencia
+        $filasAfectadas = $stmt->affected_rows;
+        $stmt->close();
+
+        return $filasAfectadas;
+
+    } else {
+        // Manejo de error si la preparación de la consulta falla
+        // Puedes agregar un log de errores aquí
+        // echo "Error en la preparación: " . $conn->error; 
+        return 0;
+    }
   }
 
 

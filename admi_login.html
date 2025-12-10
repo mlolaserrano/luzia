@@ -89,33 +89,58 @@
                 <div class="auth-form">
                     <h3 class="text-center mb-4">Registrar Administrador</h3>
                    
-                    <form method="POST" action="#">
-                       
+                    <form method="POST" action="admi_newuser.php">
                         <div class="mb-3">
-                            <label for="regEmail" class="form-label">Correo electrónico</label>
+                            <label for="regEmail" class="form-label">Nombre *</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="text" class="form-control" id="regEmail" name="nombre" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">Apellido *</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="regEmail" name="apellido" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">DNI *</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="regEmail" name="dni" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">Correo electrónico *</label>
+                            <div class="input-group">
                                 <input type="email" class="form-control" id="regEmail" name="email" placeholder="admin@ejemplo.com" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">Teléfono</label>
+                            <div class="input-group">
+                                <input type="tel" class="form-control" id="regEmail" name="telefono" placeholder="1112345678" required>
                             </div>
                         </div>
                        
                         <div class="mb-3">
-                            <label for="regPassword" class="form-label">Contraseña</label>
+                            <label for="regPassword" class="form-label">Contraseña *</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-key"></i></span>
-                                <input type="password" class="form-control" id="regPassword" name="password" placeholder="Crea una contraseña segura" required>
+                                <input type="password" class="form-control" id="regPassword" name="clave" placeholder="Crea una contraseña segura" required>
                             </div>
                             <div class="form-text">Mínimo 8 caracteres, con mayúsculas, minúsculas y números</div>
                         </div>
                        
                         <div class="mb-4">
-                            <label for="regConfirmPassword" class="form-label">Confirmar contraseña</label>
+                            <label for="regConfirmPassword" class="form-label">Confirmar contraseña *</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
-                                <input type="password" class="form-control" id="regConfirmPassword" name="confirm_password" placeholder="Repite tu contraseña" required>
+                                <input type="password" class="form-control" id="regConfirmPassword" name="confirmarClave" placeholder="Repite tu contraseña" required>
                             </div>
                         </div>
-                        <!--En caso de ser necesario agg btn-dark acá-->
+                        
+
                         <button type="submit" class="btn btn-admin w-100 py-2 mb-3">
                             <i class="bi bi-person-plus"></i> Registrar Administrador
                         </button>

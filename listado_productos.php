@@ -39,7 +39,7 @@ footer a { color:#fff; margin:0 0.5rem; text-decoration:none; }
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid position-relative">
       <!-- Brand fijo centrado -->
-      <a class="navbar-brand navbar-brand-top" href="index.html">LUZIA</a>
+      <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
 
       <!-- Toggler abre el panel derecho -->
       <button

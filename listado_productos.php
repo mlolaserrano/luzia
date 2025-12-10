@@ -56,10 +56,10 @@ footer a { color:#fff; margin:0 0.5rem; text-decoration:none; }
       <!-- Menú desktop normal -->
       <div class="collapse navbar-collapse d-none d-lg-flex">
         <ul class="navbar-nav mx-lg-3 me-auto">
-          <li class="nav-item"><a class="nav-link active" href="productos_aros.html">Aros</a></li>
-          <li class="nav-item"><a class="nav-link" href="productos_anillos.html">Anillos</a></li>
-          <li class="nav-item"><a class="nav-link" href="producto_brazaletes.html">Brazaletes</a></li>
-          <li class="nav-item"><a class="nav-link" href="productos_collares.html">Collares</a></li>
+          <li class="nav-item"><a class="nav-link active" href="productos_aros.php">Aros</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos_anillos.php">Anillos</a></li>
+          <li class="nav-item"><a class="nav-link" href="producto_brazaletes.php">Brazaletes</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos_collares.php">Collares</a></li>
         </ul>
         <div class="d-flex ms-lg-auto">
           <!-- Usuario y carrito -->
@@ -112,7 +112,7 @@ footer a { color:#fff; margin:0 0.5rem; text-decoration:none; }
           <div class="card-body text-center">
             <h5 class="card-title"><?= htmlspecialchars($p['nombre']) ?></h5>
             <p class="card-text">$<?= number_format($p['precio'],0,",",".") ?></p>
-            <a class="btn btn-outline-primary w-100" href="<?= $p['detalle'] ?>">Ver información</a>
+            <a class="btn btn-outline-primary w-100" href="detalle_producto.php">Ver información</a>
           </div>
         </div>
       </div>

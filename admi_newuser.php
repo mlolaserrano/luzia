@@ -1,5 +1,5 @@
 <?php
-include "connec.php";  
+include "admi_connec.php";  
 
 
 function obtenerDatos($nombre, $apellido,$dni, $email, $telefono, $clave, $confirmarClave){

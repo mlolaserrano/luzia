@@ -39,7 +39,7 @@ footer a { color:#fff; margin:0 0.5rem; text-decoration:none; }
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid position-relative">
       <!-- Brand fijo centrado -->
-      <a class="navbar-brand navbar-brand-top" href="index.html">LUZIA</a>
+      <a class="navbar-brand navbar-brand-top" href="index.php">LUZIA</a>
 
       <!-- Toggler abre el panel derecho -->
       <button
@@ -81,10 +81,10 @@ footer a { color:#fff; margin:0 0.5rem; text-decoration:none; }
     </div>
     <div class="offcanvas-body">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link py-2" href="productos_aros.html">Aros</a></li>
-        <li class="nav-item"><a class="nav-link py-2" href="productos_anillos.html">Anillos</a></li>
-        <li class="nav-item"><a class="nav-link py-2" href="producto_brazaletes.html">Brazaletes</a></li>
-        <li class="nav-item"><a class="nav-link py-2" href="productos_collares.html">Collares</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="productos_aros.php">Aros</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="productos_anillos.php">Anillos</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="producto_brazaletes.php">Brazaletes</a></li>
+        <li class="nav-item"><a class="nav-link py-2" href="productos_collares.php">Collares</a></li>
       </ul>
       <hr class="my-3">
       <div class="d-flex justify-content-center gap-3">

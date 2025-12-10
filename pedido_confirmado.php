@@ -36,6 +36,7 @@ if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
         $cart_count += (int)$item['cantidad'];
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

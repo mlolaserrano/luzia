@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_pedido_id'], $
 <header>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 <div class="container-fluid position-relative">
-<a class="navbar-brand navbar-brand-top" href="admi_home.html">LUZIA</a>
+<a class="navbar-brand navbar-brand-top" href="admi_home.php">LUZIA</a>
 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuRight" aria-controls="menuRight" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>

@@ -26,7 +26,7 @@ function main(){
             cerrarBDConexion($conn);
 
             // Redirigir al index
-            header("Location: admi_productos.php");
+            header("Location: admi_home.php");
             exit();
         } else {
             echo "Usuario no encontrado";
